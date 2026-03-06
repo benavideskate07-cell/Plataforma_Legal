@@ -163,18 +163,7 @@
             <!-- Bloque dinamico de Jinja2 para inyeccion de contenido. Las plantillas hijas que extienden de este archivo remlazan este bloque con su propio contenido, permitiendo reutilizar la estructura base del sistema Legalis. -->
             {% block contenido %}
 
-                <!--Bloque de contenido provisional dentro del bloque dinamico principal. Funcionna como placeholder mientras se implementa la logica  real de la tienda.
-                    - text-align: center: central el contenido
-                    - color: #888: aplica un tono gris para indicar que es informativo
-                    Incluye un titulo (h2) y un parrafo descriptivo de orientacion
-                -->
-                <div style="text-align: center; color: #888;">
-
-                    <h2>Estructura Maestra de Legalis</h2>
-                    <p>El contenido de la tienda se cargara aqui en las proximas guias de aprendizaje.</p>
-
-                </div>
-
+                
             <!-- Cierre del bloque dinamico Jinja2 denominado "contenido". Marca el final de ña seccion que sera reemplazada por las plantillas hijas que entienden la estructura base del sistema Legalis. -->
             {% endblock %}
 
