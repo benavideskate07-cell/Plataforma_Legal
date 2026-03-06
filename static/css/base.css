@@ -1,0 +1,650 @@
+/* ============================================================ */
+/* 1. RESET Y CUERPO                                            */
+/* ============================================================ */
+
+/*El selector universal * permite definir propiedades CSS que afecten a todos los elementos del documneto (margenes, padding, box-sizing, fuente, etc.), asegurando consistencia en el diseño y base para estilos globales.*/
+/* Selecciona todos los elementos de la pagina y aplicaestilos globales */
+* {
+
+    /*Resetea las margenes por defecto que aplican los navegadores a cada elemento, garantizando que el diseño tenga un control total sobre el espaciado y se vea consistente en todas las secciones.*/
+    /* Elimina el margen predeterminado de todod los elementos para evitar espacios no deseados */
+    margin: 0;
+
+    /*Resetea los espacios internos por defecto de los elementos HTML, permitiendo que el diseño y la maquetacion sean consistentes y totalmente controlados mediante CSS.*/
+    /* Elimina el relleno interno (padding) predeterminado de todos los elementos */
+    padding: 0;
+
+    /*Hace que el tamaño total de un elemento (width y heigth) considere el padding y el border, facilitando el calculo de dimensiones y evitando que los elementos se desborden del contenedor, lo que simplica la maquetacion responsiva */
+    /* Establece que el ancho y alto de los elementos incluya el padding y el border */
+    /* Garantiza que el padding no aumente el tamaño total */
+    box-sizing: border-box;
+
+    /*Finaliza la declaracion del selector *, asegurando que las propiedades margin: 0;, padding: 0; y box-sizing: border-box; se apliquen de manera global y consistente en toda la pagina.*/
+    /* Cierra el bloque del selector universal que aplica estilos globales a todos los elementos */
+}
+
+/*Permite definir propiedades que afecten a todo el contenido visible de la pagina, como tipografia, clor de fondo, margenes generales o comportamiento del layout, asegurando coherencia en el diseño principal.*/
+/* Selecciona el elemento <body> par aplicar estilos globales de fondo, fuente y diseño general de la pagina */
+body {
+
+    /*Especifica la tipografia principal para todo el contenido del <body>, priorizando fuentes nativas del sistema para mejorar rendimiento y legibilidad, y proporcionando alternativas en caso de que la fuente principal no este disponible. Esto grantiza coherencia visual en distintos dispoditivos y navegadores.*/
+    /* Define la familia tipografica del body, usando fuentes del sistema y alternativas web para asegurar consistencia visual */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+
+    /* Define el fondo principal de la pagina, proporcionado contraste con los elementos de contenido y contribuyendo a una apariencia uniforme y limpia en todo el sitio web*/
+    /* Establece el color de fondo del body con un tono gris muy claro*/
+    background-color: #f5f5f7;
+
+    /* Establece el color por defecto del texto en la pagina, asegurandobuen contraste con el d¿fondo (#f5f5f7) y facilitando la lectrura para todos los usuarios.*/
+    /* Define el color de texto principal del body, un gris oscuro para mejorar la legibilidad */
+    color: #333333;
+
+    /*Convierte el <body> en un contenedor flexible, habilitando alineacion, distribucion de espacio y ordenamiento de los elementos hijos con propiedades de Flexbox, lo que facilita el diseño responsivo y la estructura dinamica de la pagina.*/
+    /* Aplica un contenedor felxible al body, permitiendo organizar los elementos hijos en filas o columnas de manera flexible */
+    /* Flexbox para empujar el footer al fondo si hay poco contenido */
+    display: flex;
+
+    /*Configura el contenedor flexible (display: flex) para que sus elementos hijos se alineen verticalmente, de arriba hacia abajo, facilitando la organizacion de secciones como encabezado, contenido principal y pie de pagina de forma ordenada y responsiva.*/
+    /* Establece que los elementos hijos del body se dispongan en una columna vertical */
+    flex-direction: column;
+
+    /*Garantiza que el <body> siempre ocupe al menos toda la altura visble de la pantalla, evitando que el contenido quede demasiado pequeño en pantallas grandes y permitiendo un diseño que se expanda correctamente en layouts de columna flexible.*/
+    /* Establece una altura minima para el body igual al 100% de la altura de la ventana del navegador */
+    min-height: 100vh;
+
+/*Finaliza la definicion de estilos para el <body>, asegurando que todas las reglas como font-family, backgrount-color, color, display: flex, flex-direction: column y min height se aplquen correctamente a la pagina. */
+/* Cierra el bloque de estilos del body, aplicando las propiedades de tipografia, fondo y layut general. */
+}
+
+/* ============================================================ */
+/* 2. ENCABEZADO (HEADER) - DISEÑO FLEXIBLE                     */
+/* ============================================================ */
+
+/*Permite definir propiedades de diseño (como fondo, margenes, alineacion o tipografia) para la seccion principal de encabezado, asegurando que destaque visualmente y mantenga coherencia con el resto del layout.*/
+/* Selecciona el contenedor con la clase encabezado-principal para aplicar estilos especificos al encabezado de la pagina */
+.encabezado-principal {
+
+    /*Proporciona un fondo limpio y neutro al encabezado, asegurando contraste con el texto y otro elementos visuales, y contribuyendo a una apariencia profesional y clara del sitio web.*/
+    /* Establece un color de fondo blanco para el encabezado principal */
+    background-color: #ffffff;
+
+    /* Crea una delimitacion visual entre el encabezado y el resto de la pagina, mejorando la jearquia de contenido y facilitando la percepcion estructural del layout.*/
+    /* Agrega una linea de borde inferior gris clara al encabezado para separar visualmente esta seccion del contenido */
+    border-bottom: 1px solid #E5E5E5;
+
+    /*Garantiza que el encabezado mantenga un tamaño suficiente para mostrar su contenido correctamente, independiente del contenido interno, asegurando consistencia visual y buen espaciado en la pagina.*/
+    /* Define una altura minima de 60 pixeles para el encabezado principal */
+    min-height: 60px;
+
+    /*Asegura que el contenido del encabezado tenga espacio interno suficiente en la parte superior e inferior, mejorando la legibilidad y la separacion visual de otros elementos de la pagina.*/
+    /* Aplica un relleno vertical de 10 pixeles arriba y abajo del encabezado, sin agregar espacio lateral */
+    padding: 10px 0;
+
+    /*Permite organizar los elementos internos del encabezado (como logo, menu o botones) de manera flexible, facilitando alineacion, distribucion de espacio y diseño responsivo dentro de la barra superior.*/
+    /* Convierte el encabezado principal en un contenedor flexible para alinear sus elementos hijos horizontal o vericalmente */
+    display: flex;
+
+    /*Garantiza que los elementos del encabezado (logo, menu, iconos) se centren verticalmente dentro del contenedor flex, mejorando la estetica y la uniformidad visual del layout.*/
+    /* Alinea verticalmente al centro todos los elementos hijos dentro del contenedor flexible del encabezado */
+    align-items: center;
+
+    /*Permite que el encabezado se "pegue" al top del viweport mientra el usuario se desplaza, manteniendo accesibles elementos importantes como el menu o el logo sin ocupar espacio fijo absoluto.*/
+    /* Hace que el encabezado permanezca visible enla parte superior de la pagina al hacer scroll */
+    position: sticky;
+
+    /*Especifica la posicion exacta deonde comienza a "pegarse" el encabezado, asegurando que permanezca siempre visible en la parte superior mientra el usuario hace scroll.*/
+    /* Define que el encabezado se adhiera a la parte superior de la ventana del navegador cuando se utiliza position: sticky */
+    top: 0;
+
+    /*Garantiza que el encabezado permanezca visible sobre otros elementos superpuestos, evitando que se esconda detras de secciones, menus despegables u otros componentes del layout*/
+    /* Asigna un indice de ampliamiento alto al encabezado para que se muestre por encima de otros elemntos de la pagina */
+    z-index: 1000;
+
+/*Finaliza la definicion de estilos de encabezado-principal, asegurando que todas las reglas de diseño y posicionamiento se apliquen correctamente al contenedor del encabezado.*/
+/* Cierra el bloque de estilos del encabezado principal, aplicando propiedades de fondo, altura, padding, flex y posicionamiento */
+}
+
+/*Permite aplicar estilos especificos al area que contiene el menu, enlaces y barra de navegacion, facilitando la alineacion, el espacio y la organizacion de los elementos y la organizacion de los elementos dentro del encabezado principal.*/
+/* Selecciona el contendeor que agrupa los elementos de navegacion dentro del encabezado */
+.contenedor-navegacion {
+
+    /*Garantiza que la barra de navegacion se extienda completamente dentro del encabezado, permitiendo que los elementos internos se distribuyan correctamente y ocupen todo el espacio horizontal disponivle*/
+    /* Establece que el contenedor de navegacion ocupe el 100% del ancho disponible del encabezado */
+    width: 100%;
+
+    /*Evita que el contenido se extienda demasiado en monitores grandes, asegurando que la navegacion mantenga proporciones adecuadas, centrado y facil de leer, mejorando la estetica y la experiencia de usuario*/
+    /* Limita el ancho maximo del contenedor de navegacion a 1100 pixeles para mantener una presentacion centrada y legible en pantallas grandes */
+    max-width: 1100px;
+
+    /*Aplica un margen automatico a los lados izquierdo y derecho, manteniendo el contenedor centrado en su espacio disponible, mientra que el margen superior e inferior se mantiene en 0, contribuyendo a un layout equilibrado y estetico.*/
+    /* Centra horizontalmente el contenedor de navegacion dentro del encabezado */
+    margin: 0 auto;
+
+    /*Genera espacio interno entre los elementos de navegacion y bordes del contenedor, mejorando la separacion visual y evitando que los enlaces o botones queden pegados a los extremos del encabezado*/
+    /* Aplica un relleno horizontal de 40 pixeles a los lados ixquierdo y derecho del contenedor de navegacion, sin agregar padding vertical */
+    padding: 0 40px;
+
+    /*Permite alinear y distribuir los elementos del menu (enlaces, botones, iconos) de manera horizontal, facilitando el control del espacio, alineacion y diseño responsivo dentro del encabezado*/
+    /* Convierte el contendor de navegacion en un contenedor flexible para organizar sus elementos internos en fila */
+    display: flex;
+
+    /*Coloca el primer elemento al inico y el ultimo al final del contenedor, separando uniformementr los elementos intermedios. Esto permite un diseño equilibrado y claro del menu de navegacion dentro del encabezado.*/
+    /* Distribuye los elementos hijos del contenedor de navegacion con el maximo espacio posible entre ellos */
+    justify-content: space-between;
+
+    /*Garantiza que los enlaces, botones o iconos del menu se centren verticalmente dentro del contenedor flexible, mejorando la estetica y la uniformidad del encabezado*/
+    /* Alinea verticalmente al centro todos los elementos hijos dentro del contenedor de navegacion */
+    align-items: center;
+
+/*Finaliza la definicion de estilos de .contenedor-navegacion, asegurando que todos los elementos del menu se presenten correctamente centrado, distribuidps y con espacio adecuado dentro del encabezado*/
+/* Cierra el bloque de estilo del contenedor de navegacion, aplicando propiedades de flex, alineacion, distribucion y padding */
+}
+
+/* LOGO Y MARCA */
+
+/*Permite den¿finir propiedades visuales o de interaccion (como color, tamaño, cursor, texto decorativo) especificamente para el enlace del logo, asegurando que se mantenga coherente con el diseño del encabezado y funcione cprrectamente como enlace de navegacion principal.*/
+/* elecciona los enlaces dentro del bloque de logo para aplicarles estilos especificos */
+.bloque-logo a {
+
+    /*Quita el estilo de subrayado que los navegadores aplican por defecto a los enlaces, proporcionado un diseño mas limpio y profesional para le logo, manteniendo su funcion como enlace sin afectar la estetica*/
+    /* Elimina el subrayado predeterminado de los enlaces dentro del bloque de logo */
+    text-decoration: none;
+
+    /*Define un color consistente y visible para el enlace del logo, asegurando buen contraste con el fondo y manteniendo la legibilidad y coherencia visual del encabezado*/
+    /* Establece el color nef¿gro para el texto del enlace del logo */
+    color: black;
+
+    /*Permite alinear y distribuir los elementos hijos del enlace del logo horizontal o verticalmente, facilitando la lineacion de iconos, imagenes o textode forma ordenada dentro del bloque*/
+    /* Convierte el enlace del lgo en un contenedor flexible para organizat posibles elementos internos (como texto e imagen) */
+    display: flex;
+
+    /*Garantiza que cualquier contenido interno del logo (imagen, texto o iconos) se centre verticalmente, manteniendo un diseño equilibrado y uniforme dentro del encabezado*/
+    /* Alinea verticalmente al centro los elementos hijos dentro del enlace del logo */
+    align-items: center;
+
+    /*Separa de manera uniforme los elementos internos del logo (por ejemolo, icono y texto), mejorando la legibilidad y la estetica sin necesidad de margenes individuales*/
+    /* Establece un espacio de 10 pixeles entre los elementos hijos dentro del enlace del logo */
+    gap: 10px;
+
+/*Finaliza la definicon de estilos del .bloque-logo a, asegurando que el enlace del logo mantenda alineacion vertical, espacio interno y un diseño limpio y consistente dentro del encabezado.*/
+/* Cierra el bloque de estilos del enlace dentro del bloque de logo, aplicando propiedades de flex, alineacion y espaciado */
+}
+
+/*Permite definir propiedades visuales de la imagen del logo, como tamaño, margen o alineacion, asegurando que se intrege correctamente en el bloque del encabezado y mantenga coherencia con el diseño general*/
+/* Selecciona la imagendel logo dentro del encabezado para aplicar estilos especificos */
+.imagen-logo {
+
+    /*COntrola el tamaño de la imagen del logo, asegurando que sea proporcional y consistente dentro del encabezado, evitando que se desborde o desalinee otros elementos del layout*/
+    /* Establece la altura de la imagen del logo en 20 pixeles */
+    height: 20px;
+
+    /*Permite que la imagen del logo conserve sus proporciones naturales mientras se ajusta la altura, evitando deformaciones y asegurando un diseño visualmente armonioso en el encabezado*/
+    /* Mantiene la proporcion original de la imagen del logo ajustando automaticamente el ancho segun la altura */
+    width: auto;
+
+/*Finaliza la definicion de estilos de .imagen.logo, garantizando que el logo se muestr correctacmente, mantenga su proporcion y se alinee con el resto de elementos del encabezado*/
+/* Cierra el bloque de estilos de la imagen del logo, asegurando tamaño y proporcion correctos dentro del encabezado */
+}
+
+/*Permite aplicar estilos especificos al texto de la marca, como fuente, tamaño, color y espaciado, asegurando coherencia visual con el logo y manteniendo la legibilidad dentro del encabezado*/
+/* Selecciona el elemneto de texto que acompaña al logo (nombre de la marca) dentro del encabezado */
+.texto-marca {
+
+    /*Hace que el texto del nombre de la marca destaque visualmente, aumentando su legibilidad y presencia dentro del encabezado y reforzando la identidad visual del sitio*/
+    /* Aplica un estilo de fuente en negrita al texto de la marca */
+    font-weight: bold;
+
+    /*Controla la proporcion y legibilidad del texto de la marca dentro del encabezado, asegurando que se vea claramente sin afectar la armonia del diseño general*/
+    /* Establece el tamaño de la fuente del texto de la marca en 1.1 rem (~17.6px), relativo al tamaño de fuente raiz */
+    font-size: 1.1rem;
+
+/*Finaliza la definicion de .texto-marca, garantizando que el nombre de la marca se muestre correctamente, con negrita y tamaño adecuado, manteniendo coherencia visual con el logo y la estructura del encabezado.*/
+/* Cierra el bloque de estilos del texto de marca, asegurando tamaño, peso y legibilidad dentro del encabezado */
+}
+
+/* ============================================================ */
+/* 3. NAVEGACION E INTERACION                                   */
+/* ============================================================ */
+
+/*Permite aplicar estilos compartidos a ambas secciones de encabezado, facilitando la alineacion, distribucion y presentacion de los elementos de navegacion y control de acceso de manera uniforme*/
+/* Selecciona los contenedores de menu para visitantes y la zona de acceso (login/registro) dentro del encabezado */
+.menu-visitante, .zona-acceso {
+
+    /*Permite organizar los elementos internos (enlaces, botnes, iconos) de manera horizontal o vertfixal, facilitando la alineacion, distribucion de espacio y diseño responsivo dentro del encabezado*/
+    /* Convierte los contenedores de menu de visitantes y zona de acceso en contenedores flexibles */
+    display: flex;
+
+    /*Define la separacion horizontal entre enlaces o botones dentro de los contenedores flexibles, mejorando la legibilidad, el orden visual y la experiencia de navegacion*/
+    /* Establece un espacio uniforme de 30 pixeles entre los elementos hijos del menu y la zona de acceso */
+    gap: 30px;
+
+/*Finaliza la definicion de estilos compartidos entre ambos contenedores, asegurando alineacion y separacion uniforme de sus elementos dentro del encabezado*/
+/* Cierra el bloque de estilos aplicado a .menu-visitante y .zona-acceso, consolidando su comportamiento flexible y espaciado */
+}
+
+/* Permite definir propiedades visuales y de interaccion (color, tamaño, transicion, estado hover) para los enlaces del menu, asegurando coherencia estetica y experiencia de usuario clara dentor de la barra de navegacion*/
+/* Selecciona los enlaces del menu principal para aplicarles estilos especificos de navegacion */
+.enlace-menu {
+
+    /*Suprime la decoracion por defecto de los enlaces, logrando un diseño mas limpio y profesional en la barra de navegacion, sin afectar su fuuncionalidad interactiva*/
+    /* Elimina el subrayado predeterminado de los enlaces del menu */
+    text-decoration: none;
+
+    /*Establece un tono neutro para los enlaces de navegacion, manteniendo buena legibilidad y diferenciacion visual frente a otros elementos del encabezado*/
+    /* Define un color gris medio para los enlaces del menu */
+    color: #666666;
+
+    /*Define un tamaño ligeramente menor al texto base para los enlaces de navegacion, manteniendo jerarquia visual sin perder legibilidad*/
+    /* Establece el tamaño de la fuente de los enlaces del menu en 0.9 rem (~14.4px) */
+    font-size: 0.9rem;
+
+    /*Proporciona mayor presencia visual al texto del menu respecto al texto normal, manteniendo una apariencia equilibrada y profesional sin ser tan fuerte como bold (700)*/
+    /* Aplica un peso de fuente medio (500) alos enlaces del menu para descartarlo sin usar negrita completa */
+    font-weight: 500;
+
+    /*Elementos:
+    transition: Es la propieda principal (shorthand) que permite que los cambios en las propiedades CSS ocurran de forma gradual en lugar de instantanea
+    all: Es un valor que indica al navegador que todas las propidades que cambien (como el color, el tamaño o el fondo) deben animarse
+    0.2s: Define la duracion del efecto. En este caso, la transicion durara 0.2 segundos (200 milisegundos)
+    ease: Es la funcionn de tiempo (timing function). Define una curva de velocidad donde la animacion comienza lento, se acelera en medio y termina lento.
+    ;: Operador de finalizacion de sentencia*/
+    /* Suaviza los cambios de estilos en 0.2 segundos para una navegacion mas fluida y organica */
+    /*Su funcion orincipal es eliminar el cambio brusco entre estados, Actua como un motor de animacion que calcula los paso intermedios entre el estado original y el nuevo (como el :hoover), creando una sensacion de suavidad y profesionalismo en la experiencia del usuario*/
+    transition: all 0.2s ease;
+
+/*Finaliza la definicion de .enlace-menu, aplicando correctamente sus propiedades visuales e interactivas dentro de la barra de navegacion*/
+/* Cierra el bloque de estilos de los enlaces de menu */
+}
+
+/* ESTADO DINAMICO: Define el comportamiento visual de los enlaces del menu cuando el usuario interactua mediante el ountero (hover), mejorando la retroalimentacion tactil-visual de la interfaz */
+/*Su funion es detectar la interacion del usuario para avisarle visualmente que el enlace es un objeto que pude pulsar (clic)*/
+.enlace-menu:hover {
+
+    /*Elementos:
+    color: Es una propiedad CSS que define el tono cormatico del texto (frente) del elemento
+    : (Dos puntos): Es un operador de asignacion que separa la propiedad del valor que le vamos a dar
+    #000000: Es un valor hexadecmal que representa el color negro puro (la ausencia total de liz en el modelo RBG)
+    ; (Punto y coma): Es el finalizador de sentencia, indicando que la instruccion para esa propiedad ha terminado*/
+    /* Establece el color del texto en negro absoluto para maximizar la legibilidad */
+    /*Su funcion es cambiar el color de las letras a negro en el momento exacto en el que el usuario pasa el mouse, logrando que el texto resalte visualmente sobre el fondo*/
+    color: #000000;
+
+    /*Elementos:
+    font-weight Es la propiedad CSS encargada de controlar el grosor o peso de los trazos de las letras
+    : (Dos puntos): Actua como el operador de asignacion, vinculando la propiedad con su valor especifico
+    600: Es el valor numerico que define el peso. En la escala tipografica, el 600 corresponde ak estilo Semi-Bold (Seminegrita)
+    ; (Punto y coma): Es el finalizador de sentecia, indicando al navegador que la instruccion ha terminado y puede pasar a la siguiente*/
+    /* Incrementa el grosor de la fuente a Semi-Bold (600) para enfatizar el enlace seleccionado*/
+    /*Su funcion es aumentar el peso visual del texto de manera inmediata. Al hacer ña letra mas gruesa, se crea un contraste fisico que ayuda al usuario a distinguir que opcion del menu esta señalando sin necesidad de hacer clic todavia*/
+    font-weight: 600;
+
+/*Elemento:}: Se conoce como la lleve de cierrre. Es el simbolo que marca el limite final de un grupo de instrucciones en CSS*/
+/* Fin de las reglas de estilo para el estado interactivo (hover) */
+/*Su funcion es delimitar y finalizar el bloque de declaraciones. Actua como una "frontera" que indica al navegador que las instrucciones para .enlace-menu:hover han terminado y que no debe aplicar las reglas siguientes a este selectro*/
+}
+
+/* Elementos: * .enlace-menu.activo: Es un selector de clase compuesto (o encadenado). Indica que los estilos solo se aplicaran a elementos que tengan ambas clases al mismo tiempo en HTML (class="enkace-menu activo")
+{: Llave de apertura del bloque de declaracion*/
+/* Define el estilo para el item del menu que representa la ubicacion actual del usuario */
+/*Sirve para resaltar la seccion activa del sitio, ayudando al usuario a orientarse espacialmente dentro de la navegacion (ubicaion actual)*/
+.enlace-menu.activo {
+
+    /* Elemento: Propiedad color (texto) y valor hexadecimal #000000 (negro9*/
+    /* Asegura que el texto activo mantenga el contrase maximo en negro */
+    /* Establece la identidad cromatica del elemento seleccionado para que destaque sobre los demas enlaces que podiran tener tonos mas claros*/
+    color: #000000;
+
+    /*Elementos: Propieda font-weight (peso de fuente) y valor 600 (Semi-Bold)*/
+    /* Aplica un grosor de fuentr seminegrita para dar peso visual al estado activo */
+    /*Porporciona enfasis tipografico, permitiendo que el ojo del usuario identifique la opcion activa mediante el grosor de la letra y no solo el color*/
+    font-weight: 600;
+
+    /* Elementos: Propiedad abreviada border-bottom que define. grosor (2px), estilo (solid) y color (#000000) de la linea inferior*/
+    /* Crea un indicador visual subrayado para marcar la opcion de menu seleccionada */
+    /*Actua como un marcador de enfasis inferior. A difernecia de un subrayado comun, este borde es parte del modelo de caja y permite un diseño mas limpio y profesiona*/
+    border-bottom: 2px solid #000000;
+
+    /* Elementos: Propiedad padding-botton (espacio interno inferior) y valor de 4px*/
+    /* Espaciado de seguridad entre el texto y el border inferior decorativo */
+    /*Gestiona el aire visual del componente. Evita que el texto #toque# la linea del border, mejroando la legibilidad y la estetica del diseño*/
+    padding-bottom: 4px;
+
+/* Elemento: Llave de cierre*/
+/* Fin de la declaracion de estilos para el estado activo */
+/*Cierra el alcance de las reglas, asegurando que el resto de los estilos del archivo no se vean afectados por este bloque*/
+}
+
+/* ============================================================ */
+/* 4. SECCION PRINCIPAL Y FOOTER                                */
+/* ============================================================ */
+
+/* Elemento: Selector de clase y apertura de bloque*/
+/*Define el contenedor maestro que organiza el contenido central del sitio */
+/*Identifica y nombra el bloque de ontenido principal para poder darle forma*/
+.seccion-principal {
+
+    /*Elemento: Propiedad de dimension relativa*/
+    /* Instruye al contenedor para que use todo el ancho disponible de la pantalla*/
+    /* Hace que la seccion sea fluida y se adapte a cualquier tamaño de pantalla (celular, tablet o PC) */
+    width: 100%;
+
+    /*Elemento: Limete deimensional superior*/
+    /* Establece un tope de 1100 pixeles para que el contenido no se estire demasiado en monitores gigantes */
+    /*Pone un "freno" al crecimiento del diseño para mantener la elegancia y legibilidad*/
+    max-width: 1100px;
+
+    /* Elemento. Propiedad de altura minima*/
+    /* Garantiza que la seccion tenga al menos 400px de alto, incluso si tiene poco texto */
+    /*Evita que la pagina se vea "vacia" o colapsada si hay poco contenido*/
+    min-height: 400px;
+
+    /* Elemto: Propiedad de espaciado exterior automatizado */
+    /* Centra el bloque entero horizontalmente dentro de la ventana del navegador */
+    /*Alinea automaticamente el contenido al centro de la pantalla*/
+    margin: 0 auto;
+
+    /* Elemento: Propiedad de espacio interno */
+    /* Crea un "colchon" de espacio adentro: 60px arriba/abajo y 40px a los lados */
+    /* Evita que el texto y las imagenes choquen contra los bordes del contenedor */
+    padding: 60px 40px;
+
+    /*Elemento: Propiedad de flexibilidad (Flexbox)*/
+    /* Permite que esta seccion se estire para ocupar todo el espacio vertical sobrante */
+    /*Ayuida a que el pie de pagina (footer) se mantenga siempre al final de la pantalla*/
+    /* Ocupa el espacio disponible verticalmente */
+    flex: 1;
+
+    /* Elemto: Propieda de estilo visual*/
+    /* Aplica un color gris casi blanco para diferenciar suavemente el fondo */
+    /* Da una identidad visual limpia al area donde el usuario pasara mas tiempo leyendo*/
+    background-color: #fafafa;
+
+/*Elemnto: Delimitador de cierre*/
+/* Fin de la configuracion estructural de la seccion principal */
+/*Termina las instrucciones para este contenedor especifico*/
+}
+
+/*Elemento: Selector de clase y apertura de bloque*/
+/* Define el contenedor de cierre del sitio (footer) */
+/*Identifica el final de la pagina para aplicarle estilos de cierre*/
+.pie-pagina {
+
+    /* Elemento: Propiedad de color con valor hexadecimal*/
+    /* Establece un fondo blanco puro para una estetica limpia */
+    /*Pinta el fondo del area para que resalte o se iintegre con el diseño*/
+    background-color: #ffffff;
+
+    /*Elemnto: Propiedad de borde superior (grosor, estilo y color)*/
+    /* Crea una linea sutil de separacion con el contenido superior */
+    /*Funciona como un divisor visual para indicar donde termina el contenido y donde empieza el pie*/
+    border-top: 1px solid #E5E5E5;
+
+    /* Elemento: Propiedad de espacio interno (arriba/abajo e izquierda/derecha) */
+    /* Genera aire vertical de 25px sin afectar los laterales */
+    /*Da espacio comodo al texto o logos dentro del pie para que no se vean apretados*/
+    padding: 25px 0;
+
+    /*Elemento: Propiedad de margen superior automatico*/
+    /* Empuja el pie de pagina hacia la base si el contenido es corto */
+    /*Asegura que el pie de pagina simepre se quede abajo, incluso si la pagina tiene muy poca informacion*/
+    margin-top: auto;
+
+/* Elemento: }: Es el delimitador de cierre de bloque. Indica al navegador que las instrucciones para el selector .pied-pagina ha finalizado */
+/*Finalixacion del bloque de estilos ddel pie de pagina */
+/*Su funcion es encapsular las declaraciones, estableciendo un limite fisico que evita que los estilos del pied de pagina se "filtren" o afecten a otros elementos que sigan en el archivo CSS*/
+}
+
+/*Elemnto: Selector de clase CSS que apunta al contendor interno del pied de pagina y apertura de bloque*/
+/* Define el area de contenido restringida y el modelo de diseño flexible para el footer */
+/*Sirve para agrupar y alinear los elementos (como el copyright y los enlaces legales dentro de un epsacio controlado*/
+.contenedor-footer {
+
+    /* Elemento: Propieda de ancho maximo con valor en pixeles*/
+    /* Limita la expansion del contenido a 1100px para mantener la armonia visual en pantallas anchas */
+    /*Evita que la informacion del pie de pagina se disperse demasiado hacia los bordes en monitores grandes */
+    max-width: 1100px;
+
+    /* Elemento: Propiedad de margen; 0 para arriba/abajo ya auto para los lados*/
+    /* Centra el contendor horizontalmente dentro de su elemento padre (.pie-pagina) */
+    /*Alinea el bloque al centro de la pantalla automaticamente*/
+    margin: 0 auto;
+
+    /* Elemento: Espaciado interno; 0 vertical y 40px horizontal */
+    /* Asegura una separacion de 40px con los borde laterales en dispositivo moviles */
+    /* Crea una margen de seguridad interno para que el texto no toque las orillas de la pantalla*/
+    padding: 0 40px;
+
+    /*Elemento: Activador del modelo de caja flexible (Flexbox)*/
+    /* Activa el modo Flezboz para permitir la distribucion dinamica de los elementos hijos */
+    /*Convierte el contenedor en una herramienta de organizacion inteligente que alinea sus elementos en fila*/
+    display: flex;
+
+    /*Elementos: Propiedad de alineacion en el eje principal*/
+    /* Distribuye los elementos dejando el maximo espacio posible entre ellos (uno al inicio y otro al final) */
+    /*Empuja los elementos a los extremos opuestos (por ejemplo: el nombre de la empresa a la izquierda y las redes soiales a la derecha)*/
+    justify-content: space-between;
+
+    /*Elementos: Propiedad de tamaño de fuente con unidad relativa (rem) */
+    /* Reduce el tamaño del texto para indicar que es informacion secundaria o legal */
+    /*Hace que la letra sea un poco mas pequeña que la del resto de la pagina para no distraer*/
+    font-size: 0.8rem; /*12.8 px */
+
+    /* Elemento: Propiedad de color de texto con valor hexadecimal (gris medio)*/
+    /* Aplica un tono gris para suavizar la jerarquia visual del texto footer */
+    /*Cambia el color del texto a un gris discreto, dandole un acabado mas elegante y profesiona*/
+    color: #666666;
+
+/*Elemento: Llave de cierre */
+/* Cierre de la configuracion del contenedor flexible del footer */
+/*Finaliza las instrucciones para esta clase*/
+}
+
+/*Elemento: Selector descendente que combina una clase y una etiqueta HTML con apertura del bloque*/
+/* Selecciona especificamene todas las etiquetas de hiervinculo (a) que residen dentro del contendor "enlace-legales" */
+/* Define el alcance de los estilos para los links secundarios, separandolos visualmente del menu principak */
+.enlaces-legales a {
+
+    /* Elemento: Propiedad de estilo tipografico con valor de anulacion*/
+    /* nRemueve la linea de subrayado que le navegador añade automaticamente a los enlaces por defecto*/
+    /* Limpia la estetica del texto para lograr un diseño mas minimalista y profesional en el pie de pagina */
+    text-decoration: none;
+
+    /* Elemento: Propieda de color de primer plano con valor hexadecimal */
+    /* Asigna un tono gris neutro que disminuye la jerarquia visual en comparacion con el contenido principa*/
+    /* Establece la identidad cormatica del texto legal para que sea legible pero discreto */
+    color: #666666;
+
+    /* Elemento: Propiedad del modelo de caja para espaciado exterior izquierdo */
+    /* Inserta una separcion fisica de 20 pixeles a la izquierda de cada enlace en la lista */
+    /* Genra "aire" o espacio en blanco entre los elementos para evitar que el texto se amontone horizontalmente */
+    margin-left: 20px;
+
+    /* Elemento: Propiedad abreviada de animacion de estados con duracion temporar*/
+    /* COnfirgura un suavizado de 0.2 segundos para cualquier cambio en las propiedades del enlace (como el color) */
+    /* Crea una transicion organica que elimina los cambios bruscos, mejorando la experiencia del usuario */
+    transition: all 0.2s;
+
+/* Elemento: Llave de cierre o delimitador final*/
+/* Cierre de la configuracion de estilos especificos para los enlaces del area legal */
+/* Finaliza las instrucciones para este bloque, encapsulando las reglas de diseño */
+}
+
+/* Elemento: Selector descendente que combina una clase (.enlaces-legales), una etiqueta (a) y una pseudo-clase de estado (:hover) */
+/*Define los cambios visulaes que se activaran unicamente cuando el usuario posicione el cursor sobre los enlaces del area legal */
+/* Actua como un detector de presencia que transforma el diseño del link para confirmar que es un elemento interactivo */
+.enlaces-legales a:hover {
+
+    /* Elemento: Propiedad de color de texto con valor hexadecimal para negro absoluto (#000000)*/
+    /* Sustituye el color gris base por un negro puro para generar un contraste maximo durante la interaccion */
+    /* Cambia el tono de la letra para resaltar el enlace que el usuario esta señalamdo en ese momento*/
+    color: #000000;
+
+    /* Elemento: Propiedad de peso tipografico con valo numerico de enfasis (600 - Semi-bold) */
+    /* Aumenta el grosor de los trazos de la fuente para proporcionar una respuesta tactil-visual mas fuerte */
+    /* Hace que la letra se vea mas gruesa, indicando visualmente que el enlace esta "seleccionado" antes de hacer clic */
+    font-weight: 600;
+
+/* Elemento: Lave de cierre o delimitador final de bloque */
+/* Finaliza la declaracion de estilos para el estado interactivo de este grupo especifico de enlaces */
+/* Cierra las instrucciones de este bloque para que no interfieran con el resto del archivo CSS */
+}
+
+/* ============================================================ */
+/* 5. ADAPTACION PARA MOVIL (MEDIA QUERY)                       */
+/* ============================================================ */
+
+/* Elemento: Regla de At-rule (@media) con condicion de ancho maximo */
+/* Establece un punto de quiebre (breakpoint) para que los estilos dentro de las llaves solo se apliquen en pantallas de 768px de ancho o menos */
+/* Es el interruptor que activa el "modo movil" para que la web se vea bien en tabletas y celulares */
+@media (max-width: 768px) {
+
+    /*Elemento: Selector de clase dentro de un contexto de consulta de medios (Media Query) */
+    /* Selecciona el contenedor del encabezado principal para modificar su estructura especificamente en dispositivos pequeños */
+    /* Define el inicio de los ajustes visuales para la parte superior de la pagina en pantallas estrechas */
+    .encabezado-principal {
+
+        /*Elemento; Propiedad de espaciado interno (padding) con valore sespecificos para los cuatro lados (arriba, derecha, abajo, izquierda) */
+        /* Reduce y ajusta los margenes internos (30px arriba, 0 laterales, 20px abajo) para optimizar el espacio vertical en moviles*/
+        /* Ajusta el "colchon" de espacio dentro del encabezado para que el logo o menu no se vean muy apretadpos o muy dispersos */
+        padding: 30px 0 20px 0;
+
+        /* Elemento: Propiedad de dimension (height) con valor de calculo automatico */
+        /* Anula cualquier ltura fija previa, permitiendo que el contenedor se expanda segun el tamaño de su contenido interno */
+        /* Permite que el encabezado crezca o se encoja de forma felixible segun lo que tenga adentro */
+        height: auto;
+
+    /* Elemento: Lave de cierre o delimitador final del bloque de declaracion */
+    /* Finaliza las modificaciones de estilo para el cencabezado principal ajustadas al punto de quiebre de 768px */
+    /* Encapsula las reglas de diseño paa este componente, evitando errores de sintaxis en el archivo CSS */
+    }
+
+    /* Elemento: Selector de clase con apertura de bloque decorativo */
+    /* Identifica el contenedor que agrupa los elementos de navegacion para redefinir su estructura en pantallas pequeñas */
+    /* Inicia la configuracion para que el menu deje de ser horizontal y se adpte al espacio vertical de un celular */
+    .contenedor-navegacion {
+
+        /* Elemento: Propiedad de direccion del flujo en el modelo Flexbox*/
+        /* Cambia la orientacion de los elementos hijos (enlaces) de una fila (row) a una columna (column)*/
+        /* Aila los elementos del menu debajo del otro para facilitar la lectura y el desplazamiento en moviles */
+        flex-direction: column;
+
+        /* Elemto: Propiedad de espaciado entre elementos de un contenedor flexible*/
+        /* Define una separacion constante de 15 pixeles entre cada item del menu sin necesidad de margenes inidividuales*/
+        /* Crea una dioistancia uniforme entre los enlaces para evitar clics accidentales y mejorar la limpieza visual*/
+        gap: 15px;
+
+        /* Elemento: Propiedad de espaciado interno con valores para ejes vertical y horizontal*/
+        /* Aplica 0 pixeles de espacio arriba/abojo y 20 pixeles en los laterales del contenedor*/
+        /* Genera una margen de seguridad a los lados para que el texto no toque los bordes fisicos de la pantalla del telefono */
+        padding: 0 20px;
+
+    /* Elemento: Llave de cierre o delimitador final de bloque*/
+    /* Finaliza las instrucciones de diseño responsivo para el contenedor de navegacion */
+    /* Cierra el bloque para que el navegador deje de aplicar estas reglas especificas a este elemento */
+    }
+
+    /* Elemento: Selector de grupo (multiple) que afecta a las clase ".menu-visitante" y ".zon-acceso" con apertura de bloque*/
+    /* Aplica las mismas reglas de diseño a dos secciones distintas simultaneamente para mantener la consistencia y reducir el codigo*/
+    /* Agrupa estos contenedores paa que sus elementos internos se organicen de forma flexible en dispositivos con poco espacio*/
+    .menu-visitante, .zona-acceso {
+
+        /* Elemento: Propiedad de espaciado (gap) para contenedores flexibles */
+        /* Define una margen de separacion de 15 pixeles entre los elemntos hijos (botones o enlaces) del contenedor */
+        /* Crea un espacio uniforme entre los componentes para que no se toquen, mejorando la legibilidad y la precision de los clics */
+        gap: 15px;
+
+        /* Elemento: Propiedad de comportamiento de envoltura en el modelo Flexbox */
+        /* Instuye al navegador para que, si los elementos no caben en una sola fila, se mueven automaticamente a la siguiente linea (multilinea) */
+        /* Evita que los botones se salgan de la pantalla, permitiendo que el disñeo se "rompa" ordenadamente hacia abajo cuando el espacio es poco */
+        /* Permite que los botones bajen si no caben*/
+        flex-wrap: wrap;
+
+        /* Elemento: Propiedad de alineacion del eje principal (horizontal por defecto) */
+        /* Alinea todos los elementos internos exactamente en el centro del ancho del contendeor */
+        /* Garantiza que el contenido este visualmente equilibrado y centrado, lo cual es vital para la estetica en celulares */
+        justify-content: center;
+
+    /* Elemento: Propiedad de alineacion del eje principal (horizonal por defecto) */
+    /* Alinea todos los elementos internos exactamente en el centro del ancho del contenedor */
+    /* Garantiza que el contenido este visualmente equilibrado y centrado, lo cual es vital para la estetica en celulares **/
+    }
+
+    /* Elemento: Selector de clase con apertura de bloque para entorno responsico */
+    /* Comentario Tecnico: Redefine los limites del contenedor principal especificamente para el punto de quiebre (breakpoint) movil */
+    /* Actua como la "caja maestra" que rpotege el contenido, asegurando que se aadpte al ancho de dispositivos pequeños */
+    /* Contenedor de Contenido | Evita que la web se vea desproporcionada en celulares | Siempre usa nombres de clase descriptivos como este */
+    .seccion-principal {
+
+        /* Elemento: Propiedad de espaciado interno (padding) con valores abreviados (Vertical y Horizontal)*/
+        /* Reduce el relleno a 40px arriba/abajo y 20px a los lados para maximizar el area de lectura en pantallas estrechas*/
+        /* Gestiona el "colchon" interno del componente para evitar que el texto choque con los bordes fisicos del telefono*/
+        /* Relleno Dinamico | Es vital para la legibilidad en moviles | Menos es mas en pantallas pequeñas: prioriza el contenido sobre los espacios vacios */
+        padding: 40px 20px; /* Reducimos margenes en movil*/
+
+    /* Elemento: Llave de cierre o delimitador de bloque */
+    /* Finaliza las instrucciones de estilo responsivo para la seccion principal */
+    /* Encapsula el comportamiento del sistema, evitando que estas reglas se filtren a otros componentes */
+    /* Cierre de sintaxis | Previene errrores que podrian "romper" todo el diseño del sitio | Manten siempre una sangria (indentacion) clara para no olvidar este cierre*/
+    }
+
+    /* Elemento: Selector de clase con apertura de bloque para diseño responsivo */
+    /* Modifica la disposicion del pie de pagina para pantallas pequeñas dentro del punto de quiebre establecido */
+    /* Actua como el nodo organizador que reorienta los elementos hijos del footer para visualizacion vertical */
+    /* Selector de estructura | Evita que el contenido se amontone horizontalmente | Use nombres que reflejen la jerarquia del sistema */
+    .contenedor-footer {
+
+        /* Elemnto: Propiedad de direccion de flujo en el modelo Flexbox */
+        /* Comentario Tecnico: Cambia la orientacion de los elementos de una fila (row) a una columna (column) */
+        /* Apila los componentes del pie de pagina para optimizar el espacio en pantallas angostas */
+        /* Eje de floujo | Es la base del diseño movil moderno para evitar desbordamientos | Cambie a columna siempre que el ancho de panatalla sea menor a 768px */
+        flex-direction: column;
+
+        /* Elemento: Propiedad de alineacion de texto y contenido en linea*/
+        /* Comentario Tecnico: Centra todos los elementos del texto y componentes internos dentro de su caja contenedora*/
+        /* Equilibra visualmente la interaz en dispositivos moviles, donde el centrado mejora la lectura*/
+        /* Alineador de texto | Proporciona una estetica profesional y simetrica en celulares | Centra el texto corto es una regla de oro en UX movil*/
+        text-align: center;
+
+        /* Elemnto: Propiedad de espaciado (Gutter) entre elementos del contenedor flexibles */
+        /* Establece una separacion uniforme de 20 pixeles entre los elementos apilados*/
+        /* Crea una zona de registro automatica que evita que los enlaces o textos se toquen entre si */
+        /* Espaciador Inteligente | Mejora la precison tactil al separar botones y links | Use "gap" en lugar de margenes individuales para mantener un codigo limpio */
+        gap: 20px;
+
+    /* Elemento: Llave de cierre o delimitador final de bloque*/
+    /* Finaliza la declaracion de reglas especificas para el contendor del footer en este estado */
+    /* Garantiza la integridad del sistema al cerrar el ambito de las instrucciones CSS. */
+    /* Cierre de Bloque | Previene errores de sintaxis que inhabilitan el estilo | Verifique siempre la paridad de llaves en su editor de codigo*/
+    }
+
+    /* Elemento: Selector descendente que apunta a las etiquetas de anclaje (a) dentro de la clase .enlaces-legales con apertura de bloque */
+    /* Define reglas especificas de espaciado y visualizacion para los links legales durante el estado responsivo */
+    /* Actua como el filtro que permite modificar la apariencia de los enlaces de soporte sin afectar el menu principal*/
+    /* Selector de Relacion | Asegura que el estilo sea quirurjico y no afecte otros links | Siempre sea especifico con sus selectores para evitar "efecto cascada" no deseado */
+    .enlaces-legales a {
+
+        /* Elemento: Propiedad de margen (shorthand) para espacio exterior */
+        /* Comentario Tecnico: Establece 0 pixeles de margen vertical y 10 pixeles horizontales para separar los enlaces entre si */
+        /* Crea una zona de respiro lateral para que los textos legales no se vean amontonados en la fila */
+        /* Espacio Exterior | Evits el solapamiento visual en pantallas pequeñas | En moviles, use margenes horizontales moderados para no comprimir el texto*/
+        margin: 0 10px;
+
+        /* Elemento: Propiedad dispaly con valor de flujo hibrido (inline-block) */
+
+        /* Permite que elelemento se comporte como linea (para estar junto a otros) pero acepte dimensiones de bloque (como margenes)*/
+
+        /* Habilita la capacidad de aplicar espaciados verticales y horizontales precisos que el valor "inline" por defecto no permite */
+        /* Modelo de Caja Hibrido | Es vital para que los links respeten los margenes y rellenos asignados | Uselo cuando necesite que un link tenga "cuerpo" sin saltar de linea obligatoriamente */
+        display: inline-block;
+
+    /* Elemento: Llave de cierre o delimitador final */
+    /* Finaliza las instrucciones de diseño para los enlaces legales en el modo responsivo */
+    /* Cierra el bloque de instrucciones, devolviendo el control al flujo general del archivo CSS */
+    /* Sello de Bloque | Evita errrores de lectura en el navegador que podrian anular todo el CSS | Mantenga siempre la simetria de llaves para un codigo profesional */
+    }
+
+/* Elemento: llave de cierre de la regla de At-rule (@media)*/
+/* Finaliza el contenedor de consultas de medios (media query), cerrando el bloque de instrucciones especificas para el punto de quiebre de 768px */
+/* Actua como el limite logico del entorno condicional, permitiendo que el navegador retome el procesamiento de estilos globales fuera de esta regla */
+/* Cierre de At-Rule | Evita errores fatales de sintaxis que invalidarian el resto de la hoja de estilo | Verifique que cada Qmedia abierta tenga su pareja de cierre al final de la seccion responsiva */
+}
