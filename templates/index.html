@@ -7,6 +7,18 @@
 <!-- Define el titulo que se mostrara en la pestaña del navegador, reemplazando el bloque correspondiente en la plantilla base -->
 {% block titulo_pestana %} Inicio {% endblock %}
 
+<!-- Permite inyectar reglas de estilo propias de la vista actual, manteniendo separada la presentacion general definida con base.html -->
+<!-- Inicia el bloque donde se pueden agregar estilos CSS especificos de esta pagina sin afectar la plantilla base -->
+{% block estilos_adicionales %}
+
+    <!-- Carga el archivo Css especifico de esta vista utilizando url_for("stactic", ...), lo que permite que Flask construya la URL adecuada hacia los archivos estaticos, garantizando compatibilidad y buena practica en la gestion de recursos -->
+    <!-- Vincula la hoja de estilos tienda.css ubicada en la carpeta de static/css mediante url_for para generar dinamicamente la ruta correcta -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/tienda.css") }}"
+
+<!-- Finaliza un bloque de Jinja (block) y señala hasta donde llega el contenido que reemplaza o complementa el definido en base.html, manteniendo la correcta herencia de plantillas. -->
+<!-- Cierra el bloque definido previamente, indicando el final de la seccion personalizable dentro de la plantilla -->
+{% endblock %}
+
 <!-- Define la seccion central que sera reemplazada o completada por la plantilla hija, permitiendo el contenido propio de la pagina sin alterar el menu, el pie de pagina ni la estructura general de base.html -->
 <!-- Inicia el bloque principal de contenido de la pagina, donde se inyecta la informacion especifica de esta vista dentro de la plantilla base -->
 {% block contenido %}

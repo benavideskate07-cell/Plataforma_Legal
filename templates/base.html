@@ -45,6 +45,9 @@
         <!-- Vincula la hoja de estilos principal usando url_for de Flask para generar la ruta correcta al archivo estatico -->
         <link rel="stylesheet" href="{{ url_for("static", filename="css/base.css") }}">
 
+        <!-- Bloque opcional para inyectar estilos CSS adicionales desde las plantillas hijas sin alterar la estructura de la plantilla base -->
+        
+        {% block estilos_adicionales %}{% endblock %}
 
         <!-- Cierre de la cabecera del documento. A partir de aqui inicia el contenido visible del sitio -->
     </head>
