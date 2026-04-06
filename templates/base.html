@@ -106,13 +106,17 @@
                     -->
                     <a href="/" class="enlace-menu {% if request.endpoint == "inicio" %}activo{% endif %}">Tienda</a>
 
-                    <!-- Enlace del menu principal hacia la seccion "Preguntas Frecuentes". Atributos y logica:
-                        - href="/preguntas": dirige a la ruta del modulo FAQ de Legalis.
-                        - class="enlace-menu": clase base de estilo comun del menu.
-                        - {% if request.endpoint == "preguntas" %}activo{% endif %}: logica JInja que añade la clase activo cuando la visita actual corresponde a "oreguntas", resaltando visualmente la opcion activa.
-                        Permite al usuario identificar en que seccion del sistema se encuentra.
-                    -->
-                    <a href="/preguntas" class="enlace-menu {% if request.endpoint == "preguntas"%}activo{% endif %}">Preguntas Frecuentes</a>
+                    <!-- Elemento: Enlace de navegacion dinamico (HTML + Jinja2) -->
+                    <!-- Comentario: Crea un enlace que lleva a la pagina de preguntas usando Flask y ademas detecta si el usuario ya esta en esa pagina -->
+                    <!-- Funcion Tecnica:
+                    1)url_for("preguntas") genera automaticamente la direccion correcta de la pagina
+                    2)request.endpoint verfica que vista esta actualmente abierta
+                    3)Si coincide con "preguntas", agrega la clase CSS "activo" para resaltar el menu-->
+                    <!-- DICCIONARIO:
+                    url_for | Construye la url desde el nombre de la funcion Flask | Evita errores al cambiar rutas
+                    request.endpoint | Nombre interno de la vista actual | Permite saber en que pagina esta el usuario
+                    activo | Clase CSS de estdo | Sirve para marcar la opcion del menu seleccionada-->
+                    <a href="{{ url_for("preguntas") }}" class="enlace-menu" {% if request.endpoint == "preguntas"%}activo{% endif %}>Preguntas Frecuentes</a>
 
                     <!-- Enlace del menu principal hacia la seccion institucional "Quienes Somos"
                         - href="/nosotros": dirige a la vista nosotros del sisstema Legalis.
@@ -166,7 +170,6 @@
             <!-- Bloque dinamico de Jinja2 para inyeccion de contenido. Las plantillas hijas que extienden de este archivo remlazan este bloque con su propio contenido, permitiendo reutilizar la estructura base del sistema Legalis. -->
             {% block contenido %}
 
-                
             <!-- Cierre del bloque dinamico Jinja2 denominado "contenido". Marca el final de ña seccion que sera reemplazada por las plantillas hijas que entienden la estructura base del sistema Legalis. -->
             {% endblock %}
 
