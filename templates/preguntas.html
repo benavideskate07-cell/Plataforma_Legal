@@ -13,8 +13,24 @@
 
 <!-- Elemento: Bloque de contenido de Jinja2  -->
 <!-- Comentario Tecnico: Indica el inicio de una seccion que reemplazara el bloque con el mismo nombre definido en base.html -->
+<!-- Funcion Tecnica: Marca el espacio donde se escribira el contenido principal de esta pagina (lo que el usuario vera en el cuerpo del sitio) --> <!-- DICCIONARIO: Bloque de Contenido | Espacio reservado en una plantilla para insertar informacionpropia de cada pagina | Debe tener el mismo nombre que el bloque definido en la plantilla base -->
+{% block estilos_adicionales %}
+
+<!-- Elemento: Etiqueta <link> para conectar una hoja de estilos CSS externa -->
+<!-- Comentario Tecnico: Carga el archivo preguntas.css desde la carpeta static usando url_for para generar la ruta correcta automaticamente -->
+<!-- Funcion Tecnica: Aplica los estilos especificos de esta pagina sin afectar otras secciones del sitio -->
+<!-- DICCIONARIO: hoja de estilos CSS | Archivo que controla colores, tamaños y diseño visual | Debe guardarse en la carpeta static para que Flask pueda servirlo correctamente -->
+<link rel="stylesheet" href="{{ url_for("static", filename="css/preguntas.css") }}"
+
+<!-- Elemento: Etiqueta de cierre de bloque en Jinja2 -->
+<!-- Comentario Tecnico: Finalizar el bloque "estilos_adicionales" abierto anteriormente -->
+<!-- Funcion Tecnica. Inidica a la plantilla base que ya no se agregaran mas estilos personalizados para esta pagina --> <!-- Diccionario. Instruccion que cierra un bloque Jinja2 | Siempre debe corresponder al block que se abrio -->
+{% endblock %}
+
+<!-- Elemento: Bloque de contenido de Jinja2 -->
+<!-- Comentario Tecnico: Indica de una seccion que reemplazara el bloque con el mismo nombre definido en base.html -->
 <!-- Funcion Tecnica: Marca el espacio donde se escribira el contenido principal de esta pagina (lo que el usuario vera en el cuerpo del sitio) -->
-<!-- DICCIONARIO: Bloque de Contenido | Espacio reservado en una plantilla para insertar informacionpropia de cada pagina | Debe tener el mismo nombre que el bloque definido en la plantilla base -->
+<!-- Diccionario: Bloque de Contenido | Espacio reservado en una plantilla para insertar informacion propia de cada pagina | debe tener el mismo nombre que el bloque definido en la plantilla base -->
 {% block contenido %}
 
     <!-- Elemento: Etiqueta semantica HTML <section< con clase CSS -->

@@ -1,0 +1,419 @@
+/* ============================================================= */
+/* ESTILOS ESPECIFICOS DE LA SECCION FAQ (PREGUNTAS)             */
+/* ============================================================= */
+
+/* 1. Comtenedor Principa */
+
+/* Elemento: Selector de clase CSS (.seccion-faq) */
+/* Comentario Tecnico: Selecciona todos los elementos HTML que tengan la clase "seccion-faq" */
+/* Funcion Tecnica: Permite aplicar estilos especificos unicamente a la seccion de preguntas frecuentes */
+/* Diccionario: Clase CSS | Nombre que identifica un grupo de elementos para aplicarles diseño | Se escribe con punto (.) antes del nombre */
+.seccion-faq {
+
+    /* Elemento: Propiedad CSS max-width */
+    /* Comentario Tecnico: Limita el ancho maximo del contenedor a 800 pixeles aunque la pantalla sea mas grande */
+    /* Funcion Tecnica: Evita que el contenido se vea demasiado ancho y dificil de leer en pantallas grandes */
+    /* Diccionario: max-width | Ancho maximo permitido de un elemento | Mejora la legibilidad del texto en paginas web */
+    max-width: 800px;    /* Limitamos el ancho para facilitar la lectura */
+
+    /* Elemento: Propiedad CSS margin con centrado automatico */
+    /* Comentario Tecnico: Elimina margen arriba y abajo (0) y reparte automaticamente los lados izquierdo y derecho (auto) */
+    /* Funcion Tecnica: Centra el contenedor horizontalmente en la pagina */
+    /* Diccionario: margin auto | Tecnica de centrado horizontal en CSS | Funciona cuando el elemento tiene un ancho definido */
+    margin: 0 auto;      /* Centramos el bloque en la pantalla */
+
+    /* Elemento: Propiedad CSS padding */
+    /* Comentario Tecnico: Agrega espacio interno de 40px arriba y abajo, y 20px a los lados dentro del contenedor */
+    /* Funcion Tecnica: Evita que el contenido quede pegado a los bordes y mejore la lectura */
+    /* Diccionario: padding | Espacio interno entre el borde y el contenido | Hace que el diseño respire visualmente */
+    padding: 40px 20px;    /* Espacio Intero */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Inidica el final del bloque de estilos para la clase .seccion-faq */
+/* Funcion Tecnica: Le dice al navegador que aqui terminan las reglas aplicadas a este selector */
+/* Diccionario: Cierre de Bloque | Marca el final de un conjunto de reglas CSS | Cada {debe tener su} */
+}
+
+/* 1. Estilo del Titulo */
+
+/* Elemento: Selector compuesto (.seccion-faq h1) */
+/* Comentario Tecnico: Selecciona unicamente el titulo <h1> que este dentro de la seccion con clase "seccion-faq" */
+/* Funcion Tecnica: Prmite aplicar estilos al titulo principal sin afectar otros <h1> del sitio web */
+/* Diccionario: Selector compuesto | Selector que combina dos elementos (contenedor + elemento interno) | Sirve para aplicar estilos especificos dentro de una seccion concreta */
+.seccion-faq h1 {
+
+    /* Elemento: Propiedad CSS text-align */
+    /* Comentario Tecnico: Centra el texto del titulo horizontalmente */
+    /* Funcion Tecnica: Hace que el encabezado se vea mas equilibrado visualmente dentro de la seccion */
+    /* Diccionario: text-align | Controla la alineacion horizontal del texto | Puede ser left, center, rightt o justify */
+    text-align: center;
+
+    /* Elemento: Propiedad CSS font-size */
+    /* Comentario Tecnico: Define el tamaño del texto del titulo uasando la unidad rem */
+    /* Funcion Tecnica: Hace que el titulo sea mas grande y destaque como encabezado principal */
+    /* Diccionario: rem | Unidad de medida relativa al tamaño de fuente raiz del documento | Permite diseños mas adaptables y accesibles */
+    font-size: 2.2rem; /* 35.2 px */
+
+    /* Elemento: Propiedad CSS color */
+    /* Comentario Tecnico: Establece el color del texto usando un codigo hexadecimal */
+    /* Funcion Tecnica: Define la aparencia visual del titulo para mantener coherencia con el diseño */
+    /* Diccionario: Codigo Hexadecimal | Forma de representar colores en CSS con el simbolo # | Se compone de 6 caracteres (numeros y letras) */
+    color: #1d1d1f; /*  Negto elegante Legalis */
+    
+    /* Elemento: Propiedad CSS margin-bottom */
+    /* Comentario Tecnico: Agrega espacio debajo del titulo */
+    /* Funcion Tecnica: Separa el encabezado del contenido siguiente para mejorar la lectura */
+    /* Diccionario: margin-bottom | Espacio externo inferior de un elemento | Evita que los elementos queden visualmente pegados */
+    margin-bottom: 3rem; /*  48 px */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza las reglas aplicadas al titulo dentro de la seccion FAQ */
+/* Funcion Tecnica: Indica el fin del bloque de estilos para este selector especifico */
+/* Diccionario: Cierre de Bloque | Marca el final de un conjunto de reglas CSS | Toda apertura { debe cerrarse con } */
+}
+
+/* 2. Estilo de la Imagen */
+
+/* Elemento: Selector de clase CSS (contenedor-imagen-faq) */
+/* Comentario Tecnico:  Selecciona el contenedor que guarda la imagen de la seccion FAQ */
+/* Funcion Tecnica: Permite aplicar estilos solo a la zona donde aparece a la ilustracion */
+/* Diccionario: Clase CSS | Identificador para aplicar diseño a un grupo especifico de elementos | Se escribe con punto (.) al inicio */
+.contenedor-imagen-faq {
+
+    /* Elemento: Propiedad CSS text-align */
+    /* Comentario Tecnico: Centra horizontalmente el contenido interno del contenedor (en este caso la imagen) */
+    /* Funcion Tecnica: Hace que la imagen quede ubicada en el centro visual de la seccion */
+    /* Diccionario: text-align | Alineacion horizontal del contenido | Puede se left, right, center o justify */
+    text-align: center; /* Centra la imagen SVG */
+
+    /* Elemento: Propiedad CSS margin-bottom */
+    /* Comentario Tecnico: Agrega espacio externo inferior debajo del contenedor */
+    /* Funcion Tecnica: Separa la imagen del titulo o contenido que aparece debajo */
+    /* Diccionario: margin-bottom | Espacio por fuera en la parte inferior de un elemento | Ayuda a evitar que los elementos queden pegados */
+    margin-bottom: 2rem; /* 32px */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza los estilos aplicados al contenedor de la imagen */
+/* Funcion Tecnica: Indica al navegador que aqui termina la configuracion de esta clase */
+/* Diccionario: Cierre de Bloque | Final de reglas CSS a un selector | Siempre debe cerrar una apertura { */
+}
+
+/* 3. Estilos de las Tarjetas de Preguntas (Details) */
+
+/* Elemento: Selector de elemento HTML (details) */
+/* Comentario Tecnico: Selecciona todas las etiquetas <details> de la pagina */
+/* Funcion Tecnica: Permite aplicar estilos a cada bloque despegable de preguntas frecuentes */
+/* Diccionario: Selector de elemento | Aplica estlos a todas las etiquetas de ese tipo | No usa punto (.) porque no es clase */
+details {
+
+    /* Elemento: Propiedad CSS background-color */
+    /* Comentario Tecnico: Define el color de un fondo del bloque despegable */
+    /* Funcion Tecnica: Hace que cada pregunta tenga fondo blanco para destacarse del resto de la pagina */
+    /* Diccionario: background-color | Color de fondo de un elemento | Puede definirse con nombre, RGB o codigo hexadecimal */
+    background-color: #ffffff;
+
+    /* Elemento: Propiedad Css border  */
+    /* Comentario Tecnico: Agrega un border de 1 pixel, linea solida y color gris claro alrededor del bloque */
+    /* Funcion Tecnica: Delimita visualmente cada pregunta para que se vea como una tarjeta independiente */
+    /* Diccionario: border | Linea que rodea un elemento | Se define con grosor, estilo y color */
+    border: 1px solid #e5e5e5; /* Borde gris suave */
+
+    /* Elemento: Propiedad CSS border-radius */
+    /* Comentario Tecnico: Redondea las esquinas del bloque en 8 pixeles */
+    /* Funcion Tecnica: Hace que el diseño se vea mas moderno y menos rigido */
+    /* Diccionario: border-radius | Redondea las esquinas de un elemento | Mientras mayor el numero, mas redondeado */
+    border-radius: 8px; /* bordes redondeados */
+
+    /* Elemento: Propiedad CSS padding */
+    /* Comentario Tecnico: Agrega espacio interno de 15px arriba y abajo, y 20px a los lados */
+    /* Funcion Tecnica: Evita que el texto quede pegado al borde del bloque */
+    /* Diccionario: padding | Espacio interno entre el contenido y el borde | Mejora la legibilidad */
+    padding: 15px 20px;
+
+    /* Elemento: Propiedad CSS margin-bottom */
+    /* Comentario Tecnico: Agrega espacio eterno debajo de cada bloque despegable */
+    /* Funcion Tecnica: Separa visualmetne cada pregunta de la siguiente */
+    /* Diccionario: margin-bottom | Espacio exterior inferior | Organiza verticalmente los elementos */
+    margin-bottom: 15px; /* Separacion entre preguntas */
+
+    /* Elemento: Propiedad CSS transition */
+    /* Comentario Tecnico: Aplica una animacion suave de 0.3 segundos a cualquier cambio visual del elemento */
+    /* Funcion Tecnica: Hace que efectos como cambos de color o sombra se vean fluidos y no bruscos */
+    /* Diccionario: Transition | Permite animar cambios en propiedades CSS | Mejora la experiencia visual del usuario */
+    transition: all 0.3s ease; /* Suavizado de efectos */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza las reglas aplicadas a los elementos <details> */
+/* Funcion Tecnica: Inidica el cierre del bloque de estilos para este selector */
+/* Diccionario: Cierre de bloque | Final de un conjunto de reglas CSS | Siemroe debe corresponder a una apertura { */
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta completa */
+
+/* Elemento: Pseudoclase: hover aplicada a <details> */
+/* Comentario Tecnico: Activa estilos solo cuando el usuario coloca el cursor sobre el bloque */
+/* Funcion Tecnica: Permite crear efectos visuales interactivos al pasar el mouse */
+/* Diccionario: :hover | Estado temporal al pasar el cursor encima | Se usa para dar retroalimentacion visual al usuario */
+details:hover {
+
+    /* Elemento: Propiedad CSS border-color */
+    /* Comentario Tecnico: Cambia el color del borde cuando el cursor esta sobre el bloque */
+    /* Funcion Tecnica: Indica visualmente que el elemento es interactivo */
+    /* Diccionario: border-color | Color del borde de un elemento | Puede cambiar segun estados como hover o focus */
+    border-color: #b3b3b3;
+
+    /* Elemento: Propiedad CSS box-shadow */
+    /* Comentario Tecnico: Agrega una sombra suave debajo del bloque */
+    /* Funcion Tecnica: Hace que la tarjeta parezca elevarse cuando el usuario pasa mouse */
+    /* Diccionario: box-shadow | Sombra externa de un elemento | Da sensacion de profundidad en la interfaz */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza los estilos del estado hover */
+/* Funcion Tecnica: Cierra el bloque de interaccion visual del elemento */
+/* Diccionario: Cierre de Bloque | Final de reglas CSS | Toda apertura { debe cerrarse */
+}
+
+/* Cambio de estilo cuando la pregunta esta abierta/desplegada */
+
+/* Elemento: Selector por aributo (details [open]) */
+/* Comentario Tecnico: Aplica estilos unicamente cuando el elemento <details> esta desplegado (abierto) */
+/* Funcion Tecnica: Permite diferenciar visualmente una pregunta abierta de las cerradas */
+/* Diccionario: Selector de Atributo | Selecciona elementos que poseen un atributo especifico | Se escribe entre corchetes [] */
+details[open] {
+
+    /* Elemento: Propiedad CSS border-color */
+    /* Comentario Tecnico: Cambia el color del borde cuando la pregunta esta abierta */
+    /* Funcion Tecnica: Inidica al usuario cual pregunta esta activa actualmente */
+    /* Diccionario: Estado Activo | Apariencia distinta cuando un elemento esta en uso | Mejora la orientacion visual del usuario */
+    border-color: #0066cc; /* Borde azul cuando esta activo */
+
+    /* Elemento: Propiedad CSS background-color */
+    /* Comentario Tecnico: Cambia ligeramente el fondo del bloque al estar abierto */
+    /* Funcion Tecnica: Refuerza visualmente que el contenido se encuentra desplegado */
+    /* Diccionario: Fondo activo | Color de fondo diferente al interactuar | Ayuda a distinguir estados abiertos y cerrados */
+    background-color: #fafafa;
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza los estilos aplicados al estado abieto del despegable */
+/* Funcion Tecnica: Cierra el bloque de reglas del selector por atributo */
+/* Diccionario: Cierre de Bloque | Final de reglas CSS | Siempre corresponde a una apertura { */
+}
+
+/* 4. Estilo del Encabezado de la pregunta (Summary) */
+
+/* Elemento: Selector de elemento HTML (summary) */
+/* Comentario Tecnico: Selecciona todas las etiquetas <summary> de la pagina */
+/* Funcion Tecnica: Permite aplicar estilos al texto que actua como titulo clickeable de cada pregunta */
+/* Diccionario: summary | Titulo visible de <details> | Es el texto que el usuario presiona para abrir o cerrar el contenido */
+summary {
+
+    /* Elemento: Propiedad CSS font-weight */
+    /* Comentario Tecnico: Define el grosor del texto. El valor 600 equivale a seminegrita */
+    /* Funcion Tecnica: Hace que la pregunta destaque visualmente frente al texto de la respuesta */
+    /* Diccionario: font-weight | Grosor del texto | Valores comunes: 400 (normal, 600 (semibold), 700 (negrita)) */
+    font-weight: 600; /* Seminegrita */
+
+    /* Elemento: Propiedad CSS font-size */
+    /* Comentario Tecnico: Aumenta ligeramente el tamaño del texto del resumen */
+    /* Funcion Tecnica: Hace que la pregunta sea mas visible que el contenido interno */
+    /* Diccionario: rem | Unidad relativa basada e el tamaño raiz del documento | Permite diseño adaptable */
+    font-size: 1.1rem; /* 17.6 px */
+
+    /* Elemento: Propiedad CSS color */
+    /* Comentario Tecnico: Define el color del texto del resumen en gris oscuro */
+    /* Funcion Tecnica: Mantiene buena legibilidad sin usar negro puro */
+    /* Diccionario: color | Define el color del texto | Puede utilizar codigo hexadecimal */
+    color: #333333;
+
+    /* Elemento: Propiedad CSS cursor */
+    /* Comentario Tecnico: Cambia el cursor a forma de mano cuando pasa sobre el resumen */
+    /* Funcion Tecnica: Indica al usuario que el elemento es clickeable */
+    /* Diccionario: Cursor | Define la forma del puntero del mouse | "pointer" se usa para elementos interactivos */
+    cursor: pointer; /* Manita al pasar el mouse */
+
+    /* Elemento: Propiedad CSS outline */
+    /* Comentario Tecnico: Elimina el borde automatico que aparece al hacer clic o navegar con teclado */
+    /* Funcion Tecnica: permite personalizar el diseño sin mostrar el contorno predeterminado del navegador */
+    /* Diccionario: outline | Linea externa que indica enfoque (focus) | Debe usarse con cuidadeo para no afectar accesibilidad */
+    outline: none;  /* Quita el borde azul por defecto al hacer clic */
+
+    /* Elemento: Propiedad CSS list-style */
+    /* Comentario Tecnico: Elimina el estilo de lista predeterminado (como flechas o marcadores9 */
+    /* Funcion Tecnica: Permite personalizar la apariencia del resumen sin iconos automaticos del navegador  */
+    /* Diccionario: list-style | Define marcadores de listas | "none" elimina viñetas o simbolos */
+    list-style: none; /* Opcional: Quita el triangulo por defecto en algunos navegadores */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza las reglas aplicadas al elemento <summary> */
+/* Funcion Tecnica: Indica eñ cierre del bloque de estilos para este selector */
+/* Diccionario: Cierre de Bloque | Final de un conjunto d reglas CSS | Cada apertura { requiere una } */
+}
+
+/* 5. Estilo del Contenido de la Respuesta */
+
+/* Elemento: Selector descendente (details p) */
+/* Comentario Tecnico: Selecciona los parrafos <p> que esten dentro de un elemento <details> */
+/* Funcion Tecnica: Aplica estilos solo al texto de las respuestas y no a otros parrafos del sistio */
+/* Diccionario: Selector descendente | Aplica estilo a elementos dentro de otro elemento | Se escribe: ccontenedor espacio elemento */
+details p {
+
+    /* Elemento: Propiedad CSS margin-top */
+    /* Comentario Tecnico: Agrega espacio encima del parrafo */
+    /* Funcion Tecnica: Separa la respuesta del titulo para mejorar la lectura */
+    /* Diccionario: margin-top | Espacio exterior superior | Evita que los textos queden pegados */
+    margin-top: 15px;
+
+    /* Elemento: Propiedad Css color */
+    /* Comentario Tecnico: Define el color del texto en un gris medio */
+    /* Funcion Tecnica: Diferencia visualmente la respuesta del titulo de la pregunta */
+    /* Diccionario: Jerarquia Visual | Uso de tamaños y colores para distinguir importancia | Ayuda a entender la informacion mas rapido */
+    color: #555555;
+
+    /* Elemento: Propiedad CSS line-height */
+    /* Comentario Tecnico: Aumenta el espacio entre lineas del texto */
+    /* Funcion Tecnica: Hace la lectura mas comoda, espeialmente en parrafos largos */
+    /* Diccionario: line-height | Altura de cada inea de texto | Mejora la legibilidad del contenido */
+    line-height: 1.6; /* Altura de linea para buena letura */
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza los estilos aplicados a los parrafos dentro del desplegable */
+/* Funcion Tecnica: Cierre el bloque de reglas para este selector especifico */
+/* Diccionario: Cierre de bloque | Final de un conjunto de reglas CSS | Toda apertura { debe cerrarse con } */
+}
+
+/* Elemento: Selector descendente (details ul) */
+/* Comentario Tecnico: Selecciona las listas <ul> que esten dentro de un elemento <details> */
+/* Funcion Tecnica: Permite aplicar estilos unicamente a las listas de las respuestas FAQ */
+/* Diccionario: Selector Descendente | Aplica estilos a elementos internos de otro elemento | Se escribe: contenedor espacio elemento */
+details ul {
+
+    /* Elemento: Propiedad CSS margin-top */
+    /* Comentario Tecnico: Agrega espacio encima de la lista */
+    /* Funcion Tecnica: epara la lista del texto anterior para mejorar la organizaion visual */
+    /* Diccionario: margin-top | Espacio externo en la parte superior | Ayuda a que el contenido no se vea tan amontonado */
+    margin-top: 10px;
+
+    /* Elemento: Propiedad CSS padding-left */
+    /* Comentario Tecnico: Agrega espacio interno a la izquierda de la lista */
+    /* Funcion Tecnica: Desplaza el contenido hacia la derecha para que las viñetas se vean correctamente alineadas */
+    /* Diccionario: padding-left | Espacio interno en el lado izquierdo | Se usa comunmente en listas */
+    padding-left: 20px;
+
+    /* Elemento: Propiedad CSS color */
+    /* Comentario Tecnico: Define el color del texto de la lista en u gris medio */
+    /* Funcion Tecnica: Mantiene coherencia visual con el texto de los parrafos de respuesta */
+    /* Diccionario: color | Controla el color del texto | Puede definirse con codigos hexadecimales */
+    color: #555555;
+
+/* Elemento: Llave de cierre } */
+/* Comentario Tecnico: Finaliza las reglas aplicadas a las listas dentro del despegable */
+/* Funcion Tecnica: Cierra el bloque de estilos para este selector especifico */
+/* Diccionario: Cierre de bloque | Marca el final de reglas CSS | Toda apertura { requiere su } */
+}
+
+/* Elemento: Selector descendente (details li) */
+/* Comentario Tecnico: Selecciona cada item <li> que esta dentro de un elemento <details> */
+/* Funcion Tecnica: Permite ajustar la separacion de cada punto de la lista en las respuestas FAQ */
+/* Diccionario: Item de lista | Elemento individual dentro de <ul> o <ol> | Representa una idea separada dentro de un listado */
+details li {
+
+    /* Elemento: Propiedad CSS margin-bottom */
+    /* Comentario Tecnico: Agrega un pequeño espacio debajo de cada elemento de la lista */
+    /* Funcion Tecnica: Evita que los puntos de la lista queden pegados entre si, mejorando la lectura */
+    /* Diccionario: Espacio vertical | Separacion entre elementos uno debajo de otro | Mejora la claridad visual */
+    margin-bottom: 5px;
+
+/* Elemento: Llve de cierre } */
+/* Comentario Tecnico: Finaliza las reglas aplicadas a los elementos de lista dentro del despegable */
+/* Funcion Tecnica: Cierra el bloque de estilos para este selector especifico */
+/* Diccionario: Cierre de bloque | Final de reglas CSS | Cada (debe cerrarse con }) */
+}
+
+/* ==================================================== */
+/* ADAPTACION PARA MOVIL (MEDIA QUERY < 768PX)          */
+/* ==================================================== */
+
+/* Elemento: Media Query (Consulta de medios) */
+/* Comentario Tecnico: Aplica estilos solo cuando el ancho de la pantalla es de 768px o menor */
+/* Funcion Tecnica: Permite adaptar el diseño para tablets y celulares */
+/* Diccionario: Responsive Design | Diseño que se adapte al tamaño de pantalla | Mejora la experiencia en moviles */
+@media (max-width: 768px) {
+
+    /* Elemento: Selector compuesto dentro de media query */
+    /* Comentario Tecnico: Selecciona el titulo principal solo en pantallas pequeñas */
+    /* Funcion Tecnica: Permite modificar el tamaño del encabezado en dispositivos moviles */
+    /* Diccionario: Adaptacion Movil | Ajustes especificos para pantallas pequeñas | Evita textos demasiados grandes */
+    .seccion-faq h1 {
+
+        /* Elemento: Propiedad CSS font-size */
+        /* Comentario Tecnico: Reduce el tamaño del titulo cuando la pantalla es pequeña */
+        /* Funcion Tecnica: Evita que el encabezado ocupe demasiado espacio en el celular */
+        /* Diccionario: Escalado Tipografico  A juste del tamaño del texto segun pantalla | Mejora lgibilidad en moviles */
+        font-size: 1.8rem; /* Redue el tamaño del titulo 28.8px */
+
+    /* Elemento:Llave de cierre } */
+    /* Comentario Tecnico: Finaliza las reglas para el titulo en pantallas pequeñas */
+    /* Funcion Tecnica: Cierra el bloque interno del emdia query */
+    /* Diccionario: Cierra de bloque | Fin de reglas CSS asociadas a un selector | Debe correspondeer a una apertura { */
+    }
+
+    /* Elemento: Selector descendente (.contenedor-iamgen-faq img) */
+    /* Comentario Tecnico: Seleciona la etiqueta <img> que esta dentro del contenedor de imagen FAQ */
+    /* Funcion Tecnica: Permite modificar el tamaño de la imagen d¿solo en dispositivos moviles */
+    /* Diccionario: Selector descendente | Aplica estilos a un elemento especifico dentro de un contenedor | Se escrbe: .clase elemento */
+    .contenedor-imagen-faq img {
+
+        /* Elemento: Propiedad CSS width */
+        /* Comentario Tecnico: Define que la imagen tendra un ancho fijo de 200 pixeles en pantallas pequeñas */
+        /* Funcion Tecnica: Evita que la imagen sea demasiado grande en celulares o tablets */
+        /* Diccionario: width | Ancho de un elemento | Puede definirse en px, %, rem u otras unidades */
+        width: 200px; /* Reduce la imagen en moviles */
+
+    /* Elemento: Llave de cierre } */
+    /* Comentario Tecnico: Finaliza las reglas palicadas a la imagen dentro del media query */
+    /* Funcion Tecnica: CIerra el bloque interno de estilos adaptivos */
+    /* Diccionario: Cierre de Bloque | Marca el final de reglas CSS | Cada {debe cerrarse con } */
+    }
+
+    /* Elemento: Selector de un elemento HTML (details) dentro de media query */
+    /* Comentario Tecnico: Selecciona los bloques despegables cuando la pantalla es pequeña */
+    /* Funcion Tecnica: Permite ajustar el espacio interno para oviles */
+    /* Diccionario: Estilo adaptivo | Cambio de diseño segun tamaño de pantalla | Mejora la visualizacion en celulares */
+    details {
+
+        /* Elemento: Propiedad CSS padding */
+        /* Comentario Tecnico: Reduce el espcaio interno del bloque desplegable en dispositivos pequeños */
+        /* Funcion Tecnica: Evita que las tarjetas ocupen demasiado espacio en pantallas reducidas */
+        /* Diccionario: Compactacion | Ajustes para ocupar menos espacio en movil | Mantiene el contenido comodo de leer */
+        padding: 15px; /*  Menos paddding en pantallas pequeñas */
+
+    /* Elemento: Llave de cierre } */
+    /* Comentario Tecnico: Finaliza las reglas adaptadas para moviles del elemento <details> */
+    /* Funcion Tecnica: Cierra el bloque de estilos dentro del media query */
+    /* Diccionario: Cierre de bloque | Fin de reglas CSS | Cada apertura { debe cerrarse */
+    }
+
+    /* Elemetno: Selector de elemento HTML (summary) dentro de media query */
+    /* Comentario Tecnico: Selecciona los titulos clickeables de las preguntas en pantallas pequeña */
+    /* Funcion Tecnica: Permite ajustar eltamaño del texto para moviles */
+    /* Diccionario: Ajuste Movil | Adaptacion de estilos para pantallas pequeñas | Evita textos demasiado grandes */
+    summary {
+
+        /* Elemento: Propiedad Css Font-size */
+        /* Comentario Tecnico: Reduce el tamaño del texto del titulo en dispositivos moviles */
+        /* Funcion Tecnica: Mejora la lectura y evita que el titulo ocupe demasiado espacio vertical */
+        /* Diccionario: Escala Tipografica | Cambio del tamaño de letra segun pantalla | Hace el diseño mas adaptable */
+        font-size: 1rem; /* 16px */
+
+    /* Elemento: Llave de cierre } */
+    /* Comentario Tecnico: Finaliza los estilos del summary en modo movil */
+    /* Funcion Tecnica: CIerra el bloque interno dentro de media Query */
+    /* Diccionario: Cierre de bloque | Fin de reglas CSS | Toda apertura { necesita su } */
+    }
+
+/* Elemento: Llave de cierre de Media Query */
+/*  Comentario Tecnico: Finaliza el bloque @media (max-width: 768px) */
+/* Funcion Tecnica: Indica que terminan los estilos especiales para pantallas pequeñas (moviles y tablets) */
+/* Diccionario: Media Query | Reglas CSS que solo aplican bajo ciertas condiciones | Debe cerrarse correctamente para no afectar otros estilos */
+}
