@@ -1,0 +1,253 @@
+
+<!-- Elemento: Herencia de plantilla en Jinja 2 -->
+<!-- Comentario Tecnico: Indica que este archivo HTML utilizara la estructura principal definida en "base.html" -->
+<!-- Funcion Tecnica: Evita repetir encabezado, menu y pie de pagina; solo se escribe aqui el contenido propio de esta vista -->
+<!-- Diccionario:
+    extends   | Sistema de herencia de plantillas | Permite reutilizar un diseño base
+    base.html | Plantilla maestra dedl sitio | Contiene la estructura general compartida por todas las paginas -->
+{% extends "base.html" %}
+
+<!-- Elemento: Bloque de contenido Jinja2 (titulo_pestana) -->
+<!-- Comentario Tecnico: Define el texto que aparecera en la pestaña del navegador para esta pagina -->
+<!-- Funcion Tecnica: Remplaza el espacio reservado en la plantilla base con el titulo especifico de esta vista -->
+<!-- Diccionario:
+    block | Seccion editable dentro de una plantilla heredada | Permite insertar contenido propio
+    titulo_pestana | Nombre del bloque destinado al <title> del HTML | Controla lo que se ve en la pestaña del navegador
+    endblock | Indica el final del contenido del bloque | Obligatorio para cerrar la seccion -->
+{% block titulo_pestana %} ¿Quiénes somos? {% endblock %}
+
+<!-- Elemento: Bloque de contenido principal en Jinja2 -->
+<!-- Comentario Tecnico: Define la seccion donde se insertara el contenido especifico de esta pagina dentro de la plantilla base -->
+<!-- Funcion Tecnica: Reemplaza el bloque llamado "contenido" que esta declarado en base.html, permitiendo que cada vista tenga informacion dierente sin repetir la estructura general -->
+<!-- Diccionario:
+    block | Estructura de Jinja2 que define una seccion editable | Permite sobreescribir cocntenido en plantillas heredadas
+    contenido | Nombre del bloque principal del cuerpo de la pagina | Normalmente contiene todo HTML visible. endblock    | Cierre obligatorio del bloque | Indica dnde termina la seccion personalizada-->
+{% block contenido %}
+
+    <!-- Elemento: Seccion semantica HTML de tipo institucional -->
+    <!-- Comentario Tecnico: Agrupa el contenido informativo sobre la organizacion o proyecto dentro un contenedor logico y accesible -->
+    <!-- Funcion Tecnica: Permite organizar el DOM en bloques tematicos, facilitando estilos CSS, accesibilidad y posicionamiento dentro de la pagina -->
+    <!-- Diccionario:
+        sectin | Etiqueta semantica de HTML5 | Representa un bloque tematico del documento
+        class | Atributo global de HTML | Asocia el elemento con reglas CSS o scripts
+        seccion-institucional | NOmbre personalizado de clase | Identifica el area de informacion corporativa o "Quienes somos"-->
+    <section class="seccion-institucional">
+
+        <!-- Elemento: Encabezado principal de la seccion -->
+        <!-- Comentario Tecnico: Define el titulo jerarquico mas importante dentro de la seccion institucional -->
+        <!-- Funcion Tecnica: Mejora la accesibilidad, el SEO y la compresion estructural del documento por navegadores y lectores en pantalla -->
+        <!-- Diccionario:
+            h1 | Etiqueta de encabezado nivel 1 | Representa el titulo principal del bloque de contenido
+            ¿Quienes Somos' | Contenido textual | Identifica la naturaleza informativa de la seccion institucional -->
+        <h1>¿Quiénes somos?</h1>
+
+        <!-- Elemento: Contenedor estructural para imagen institucional -->
+        <!-- Comentario Tecnico: Agrupa la imagen representativa de la seccion "Quienes somos" para poder aplicarle estilos y contorl de diseño independientes -->
+        <!-- Funcion Tecnica: Permite centrar, dimensionar y separar visualmente la imagen respecto del texto mediante CSS, manteniendo una maquetacion ordenada -->
+        <!-- Diccionario:
+            div | Contenedor generico de bloque | No aporta significado semantico, solo organizacion estructural
+            class="contenedor-imagen-nosotros" | Clase CSS | Identificador para aplicar estilos especificos a la imagen institucional-->
+        <div class="contenedor-imagen-nosotros">
+
+            <!-- Elemento: Imagen institucional cargada desde la carpeta estatica del servidor Flask -->
+            <!-- Comentario Tecnico: Inserta una imagen alamacenada en /static/img/nosotros/ y genra automaticamente su ruta corect usando url_for, evitando rutas absolutas -->
+            <!-- Funcion Tecnica: Mostrar un recurso visual representativo del proyecto y mantener compatibilidad si cambia la estructura del servidor o del dominio -->
+            <!-- Diccionario:
+                img | Etiqueta de imagen | Inserta contenido grafico en la pagina
+                src | Ruta dinamica Jinja2 | Flask contruye la URL correcta del archivo etatico
+                "static" | Carpeta publica Flask | Directorio accesible para CSS, JS e imagenes
+                filename="imh/nosotros.png" | Ruta interna del archivo | Ubicacion relativa dentro ded static
+                alt="Euipo de trabajo Legalis" | Texto alternativo accesible | Describe la imagen oara lectores de panalla y SEO-->
+            <img src="{{ url_for("static", filename="img/nosotros/nosotros.png") }}" alt="Equipo de trabajo de Legalis">
+
+        <!-- Elemento: Cierre de contenedor HTML -->
+        <!-- Comentario Tecnico: Finaliza el <div class="contenedor-imagen-nosotros"> abierto previamente, delimitando el bloque visual de la imagen institucinal -->
+        <!-- Funcion Tecnica: Mantener la correcta jerarquica del DOM y evitar errores de maquetacion o estilos heredados fuera del area prevista -->
+        <!-- Diccionario: </div> | Etiqueta de cierrre | Indica el final logico del contenedor abierto anteriormente -->
+        </div>
+
+        <!-- Elemento: Contenedor semantico de tipo articulo -->
+        <!-- Comentario Tecnico: Agrupa el contenido textual principal de la seccion institucional bajo una estructura con significado semantico -->
+        <!-- Funcion Tecnica: Indica que el contendio interno constituye una unidad informativa autonoma (descripcion, mision, vision, etc), mejorando SEO y accesibilidad -->
+        <!-- Diccionario:
+            article | Etiqueta semantica HTML5 | Representa contenido indeoendiente o informativo dentro de la pagina
+            class | Atributo global | Permite aplicar estilos o comportamiento especifico
+            bloque-texto | Clase personalizada | Identifica el bloque de texto institucional para su diseño en CSS -->
+        <article class="bloque-texto">
+
+            <!-- Elemento: Encabezado secundario + parrafos descrptivos institucionales -->
+            <!-- Comentario Tecnico: Presenta la introduccion formal del proyecto, explicando su naturaleza, finalidad social y enfoque funcional -->
+            <!-- Funcion Tecnica: Comunica al usuario la identidad del servicio y su propuesta de valor antes de mostrar detalles especificos. Tambien aporta contexto semantico para buscadores (SEO) -->
+            <!-- Diccionario: 
+                h2 | Encabezado de seccion | Titulo principal del bloque informativo dentro del articulo
+                p | Parrafo | Contiene informacion descriptiva continua-->
+                <h2>Bienvenido a Legalis</h2>
+                <p>Legalis es un proyecto juridico-educativo creado para facilitar el acceso a la justicia en Colombia mediante plantillas legales claras, comprensibles y listas para usar. Nuestro proposito es que cualquier ciudadano pueda ejercer sus derechos fundamentales sin depender de tramites complejos, costosos o dificiles de entender.</p>
+                <p>A traves de documentos estructuradis profesionalmente -especialmente acciones de tutela- buscamos transformar el lenguaje juridico en una herramienta practica al alcance de todos.</p>
+
+            <!-- Elemento: Cierre de etiqueta semantica <article> -->
+            <!-- Comentario Tecnico: Finaliza el bloque de contenido autonomo iniciando previamente, indicando al navegador y a los motores de busqueda que el texto institucional ha concluido -->
+            <!-- Funcion Tecnica: Mantiene la estructura logica del documento HTML5, separando correctamente secciones independientes dentro de la pagina. Favorece accesibilidad y SEO -->
+            <!-- Diccionario: </article> | Etiqueta de cierre | Termina el contenedor semantico de informacion principal -->
+        </article>
+
+        <!-- Elemento: NUevo bloque semantico de contenido institucional -->
+        <!-- Comentario Tecnico: Inicia un segundo articulo dentro de la seccion, permitiendo organizar la informacion en unidades tematicas independientes -->
+        <!-- Funcion Tecnica: Divide el conenido en secciones claras (por ejemplo: mision, vision, objetivos), mejorando la estructura, el orden visula y la comprension del usuario -->
+        <!-- Diccionario:
+            article | Etiqueta semantica HTML5 | Representa contenido autonomo dentro de la pagina
+            class | Atributo global | Permite aplicar estilos especificos desde CSS
+            bloque-texto | Clase personalizada | IDentifica los bloques textuales institucionales para mantener coherencia visual -->
+        <article class="bloque-texto">
+
+            <!-- Elemento: Subtitulo tematico + parrafos introductorios del problema juridico -->
+            <!-- Comentario Tecnico: Presenta la razon de existencia del proyecto, explicando la dificultad que enfrentan los ciudadanos al intentar defender sus derechos y preparando el contexto para una lista explicativa-->
+            <!-- Funcion Tecnica:
+                1) El <h2> organiza jerarquicamente el contenido dentro del articulo
+                2) Los <p> desarrollan el problea social que motiva el proyecto
+                3) El ultimo parrafo funciona como transicion hacia una enumeracion estructurada-->
+            <!-- Diccionario:
+                h2 | Encabezado de segundo nivel | Divide grandes ideas dentro de la pagina
+                p | Parrafo descriptivo | Epone informacion de manera clara y continua
+                transicion | Recurso textual | Introduce una lista o desarrolo posterios -->
+            <h2>¿Por qué existe Legalis?</h2>
+            <p>En Colombia muchas personas saben que tienen derechos, pero no saben como defenderlos correctamente</p>
+            <p>Los formatos que encuentran en internet suelen ser:</p>
+
+            <!-- Elemento: Lista descriptiva de problemas comunes -->
+            <!-- Comentario Tecnico: Representa una enumeracion de fallas dectetadas en los formatos juridicos disponibles en internet. Cada <li> corresponde a un defecto especifico -->
+            <!-- Funcion Tecnica:
+                La etiqueta <ul> agrupa elementos relacionados sin orden de prioridad,
+                mientras que cada <li> permite presentar la informacion de forma clara,
+                rapida de leer y facil de escanear por el usuario. Mejora comprension y usabilidad -->
+            <!-- Diccionario:
+                ul | Lista no ordenada | Agrupa varios puntos relacionados sin enumeracion
+                li | Item de lista | Cada elemento inidvidual dentro de la lista -->
+            <ul>
+                <li>Incompletos</li>
+                <li>Desactualizados</li>
+                <li>Mal estructurados</li>
+                <li>O juridicamente debiles</li>
+            </ul>
+
+            <!-- Elemento: Parrafos de cierre argumentativo del bloque institucional -->
+            <!-- Comentario Tecnico: Explican las consecuencias del problema identificado y presentan la solucion que ofrece el proyecto, aclarando ademas su alcance y limetes -->
+            <!-- Funcion Tecnica:
+                1) El primer <p> describe el impacto negativo (rechazos o demoras)
+                2) El segundo <p> expone la propuesta de valor Legalis
+                3) El tercer <p> delimita la responsabilidad del proyecto, fortaleciendo la transparencia y credibilidad institucional -->
+            <!-- Diccionario:
+            p | Parrafo | Unidad basica de contenido textual
+            propuesta de valor | Beneficio principal ofrecido | Explica que problema resuelve el proyecto
+            alcance | Limite funcional del servicio | Define hasta donde llega la responsabilidad del proyecto -->
+            <p>Esto provoca rechazos, inadmisiones o demoras innecesaria.s</p>
+            <p>Legalis nace para resolver ese problema: proporcionar plantillas juridicas bien diseñadas, redactadas con criterio legal y pensadas para que cualquier ciudadano pueda presentar una solicitud valida ante un juez.</p>
+            <p>No reemplazamosal abogado en casos complejos. Pero si eliminamos la principal barrera de acceso: no saber por donde empezar.</p>
+
+        <!-- Elemento: Cierre de bloque semantico <article> -->
+        <!-- Comentario Tecnico: Finaliza el segundo articulo institucional que contiene la descripcion del problema y la propuesta de Legalis -->
+        <!-- Funcion Tecnica: Mantiene la correcta jerarquica del documento HTML, separando secciones independientes y facilitando la lectura y el estilo CSS -->
+        <!-- Diccionario: </arrticle> | Etiqueta de cierre | Marca el final de un bloque de contenido autonomo dentro de la seccion institucional -->
+        </article>
+
+        <!-- Elemento: Seccion Semantica de misison y vision con un bloque de mision -->
+        <!-- Comentario Tecnico: Agrupa de manera estructurada la mision de la organizacion dentro de un contenedor especifico para estilos y jerarquica semantica -->
+        <!-- Funcion Tecnica: Permite diferenciar visual y estructuralmente los pbjetivos de la organizacion, facilitando su comprension y aplicacion de CSS -->
+        <!-- Diccionario:
+            section | Etiqueta semantica HTML5 | Agrupa contenido tematico de la pagina
+            class="misison-vision" | Clase CSS | Identifica toda la seccion de objetivos institucionales
+            div | Contenedor generico | Agrupa el bloque individual de mision
+            class="item-mv" | Clase CSS | Permite aplicar estilos especificos a cada item (mision-vision)
+            h3 | Encabezado de tercer nivel | Titulo de subseccion
+            p | Parrafo descriptivo | Contendio que explia la mision -->
+        <section class="mision-vision">
+            <div class="item-mv">
+                <h3>Nuestra misión</h3>
+                <p>Facilitar el ejercicio de los derechos fundamentales ofreciendo documentos juridicos claros, confiables y pedagogicos que permitan a los ciudadanos actuar de forma autonoma, correcta y efectiva ante las autoridades</p>
+            </div>
+
+            <!-- Elemento: Bloqueo de vision dentro de la seccion mision.vision -->
+            <!-- Comentario Tecnico: Agrupa y presenta la vision de la organizacion, separado de la mision para mantener claridad semantica y visual -->
+            <!-- Funcion Tecnica: Permite mostrar los objetivos futuros de la plataforma, contribuyendo a la identidad institucional y facilitando estilos CSS independientes -->
+            <!-- Diccionario:
+                div | Contenedor generico | Agrupa el bloque individual de vision
+                class="item-mv" | Clase CSS | Identifica el bloque de vision para aplicar estilos especificos
+                h3 | Encabezado de tercer nivel | Titulo de la subseccion
+                p | Parrafo  descriptivo | Contenido que explica la vision instirucional -->
+            <div class="item-mv">
+                <h3>Nuestra visión</h3>
+                <p>Ser la plataforma colombina de referencia en documentos legales guiados, contribuyendo a una ciudadania informada, capaz de usar el drecho como herramienta cotidiana de proteccion y participacion</p>
+            </div>
+
+            <!-- Elemento: Cierre de seccion semantica <section> -->
+            <!-- Comentario Tecnico: Finaliza la seccion "mision-vision" que contiene los bloques de misison y vision de la organizacion -->
+            <!-- Funcion Tecnica: Mantiene la correcta jerarquica del DOM, separando claramente la seccion de objetivos institucionales de otras partes de la pagina -->
+            <!-- Diccionario: </section> | Etiqueta de cierre | Indica el final de un bloque tematico dentro del documento HTML -->
+        </section>
+
+        <!-- Elemento: SECCION SEMANTICA DE VALORES INSTITUCIONALES -->
+        <!-- Comentario Tecnico: Presenta de forma organizada los principios que guian la plataforma Legalis, usando encabezado y lista para mejorar claridad y legibilidad -->
+        <!-- Funcion Tecnica:
+            1) <section> agrupa el contenido tematico de los valores
+            2) <h3> titula la seccion para jerarquia semantica y SEO
+            3) <ul> y <li> permiten enumerar cada valor de forma clara y escaneable
+            4) <strong> resalta la palabra clave de cada valor para facilitar lectura rapida y comprension -->
+        <!-- Diccionario:
+            section | Etiqueta semantica HTML5 | Bloque tematico de contenido
+            h3 | Encabezado de tercer nivel | Titulo de la seccion de valores
+            ul | Lista no ordenada | Agrupa los valores sin indicar prioridad
+            li | Item de lista | Cada valor individual
+            strong | Enfasis fuerte | Destaca la palabra clave de cada valor para mayor legibilidad -->
+        <section class="valores">
+            <h3>Nuestros valores</h3>
+            <ul>
+                <li><strong>Accesibilidad:</strong> El derecho debe poder entenderse y utilizarse, no solo estudiarse </li>
+                <li><strong>Claridada:</strong> Cada plantilla esta diseñada para que el ciudadano sepa escribir, donde hacerlo y por qué</li>
+                <li><strong>Rigor juridico:</strong> Los documentos siguen estructura procesal real, no simples modelos genericos</li>
+                <li><strong>Educación:</strong> Mas que vender formatos, enseñamos como ejercer derechos correctamente</li>
+                <li><strong>Autonomia ciudadana:</strong> Buscamos que las personas puedan actuar sin miedo frente a las instituciones</li>
+            </ul>
+        </section>
+
+        <!-- Elemento: Seccion semantica "Sobre el proyecto" con descripcion y pasos de uso -->
+        <!-- Comentario Tecnico: Explica el origen, proposito y funcionamiento de Legalis, combinando parrafos descriptivos y lista ordenada para pasos a seguir -->
+        <!-- Funcion Tecnica:
+            1) <section> agrupa el contenido tematico del proyecto
+            2) <h3> establece los titulos de subseccion para jerarquia y SEO
+            3) <p> explica la motivacion y la utilidad de las plantillas
+            4) <ol> presenta secuencia clara de pasos que el usuario debe seguir, facilitando la comprension
+            5) <strong> enfatiza la propuesta de valor clave del proyecto -->
+        <!-- Diccionario:
+            section | Etiqueta semantica HTML5 | Bloque tematico del documento
+            h3 | Encabezado de tercer nivel | Titulo de la subseccion
+            p | Parrafo | Contenido descriptivo
+            ol | Lista ordenada | Presenta pasos secuenciales para completar un proceso
+            li | Item de lista | Cada paso individual dentro de la secuencia
+            strong | Enfasis fuerte | Destaca frases importantes dentro del texto -->
+        <section class="sobre-proyecto">
+            <h3>Sobre el proyecto</h3>
+            <p>Legalis surge desde el estudio del derecho aplicado a la realidad cotidiana: salud, educacion, servicios pubicos, pensiones, minimo vital, peticiones sin respuesta, entre otros.</p>
+            <p>Cada plantilla estaa pensada como una guia practica: no solo un documento para llenar, sino una herramienta para comprender el proceso.</p>
+            <h3>¿Cómo funciona?</h3>
+            <ol>
+                <li>El usuario identifica su situacion juridica</li>
+                <li>Descarga la plantilla de tutela adecuada en formato Word</li>
+                <li>Completa los espacios guiados paso a paso</li>
+                <li>Presenta el documento ante el juez competente</li>
+            </ol>
+            <p><strong>Sin lenguaje innecesariamente tecnico. Sin empezar desde cero. Sin improvisar</strong></p>
+        </section>
+
+    <!-- Elemento: Cierre de seccion semantica <section> -->
+    <!-- Comentario Tecnico: Finaliza la seccion "seccion-institucional" que contiene toda la informacion sobre la organizacion, incluyendo mision, vision, valores y descripcion del proyecto -->
+    <!-- Funcion Tecnica: Mantiene la jeraarquia y estructura del DOM, delimitaando claramente el bloque de contenido institucional de la pagina -->
+    <!-- Diccionario: </section> | Etiqueta de cierre | Marca el final de un bloque tematico que engloba multiples subsecciones relacionadas con la institucion -->
+    </section>
+
+<!-- Elemento: Cierre de bloque Jinja2 -->
+<!-- Comentario Tecnico: Finaliza el bloque "contenido" iniciado, que contiene toda la seccion institucional de la pagina -->
+<!-- Funcion Tecnica: Indica a Jinja2 donde termina el conenido especifico que reemplazara el bloque correspondiente en la plantilla base (base.html9) -->
+<!-- Diccionario:
+    Palabra clave de Jinja2 | Cierra un bloque definido previamente
+    Contenido | Nombre del bloque | Contien todo el HTML especifico de esta vista que se inyectara en la plantilla base -->
+    {% endblock %}

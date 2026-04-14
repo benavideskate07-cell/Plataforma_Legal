@@ -124,7 +124,7 @@
                         - {% if request.endpoint == "nosotros" %}activo{% endif %}: agrega la clase cuando
                         la visita actual es "nosotros", resaltando la opcion seleccionada. Permite visualmente la seccion activa del sistema.
                     -->
-                    <a href="/nostros" class="enlace-menu {% if request.endpoint == "nosotros" %}activo{% endif %}">Quienes Somos</a>
+                    <a href="{{ url_for("nosotros") }}" class="enlace-menu {% if request.endpoint == "nosotros" %}activo{% endif %}">Quienes Somos</a>
 
                 <!-- cierre de la seccion de navegacion principal del menu de visitantes -->
                 </nav>
@@ -139,7 +139,7 @@
                         - {% if request.endpoint == "registro" %}activo{% endif %}: agrega la clase "activo" cuando la pagina actual corresponde al endpoint "registro", resaltando el enlace.
                         Forma parte del modulo de autentificacion del sistema Legalis
                     -->
-                    <a href="/registro" class="enlace-menu {% if request.edpoint == "registro" %}activo{% endif %}">Registrarse</a>
+                    <a href="/regitro" class="enlace-menu {% if request.edpoint == "registro" %}activo{% endif %}">Registrarse</a>
 
                     <!-- Enlace de la zona de acceso que dirige a la vista de inicio de sesion (login)
                         - href="/ingreso": apunta al endpoint de autentificacion de usuarios
@@ -147,7 +147,7 @@
                         - {% if request.endpoint == "Ingreso" %}activo{% endif %} aprega la clase "activo" cuando la pagina actual corresponde al endpoint "ingreso", resaltando visualmente el enlace
                         Forma parte del modulo de control de acceso del sistema Legalis
                     -->
-                    <a href="/ingreso" class="enlace-menu {% if request.endpoint == "Ingreso" %}activo{% endif%}">Ingresar</a>
+                    <a href="/ingeso" class="enlace-menu {% if request.endpoint == "Ingreso" %}activo{% endif%}">Ingresar</a>
 
                 <!-- Cierre del contenedor de la zona de acceso de usuarios del encabezado -->
                 </div>

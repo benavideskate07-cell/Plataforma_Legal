@@ -12,6 +12,10 @@ from flask import Flask,render_template # type: ignore
 #Inicializa el servidor web y configura el contexto de la palicacion para menejar rutas, vistas y archivos estaticos
 app = Flask(__name__)
 
+# ================================================================
+# RUTA: INICIO- INDEX
+# ================================================================
+
 # Define la ruta principal del sitio ("/") y la asocia a una funcion que atendera las solicitudes HTTP de inicio
 # Indica que cuando un usuario accede a la URL raiz del proyecto, FLask ejecuta la funcion decorada para generar la respuesta correspondiente
 @app.route("/")
@@ -31,6 +35,10 @@ def inicio():
 # Verifica si el archivo se esta ejecutando directamente (no importa como modulo) para iniciar la aplicacion
 #Garantiza que el servidor Flask se ejecute unicamente cuando este archivo sea el programa principal, evitando que se inicie automaticamente si es importado desde otro modulo
 
+# ================================================================
+# RUTA: PREGUNTAS FRECUENTES
+# ================================================================
+
 # Elemento: Decorador de ruta de Flask (@app.route)
 #Comentario: Registra un punto de acceso (endpoint) en la aplicacion para la URL especifica "/preguntas"
 # Funcion Tecnica: Mapea la direccion que el usuario escribe en su navegador hacia una funcion logica en el backend
@@ -48,6 +56,28 @@ def preguntas():
     # Funcion Tecnia: Conecta la logica del servidor con la interfaz visual (frontend) para mostrar la pagina final al usuario
     # DICCIONARIO: Renderizador | Transforma codigo estatico en paginas dinamicas | El archivo mencionado DEBE existir dentro de la carpeta "templates" del proyecto
     return render_template("preguntas.html")
+
+# ==============================================================
+# RUTA: QUIENES SOMOS (IDENTIDAD INSTITUCIONAL)
+# ==============================================================
+
+# Elemento: Decorador de ruta en Flask
+# Comentario Tecnico: Asocia la URL "/nosotros" con la funcion que se define inmediatamente despues
+# Funcion Tecnica: Permite que cuando un usuario escriba /nosostros en el navegador, el servidor ejecute una funcion especifica
+# Diccionario: @app.route | Decorador que registra una direccion web (URL) en la aplicacion Flask | Siempre se coloca encima de la funcion que atendera esa ruta
+@app.route("/nosotros")
+
+# Elemento: Definicion de funcion en Python
+# Comentario Tecnico: Declara la funcion llamada "nosotros" que sera ejecutada cuando el usuario visiste la ruta asociada
+# Funcion Tecica: Contiene la logica que genera la respuesta del servidor para la pagina "Nosotros"
+# Diccionario : Funcion | Bloque de codigo reutilizable que se ejecuta cuando es llamado | En Flask representa una vista (view function)
+def nosotros ():
+
+    # Elemento: Funcion render_template de Flask
+    # Comentario Tecnico. Carga el archivo "nosotros.html" desde la carpeta templates y lo envia al navegador del usuario
+    # Funcion Tecnica: Genera la pagina web que vera el visitante al entrar a la seccion nosotros
+    # Diccionario: render_template | Funcion de Flask que convierte un archivo HTML en respuesta web | Permite mostrar paginas dinamicas
+    return render_template("nosotros.html")
 
 # Elemento: Condiconal de ejecucion principal (Boilerplate)
 # Comentario: Evalua la variable especial "_name_" para determinar si el script se esta ejecutando como el programa principal o si esta siendo importado como un modulo
