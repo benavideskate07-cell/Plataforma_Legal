@@ -52,7 +52,7 @@
     /* Comentario Tecnico: Define el tamaño del texto del titulo uasando la unidad rem */
     /* Funcion Tecnica: Hace que el titulo sea mas grande y destaque como encabezado principal */
     /* Diccionario: rem | Unidad de medida relativa al tamaño de fuente raiz del documento | Permite diseños mas adaptables y accesibles */
-    font-size: 2.2rem; /* 35.2 px */
+    font-size: 2.1rem; /* 35.2 px */
 
     /* Elemento: Propiedad CSS color */
     /* Comentario Tecnico: Establece el color del texto usando un codigo hexadecimal */

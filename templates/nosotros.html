@@ -22,6 +22,25 @@
 <!-- Diccionario:
     block | Estructura de Jinja2 que define una seccion editable | Permite sobreescribir cocntenido en plantillas heredadas
     contenido | Nombre del bloque principal del cuerpo de la pagina | Normalmente contiene todo HTML visible. endblock    | Cierre obligatorio del bloque | Indica dnde termina la seccion personalizada-->
+
+<!-- Elemento: Bloque Jinja2 paraa estilos adicionales especificos de la vista -->
+<!-- Comentario Tecnico: Permite inyectar hojas de estilo particulares dentro del <head> de la plantilla base sin modificar su estructura general -->
+<!-- Funcion Tecnica:
+    1)  block estilos_adicionales  abre un espacio personalizable definido en base.html
+    2) <link> conecta el archivo CSS especifico de esta vista
+    3) url_for("static" ...) genera la ruta correcta del archivo dentro del directorio /static
+    4)   endblock  cierre el bloque para Jinja2 procese correctamente la herencia -->
+<!-- Diccionario:
+    block estilos_adicionales | Bloque heredable | Permite agregar CSS adicional por la vista
+    link                      | Etiqueta HTML | Vincula unahoja de estilos externa
+    rel="styleheet"           | Relacion del recurso | Indica que el archivo es una hoja de estilo CSS
+    url_for                   | Funcion de Flask | Genera rutas dinamicas seguras
+    static                    | Carpeta publica | Directorio para archivos estaticos
+    nosotros.css              | Archivo CSS especifico | Contiene los estilos exclusivos de la vista "nosotros" -->
+{% block estilos_adicionales %}
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/nosotros.css") }}"
+{% endblock %}
+
 {% block contenido %}
 
     <!-- Elemento: Seccion semantica HTML de tipo institucional -->
