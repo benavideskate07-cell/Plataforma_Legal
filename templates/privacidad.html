@@ -1,0 +1,598 @@
+
+<!-- Elemento: Herencia de plantilla base -->
+<!-- Comentario Tecnico: .Indica que esta plantilla HTML extiende la estructura definida en "base.html" -->
+<!-- Funcion Tecnica: Permite reutilizar la estructura principal (header, footer, navegacion) y definir solo el contenido especifico de esta vista -->
+<!-- Rol Aruitectonico: Composicion jerarquica de vistas (Patron Template Inheritance) -->
+<!-- Diccionario:
+    | Delimitador Jinja2 | Indica una instruccion de control del motro de plantillas
+    extends        | Directiva Jinja2 | Establece que esta plantilla hereda de otra
+    base.html      | Plantilla padre  | Archivo que contine la estructura principal del sitio -->
+{% extends "base.html" %}
+
+<!-- Elemento: Bloque de titulo de pestaña -->
+<!-- Comentario Tecnico: Define el texto que se inserta en la etiqueta <title> del documento a traves de la plantilla base -->
+<!-- Funcion Tecnica: Personalizar el nombre mostrado en la pestaña del navegador y mejorar identificacion de la pagina -->
+<!-- Rol Aruitectonico: Parametro de configuracion del layout heredado -->
+<!-- Diccionario:
+    block          | Estructura Jinja2 | Area reemplazable dentro de la plantilla base
+    titulo_pestana | Identificador del bloque | Variable de titulo del documento
+    title          | Elemento HTML | Nombre visible en la pestaña del navegador -->
+{% block titulo_pestana %} Politica de Privacidad {% endblock %}
+
+<!-- Elemento: Declaracion de bloque de contenido -->
+<!-- Comentario Tecnico: Define una seccion reemplazable dentro de la plantilla heredada desde base.html -->
+<!-- Funcion Tecnica: Permite insertar contenido especiffico en el area designada por la plantilla padre, sin modificar su estructura global -->
+<!-- Rol Aruitectonico: Punto de extension de la vista (placeholder de composicion) -->
+<!-- Diccionario:
+    | Delimitador Jinja2 | Indica una instruccion de control del motor de plantillas
+    block         | Directiva Jinja2  | Declara una seccion editable dentro de la plantilla hija
+    contenido     | Nombre del bloque | Identificador que debe coincidir con el definido en la plantilla base -->
+{% block contenido %}
+
+    <!-- Elemento: Seccion legal del documento -->
+    <!-- Comentario Tecnico: Define un contenedor semantico tipo <section> identificado con clase "seccion-legal" -->
+    <!-- Funcion Tecnica: Agrupa el contenido juridico o informativo dentro de un bloque independiente para su organizacion y estilizacion -->
+    <!-- Rol Aruitectonico: Contenedor tematico de informacion normativa dentro de la vista -->
+    <!-- Diccionario: 
+        section         | Etiqueta HTML5 semantica | Representa un bloque tematico dentro del documento
+        class           | Atributo HTML | Permite asociar estilos o comportamiento al elemento
+        seccion-legal   | Nombre de clase | Identificador usado para aplicar estilos o scripts especificos -->
+    <section class="seccion-legal">
+
+        <!-- Elemento: Titulo principal del documento legal -->
+        <!-- Comentario Tecnico: Define un encabezado de nivel 1 (<h1>) que representa el titulo prncipal de la politica de tratamiento de datos personales -->
+        <!-- Funcion Tecnica: Establece la jerarquia maxima del contenido, permitiendo a navegadores, motores de busqueda y lectores de pantalla identificar el tema central de la pagina -->
+        <!-- Rol Aruitectonico: Identificador semantico del documento juridico digital -->
+        <!-- Diccionario:
+            h1 | Etiqueta HTML semantica | Encabezado principal del documento
+            POLITICA DE TRATAMIENTO DE DATOS PERSONALES - LEGALIS | Contenido textual | Nombre del documento legal centrado al usuario -->
+        <h1>POLITICA DE TRATAMIENTO DE DATOS PERSONALES - LEGALIS</h1>
+
+        <!-- Elemento: Contenedor de imagen representativa de la politica -->
+        <!-- Comentario Tecnico: Define un contenedor <div> que agrupa una imagen ilustrativa asociada al documento legal -->
+        <!-- Funcion Tecnica: Permite posicionar y estilizar la iamgen de forma independiente dentro de la seccion legal -->
+        <!-- Rol Aruitectonico: Recurso visual de apoyo informativo dentro de la vista -->
+        <!-- Diccionario:
+            div                     | Etiqueta HTML | Contenedor generico de agrupacion
+            class                   | Atributo HTML | Permite aplicar estilos CSS especificos
+            contenedor-imagen-legal | Nombre de clase | Identificador visual para estilos de imagenes legales -->
+        <div class="contenedor-imagen-legal">
+
+            <!-- Elemento: Imagen ilustrativa de proteccion de datos -->
+            <!-- Comentario Tecnico: Inserta una imagen cargada desde la carpeta desde la carpeta estatica usando la funcion url_for de Flask/Jinja2 -->
+            <!-- Funcion Tecnica: Muestra un recurso grafico que refuerza visualmente el contenido juridico de la pagina -->
+            <!-- Rol Aruitectonico: Recurso estatico servido por el backend -->
+            <!-- Diccionario:
+                img         | Etiqueta HTML  | Inserta una imagen en el documento
+                src         | Atributo HTML  | Define la ruta el archivo de imagen
+                | Expresion Jinja2 | Evalua codigo del servidor dentro del HTML
+                url_for()   | Funcion Flask  | Genera rutas dinamicas a archivos estaticos
+                "static"    | Endpoint Flask | Carpeta publica de recursos del sistema
+                filename    | Parametro      | Ubicacion del arcjhivo dentro de static
+                alt         | Atributo HTML  | Texto alternativo para accesibilidad -->
+            <img src="{{ url_for("static", filename="img/privacidad/privacidad.svg") }}" alt="Ilustracion de Proteccion de Datos Personales">
+
+            <!-- Elementto. Cierre del contenedor de imagen legal -->
+            <!-- Comentario Tecnico: Marca el fin del bloque que agrupa la imagen ilustrativa -->
+            <!-- Funcion Tecnica: Delimita la estructura del documento y evita interferencias de estilos con otros elementos -->
+            <!-- Diccionario: </div> | Etiqueta de cierre | Finaliza el contenedor HTML previamente abierto -->
+        </div>
+
+        <!-- Elemento: Articulo informativo legal -->
+        <!-- Comentario Tecnico: Define un contenedor semantico <article> que agrupa informacion juridica independiente dentro del documento -->
+        <!-- Funcion Tecnica: Organiza un bloque autonomo de contenido normativo que puede interpretarse de manera separada del resto del texto -->
+        <!-- Rol Arquitectonico: Unidad documental juridica dentro de la politica -->
+        <!-- Diccionario:
+            article       | Etiqueta HTML semantica | Representa contenido independiente reutilizable 
+            class         | Atributo HTML | Permite aplicar estilos especificos
+            bloque-legal  | Nombre de clase | Identificador de secciones normativas del documento -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Subtitulo de seccion juridica -->
+            <!-- Comentario Tecnico: Encabezado de nivel 2 que identifica la seccion de identificacion del responsable -->
+            <!-- Funcion Tecnica: Establece jerarquia normativa secundaria dentro del documento legal -->
+            <!-- Diccionario: h2 | Encabezado HTML | Titulo de seccion dentro del documento -->
+            <h2>IDENTIFICACION DEL RESPONSABLE DEL TRATAMIENTO</h2>
+
+            <!-- Elemento: Responsable del tratamiento -->
+            <!-- Comentario Tecnico: Parrafo que especifica el subjeto responsable del tratamiento de datos personales -->
+            <!-- Funcion Tecnica: Identificador juridicamente de las obligaciones legales -->
+            <!-- Diccionario:
+                p        | Etiqueta HTML | Parrafo de texto
+                strong   | Etiqueta HTML | Resaltaa texto con enfasis semantico -->
+            <p><strong>Responsable:</strong> LEGALIS</p>
+
+            <!-- Elemento: Parrafo informativo de identificacion -->
+            <!-- Comentario Tecnico: Etiqueta <p> que contieneun dato especifico del responsable del tratamiento -->
+            <!-- Funcion Tecnica: Informar la ubicacion juridica declarada del responsable dentro de la politica de privacidad -->
+            <!-- Rol Arquitectonico: No solo pone el texto en negrita visualmente. Semanticamente le dice al navegador:
+                "Este texto tiene relevancia estructural dentro del contenido" -->
+            <!-- Diccionario:
+                p        | Paragraph | Contenedor de texto en bloque
+                strong   | Enfasis semantico | Resalta texto con importancia estructural (no solo visual)
+                Domicilio| Concepto juridico | Lugar donde una persona o entidad se considera ubicada legaalmente -->
+            <p><strong>Domicilio:</strong> Colombia</p>
+
+            <!-- Elemento: Parrafo informativo de contacto -->
+            <!-- Comentario Tecnico: Etiqueta <p> que muestra el canal de comunicacion electronico del responsable del tratamiento -->
+            <!-- Funcion Tecnica: Proporcionar al titular un medio directo para ejercer dentro de la politica de privacidad -->
+            <!-- Rol Arquitectonico: Medio oficial de atencion al titular dentro de la politica de privacidad -->
+            <!-- Diccionario:
+                p      | Paragraph | Contenedor de texto en bloque
+                strong | Enfasis semantico | Resalta informacion relevante dentro del parrafo
+                Correo Electronico | Canal de comunicacion | Direccion digital para intercambio de mensajes
+                soporte@legalis.com | Dato de contacto | Buzon institucional de atencion al usuario -->
+            <p><strong>Correo Electronico de contacto:</strong> soporte@legalis.com</p>
+
+            <!-- Elemento: Parrafo informativo de sitio web -->
+            <!-- Comentario Tecnico: Etiqueta <p> que indica la direccion principal de acceso publico a la plataforma -->
+            <!-- Funcion Tecnica: Permitir al titular idnetificar el canl digital oficial donde se presta el servicio y se publica la informacion legal -->
+            <!-- Rol Arquitectonico: Idnetificador del entorno digital del responsable del tratamiento -->
+            <!-- Diccionario:
+                p         | Paragraph | Contenedor de texto en bloque
+                strong    | Enfasis semantico | Destaca el tipo de informacion presentada
+                sitio web | Recurso digital | Direccion publica de acceso al sevircio en internet
+                www.legalis.co | Dominio | Identificador unico del portal institucional -->
+            <p><strong>Sitio web:</strong> www.legalis.co</p>
+
+            <!-- Elemento: Parrafo declarativo normativo -->
+            <!-- Comentario Tecnico: Texto informativo que declara el fundamento juridico de la politica de tratamiento de datos -->
+            <!-- Funcion Tecnica: Establecer la base legal que legitama la ec¿xistencia del documento dentro del ordenamiento juridico aplicable -->
+            <!-- Rol Arquitectonico: Clausula de soporte normativo del documento legal -->
+            <!-- Diccionario:
+                p                | Paragraph | Contenedor de texto en bloque
+                cumplimiento     | Principio juridico | Actuacion conforme a la ley aplicable
+                Ley 1581 de 2012 | Norma juridica | Regimen colomniano de proteccion de datos personales
+                normas concordantes | Tecnica legislativa | Otras normas relacionada que complementan la ley principal
+                Olitica de tratamiento de Datos Personales | Socumento legal | Reglas sobre recoleccion, uso y proteccion de informacion personal -->
+            <p>En cumplimiento de lo dispuesto por la ley 1581 de 2012 y normas concordantes, LEGALIS adopta la presente Politica de tratamiento de Datos Personales </p>
+
+        <!-- Elemento: Cierre de articulo legal -->
+        <!-- Comentario Tecnico: Marca el final del bloque <article> que contiene una seccion tematica independiente dentro del documento -->
+        <!-- Funcion Tecnica: Delimitar estructuralmente la seccion juridica para evitar interferencias con otros bloques de contenido -->
+        <!-- Rol Arquitectonico: Separador semantico entre secciones de la politica de privacidad -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Finaliza un contenedor semantico de contenido autonomo -->
+        </article>
+
+        <!-- Elemento: Articulo de definiciones juridicas -->
+        <!-- Comentario Tecnico: Contenedor semantico <artivle> que agrupa el glosario interpretativo de la politica de tratamiento de datos -->
+        <!-- Funcion Tecnica: Centralizar las definiciones clave necesarias para la correcta interpretacion del documento legal -->
+        <!-- Rol Arquitectonico: Modulo de interpretacion normativa dentro de la politica de privacidad -->
+        <!-- Diccionario:
+            article       | Etiqueta semantica HTML | Representa contenido autonomo e independiente
+            class         | Atributo HTML | Permite asociar estilos o comportamientos mediante CSS o JS
+            bloque-legal   | Clase CSS | Identifica secciones juridicas dentro del documento -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Encabezado principal de la seccion -->
+            <!-- Comentario Tecnico: Titulo jerarquico de nivel 2 que introduce el glosario normativo -->
+            <!-- Funcion Tecnica: Delimitar visual y semanticamente la seccion de definiciones -->
+            <!-- Diccionario: h2 | Heading ivel 2 | Encabezado secundario dentro de la jeraquia del documento -->
+            <h2>DEFINICIONES RELEVANTES</h2>
+
+            <!-- Elemento: Parrafo introductorio -->
+            <!-- Comentario Tecnico: Texto contextual que anuncia el caracter interpretativo de los terminos listados -->
+            <!-- Funcion Tecnica: Establecer que las definiciones tienen afecto juridico dentro del documento -->
+            <!-- Diccionario: p | Contendor de texto en bloque -->
+            <p>Para efectos de la presente politica  se emtemdera por:</p>
+
+            <!-- Elemento: Lista de definiciones -->
+            <!-- Comentario Tecnico: Lista no ordenada que agrupa los conceptos juridicos fundamentales -->
+            <!-- Funcion Tecnica: Organizar de forma clara y estructurada los terminos definidos -->
+            <!-- Diccionario:
+                ul | Unordered List | Lidta sin numeracion jerarquica
+                li | Lista item | Elemento individual dentro de la lista -->
+            <ul>
+
+                <!-- Elemento: Definicion de Dato personal -->
+                <!-- Comentario Tecnico: Concepto base del regimen de proteccion de datos personales -->
+                <!-- Funcion Tecnica: Determinar el objeto principal de proteccion normativa -->
+                <!-- Diccionario:
+                    strong         | Ennfasis semantico | Destaca el termino fenidi 
+                    dato personal  | Concepto base del regimen de proteccion de datos personales -->
+                <li><strong>Dato Personal:</strong> Informacion vinculada o que pueda asociarse a una persona natural</li>
+
+                <!-- Elemento: Definicion de Dato sencible -->
+                <!-- Comentario Tecnico: Categoria especial de datos con proteccion reforzada -->
+                <!-- Funcion Tecnica: Identificar informacion que requier consentimiento expreso y tratamiento especial -->
+                <!-- Diccionario: Dato sensible | Categoria juridica especial | Informacion que afecta la intimidad o puede generar discrimninacion -->
+                <li><strong>Dato sensible:</strong> Informacion que afecta la intimidad del titular, como salud, orientacion politica, condicion socioeconomica o pertenencia a grupos protegidos</li>
+
+                <!-- Elemento: Definicion de tratamiento -->
+                <!-- Comentario Tecnico: Desribe las operaciones permitidas sobre datos personales -->
+                <!-- Funcion Tecnica: Delimitar el alcance operativo de la politica -->
+                <!-- Diccionario: Tratamiento | Operacion juridica | Cualquier accion sobre datos personales (recoleccion, uso, almacenamiento, etc) -->
+                <li><strong>Tratamiento:</strong> Recoleccion, almacenamiento, uso, circulacion o supresion de datos</li>
+
+                <!-- Elemento: Definicion de Titular -->
+                <!-- Comentario Tecnico: Identific el sujeto de derechos dentro del regimen de proteccion de datos -->
+                <!-- Funcion Tecnica: Determinar quien puede ejercer derechos frente al responsable -->
+                <!-- Diccionario: Titular | Sujeto de derecho | Persona natura propietaria de los datos personales -->
+                <li><strong>Titular:</strong> Persona natural cuyos datos personales son objeto de tratamiento</li>
+
+            <!-- Elemento: Cierre de lista -->
+            <!-- Comentario Tecnico: Finaliza la agrupacion de ocnceptos definidos -->
+            <!-- Funcion Tecnica: Cerra la estructura logica de la enumeracion -->
+            </ul>
+
+        <!-- Elemento: Cierre del articulo de definiciones -->
+        <!-- Comentario Tecnico: Marca el fin del bloque autonomo de interpretacion normativa -->
+        <!-- Funcion Tecnica: Separar esta seccion dedl resto del documento legal -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Finalizaa el contenedor semantico abierto previamente -->
+        </article>
+
+        <!-- Elemento: Articulo de alcance del tratamiento -->
+        <!-- Comentario Tecnico: Contenedor semantico que agrupa la descripcion de los datos personales recolectados por la plataforma -->
+        <!-- Funcion Tecnica: Definir materialmente el objeto del tratamiento de datos dentro de la politica -->
+        <!-- Rol Arquitectonico: Modulo de alcance informativo del tratamiento -->
+        <!-- Diccionario:
+            article      | Etiqueta semantica HTML5 | Contenido independiente dentro del documento
+            class        | Atributo HTML | Permite asociar estilos y logica
+            bloque-legal | Clase CSS | Identifica secciones juridicas estructuradas -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Encabezado principal de seccion -->
+            <!-- Comentario Tecnico: Titulo de segundo nivel que identifica la tematica de recoleccion de datos -->
+            <!-- Funcion Tecnica: Jerarquizar el contenido normativo del documento -->
+            <!-- Diccionario: h2 | Heeading nivel 2 | Encabezado secundario del documento -->
+            <h2>DATOS QUE RECOLECTA LEGALIS</h2>
+
+            <!-- Elemento: Parrafo introductorio -->
+            <!-- Comentario Tecnico: Describe el principio de minimizacion de datos aplicado por la plataforma -->
+            <!-- Funcion Tecnica: Informar al titular el alcance limitado del tratamiento -->
+            <!-- Diccionario:
+                p | Paragraph | Contenedor de texto en bloque
+                minimizacion de datos | Principio juridico | Solo se recolectan datos estrictamente necesarios -->
+            <p>LEGALIS recolecta unicamente los datos minimos necesarios para la compra, descarga y gestion de acceso a plantillas juridicas tipo accion de tutela, incluyendo:</p>
+
+            <!-- Elemento: Subtitulo categoria identificacion -->
+            <!-- Comentario Tecnico: Encabezado de nivel 3 que introduce la primera categoria de datos -->
+            <!-- Funcion Tecnica: Clasificar la informacion recolectada -->
+            <!-- Diccionario: h3 | Heading nivel 3 | Subencabezado -->
+            <h3>Datos de identificacion</h3>
+
+            <!-- Elemento: Lista de datos de identificacion -->
+            <!-- Comentario Tecnico: Agrupa los datos personales basicos del usuario -->
+            <!-- Funcion Tecnica: Organizar informacion en forma estructurada -->
+            <!-- Diccionario:
+                ul | Lista no ordenada | Enumeracion sin jerarquia numerica
+                li | Elemento de lista | Item individual -->
+            <ul>
+
+                <!-- Elemento: Nombre -->
+                <!-- Comentario Tecnico: Identificador directo del titular -->
+                <!-- Funcion Tecnica: Permitir individualizacion basica del usuario -->
+                <!-- Diccionario: Nombre | Dato personal | Permite identificar a una persona natural -->
+                <li>Nombre</li>
+
+                <!-- Elemento: Correo electronico -->
+                <!-- Comentario Tecnico: Medio igital de contacto del titular -->
+                <!-- Funcion Tecnica: Comunicacion y autentificacion del usuario -->
+                <!-- Diccionario: Correo electronico | Dato de contacto | Direccion digital unica del usuario -->
+                <li>Correo Electronico</li>
+
+            <!-- Elemento: Cierre lista identificacion -->
+            <!-- Comentario Tecnico: Finaliza la enumeracion de datos basicos -->
+            <!-- Funcion Tecnica: Cerrar estructura logica de la lista -->
+            </ul>
+
+            <!-- Elemento: Subtitulo categoria tecnica -->
+            <!-- Comentario Tecnico: Introduce la categoria de datos generados por interaccion tecnologica -->
+            <!-- Funcion Tecnica: Diferenciar datos personales de datos operativos -->
+            <!-- Diccionario: Datos tecnicos | Metadatos | Informacion generada por el uso del sistema -->
+            <h3>Datos tecnicos de acceso</h3>
+
+            <!-- Elemento: Lista de datos tecnicos -->
+            <!-- Comentario Tecnico: Agrupa los registros de actividad del sistema -->
+            <!-- Funcion Tecnica: Garantizar seguridad, auditoria y funcionamiento -->
+            <!-- Diccionario: ul | Lista no ordenada | Enumeracion estructurada -->
+            <ul>
+
+                <!-- Elemento: Direccion IP -->
+                <!-- Comentario Tecnico: Identificador de red del dispositivo -->
+                <!-- Funcion Tecnica: Seguridad informatica y trazabilidad -->
+                <!-- Diccionario: IP | Internet Protocol | Identificador unico de conexion en red -->
+                <li>Direccion IP</li>
+
+                <!-- Elemento: Tipo de navegador -->
+                <!-- Comentario Tecnico: Software cliente utilizado por el usuario -->
+                <!-- Funcion Tecnica: Compatibilidad tecnica del servicio -->
+                <!-- Diccionario: Navegador | Software |Programa que permite acceder a paginas web -->
+                <li>Tipo de navegador</li>
+
+                <!-- Elemento: Fecha y hora de acceso -->
+                <!-- Comentario Tecnico: Registro temporal de interaccion -->
+                <!-- Funcion Tecnica: Auditoria y registro de actividad -->
+                <!-- Diccionario: Timestamp | Marca temporal | Momento exacto de la accion -->
+                <li>Fecha y hora de acceso</li>
+
+                <!-- Elemento: Registro de descarga -->
+                <!-- Comentario Tecnico: Evidencia de obtencion del archivo -->
+                <!-- Funcion Tecnica: Control de acceso y licenciamiento -->
+                <!-- Diccionario: descarga | Evento del sistema | Accion de obtencion de un recurso digital -->
+                <li>Registro de descarga</li>
+
+            <!-- Elemento: Cierre lista tecnica -->
+            <!-- Comentario Tecnico: Finaliza la enumeracion de metadatos -->
+            <!-- Funcion Tecnica: Cerrar estructura logica -->
+            </ul>
+
+            <!-- Elemento: Clausula de exclusion de datos sensibles -->
+            <!-- Comentario Tecnico: Declaracion expresa de no recoleccion de informacion sensible ni del caso concreto -->
+            <!-- Funcion Tecnica: Delimitar responsabilidad y naturaleza de la plataforma -->
+            <!-- Rol Arquitectonico: Clausula de limitacion del tratamiento -->
+            <!-- Diccionario:
+                datos sencibles | Categoria especial | Informacion protegida reforzadamente
+                historia clinica | Dato de salud | Informacion medica protegida
+                documentos juridicos personalizados | Servicio profesional | Actividad reservada directo del derecho -->
+            <p>LEGALIS no solicita ni almacena informacion relacionada con los hechos del caso, datos medicos, historia clinica ni informacion sensible del usuario, toda vez que la plataforma no elabora documentos juridicos personalizados sino que provee formatos juridicos generales para diligenciamiento autonomo por parte del usuario. LEGALIS no utiliza la informacion para elaborar documetos juridicos ni para anilizar situaciones personales del usuario.</p>
+            
+        <!-- Elemento: Cierre del articulo -->
+        <!-- Comentario Tecnico: Finaliza el bloque autonomo de alcance del tratamiento -->
+        <!-- Funcion Tecnica: Separar esta seccion del resto de la politica -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Termina el contenedor semantico -->
+        </article>
+
+        <!-- Elemento: Articulo sobre tratamiento de datos sensibles -->
+        <!-- Comentario Tecnico: Contenedor semantico que regula la existencia o ausencia de tratamiento de categorias especiales de datos -->
+        <!-- Funcion Tecnica: Delimitar responsabilidad frente a informacion altamente protegida -->
+        <!-- Rol Arquitectonico: Modulo de exclusion de tratamiento reforzado -->
+        <!-- Diccionario:
+            article | Etiqueta semantica HTML5 | Contenido autonomo dentro del documento
+            bloque-legasl | Clase CSS | Identifica secciones juridicas estrcuturadas -->
+        <article class="bloque-legal">
+
+            <!-- Elemento. Encabezado principal -->
+            <!-- Comentario Tecnico: Titulo que identifica la seccio normativa relativa a datos sensibles -->
+            <!-- Funcion Teecnica: Establecer jerarquia tematica en la politica de privacidad -->
+            <!-- Diccionario: h2 | Heading nivel 2 | Encabezado secundario del documento -->
+            <h2>TRATAMIENTO DE DATOS SENSIBLES</h2>
+
+            <!-- Elemento: Declaracion de no tratamiento -->
+            <!-- Comentario Tecnico: Clausula expresa de inexistencia de recoleccion o uso de datos sensibles -->
+            <!-- Funcion Tecnica: Excluir responsabilidad por tratamiento de informacion especialmente protegida -->
+            <!-- Rol Arquitectonico: Clausula de exclusion absoluta de categoria especial -->
+            <!-- Diccionario:
+                datos sensibles | Categoria especial | Informacion que afecta intimidad o puede generar discriminacion
+                tratamiento     | Operacion juridica | Recoleccion, uso , almacenamiento o circulacion de datos -->
+            <p>LEGALIS no solicita ni realiza tratamiento de datos sensibles</p>
+
+            <!-- Elemento: Clausula de suministro voluntario -->
+            <!-- Comentario Tecnico: Regula el escenario en el que el usuario entrega datos sensibles sin ser requeridos -->
+            <!-- Funcion Tecnica: Transferir responsabilidad al titular y establecer eliminacion posterior -->
+            <!-- Rol Arquitectonico: Clasula de contingencia por suminustro espontaneo -->
+            <!-- Diccionario:
+                voluntariamente | Acto del titular | Entrega sin requerimiento del responsable
+                canales de comunicacion | Medio de contacto | E. correo electronico soporte
+                eliminacion     | Supresion de datos | Borrado posterior a la atencion de la solicitud -->
+            <p>En caso de que el usuario incluya voluntariamente informacion sensible en canales de comunicacion abiertos (ej. correo soporte), se entendera suministrada de manera espontanea y sera eliminada uuna vez atendida la solicitud.</p>
+
+        <!-- Elemento: Cierre del articulo -->
+        <!-- Comentario Tecnico: Finaliza la seccion autonoma de regulacion de datos sensibles  -->
+        <!-- Funcion Tecnica: Separar esta regla del resto del documento legal -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Termina el contenedor semantico -->
+        </article>
+
+        <!-- Elemento: Articulo de derechos del titular -->
+        <!-- Comentario Tecnico: Contenedor semantico que enumera las facultades del titular de los datos personales -->
+        <!-- Funcion Tecnica: Informar los derechos ejercibles frente al responsable del tratamiento -->
+        <!-- Rol Arquitectonico: Modulo de garantias del titular dentro de la politica de privacidad -->
+        <!-- Diccionario:
+            article       | Etiqueta semantica HTML5 | Contenido independiente del documento
+            bloque-legal  | Clase CSS | Identifica secciones juridicas estructuradas -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Encabezado principal -->
+            <!-- Comentario Tecnico: Titulo de la seccion que intorduce los derechos del titular -->
+            <!-- Funcion Tecnica: Delimitar el apartado de garantias legales del usuario -->
+            <!-- Diccionario: h2 | Heading nivel 2 | Encabezado secundario dentro del documento -->
+            <h2>DERECHOS DEL TITULAR</h2>
+
+            <!-- Elemento: Parrafo introductorio -->
+            <!-- Comentario Tecnico: Frase que anuncia la lista de derechos ejercibles -->
+            <!-- Funcion Tecnica: Conectar el encabezado con la enumeracion normativa -->
+            <!-- Diccionario:
+                titular | Sujeto de derecho | Persona natural propietaria de los datos personales
+                p       | Paragraph | Contenedor de texto en bloque -->
+            <p>El titular podra:</p>
+
+            <!-- Elemento: Lista de derechos -->
+            <!-- Comentario Tecnico: Enumeracion no ordenada de facultades legales del titular -->
+            <!-- Funcion Tecnica: Organizar de manera clara los derechos ejercibles -->
+            <!-- Diccionario:
+                ul | Lista no ordenada | Agrupa elementos sin numeracion jerarquica
+                li | Elemento de lista | Item individual de la enumeracion -->
+
+            <ul>
+
+                <!-- Elemento: Derecho de conocimiento, actualizacion y rectificacion -->
+                <!-- Comentario Tecnico: Permite al titular verificar y corregir su informacion -->
+                <!-- Funcion Tecnica: Garantizar exactitud de los datos personales -->
+                <!-- Diccionario:
+                    rectificar | Accion juridica | Corregir informacion inexacta
+                    actualizar | Accion juridica | Mantener datos vigentes -->
+                <li>Conocer, actualizar y rectificar sus datos personales.</li>
+
+                <!-- Elemento: Derecho de prueba de autorizacion -->
+                <!-- Comentario Tecnico: Permite exigir evidencia del consentimiento otrogado -->
+                <!-- Funcion Tecnica: Controlar la legalidad del tratamiento -->
+                <!-- Diccionario: autorizacion | Consentimiento | Permiso otrogado por el titular para tratar datos -->
+                <li>Solicitar prueba de la autorizacion otorgada.</li>
+
+                <!-- Elemento: Derecho de revocatoria y supresion -->
+                <!-- Comentario Tecnico: Faculta al titular para retirar el consentimiento y eliminar informacion -->
+                <!-- Funcion Tecnica: Garantizar control sobre la permanencia de los datos -->
+                <!-- Diccionario: 
+                    revocar   | Retirar consentimiento | Dejar sin efecto la autorizacion
+                    supresion | Eliminacion | Borrado definitivo del dato personal -->
+                <li>Revocar la autorizacion y/o solicitar la supresion del dato.</li>
+
+                <!-- Elemento: Derecho de queja ante autoridad -->
+                <!-- Comentario Tecnico: Permite acudir al ente de control en caso de incumplimiento -->
+                <!-- Funcion Tecnica: Garantizar supervision administrativa del tratamiento -->
+                <!-- Diccionario:
+                    queja |Mecanismo admiistrativo | Reclamo ante autoridad competente
+                    autoridad de proteccion de datos | Entidad supervisora | Vigila umplimiento de la normativa -->
+                <li>Presentar quejas ante la autoridad de proteccion de datos.</li>
+
+                <!-- Elemento: Derecho de acceso gratuito -->
+                <!-- Comentario Tecnico: Permite consultar la informacion sin costo -->
+                <!-- Funcion Tecnica: Asegurar transparencia del tratamiento -->
+                <!-- Diccionario: acceso | Derecho del titular | Consulta de informacion almacenada -->
+                <li>Acceder gratuitamente a sus datos personales.</li>
+
+            <!-- Elemento: Derecho de acceso gratuito -->
+            <!-- Comentario Tecnico: Permite consultar la informacion sin costo -->
+            <!-- Funcion Tecnica: Asegurar tranparencia del tratamiento -->
+            <!-- Diccionario: acceso | Derecho del titular | Consulta de informacion almacenada -->
+            </ul>
+
+        <!-- Elemento: Finaliza el bloque autonomo de derechos del titular -->
+        <!-- Funcion Tecnica: Separar esta seccion del resto del documento -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Termina el contenedor semantico -->
+        </article>
+
+        <!-- Elemento: Articulo de procedimiento de atencion -->
+        <!-- Comentario Tecnico: Contenedor semantico que describe el mecanismo para ejercer derechos de proteccion de datos -->
+        <!-- Funcion Tecnica: Establecer el canal y reglas operativas de atencion al titular -->
+        <!-- Rol Arquitectonico: Modulo procedimental dentro de la politica de privacidad -->
+        <!-- Diccionario:
+            article      | Etiqueta semantica HTML5 | Contenido independiente dentro del documento
+            bloque-legal | Clase CSS | Identifica secciones juridicas estructuradas -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Encabezado principal -->
+            <!-- Comentario Tecnico: Titulo que identifica el apartado de atencion de solicitudes -->
+            <!-- Funcion Tecnica: Delimitar la seccion procedimental del documento -->
+            <!-- Diccionario: h2 | Heading nivel 2 | Encabezado secundario del documento -->
+            <h2>PROCEDIMIENTO PARA CONSULTAS Y RECLAMOS</h2>
+
+            <!-- Elemento: Canal de solicitud -->
+            <!-- Comentario Tecnico: Indica el medio por el cual el titular puede ejercer sus derechos -->
+            <!-- Funcion Tecnica: Determinar el canl oficial de recepcion de solicitudes -->
+            <!-- Rol Arquitectonico: Punto de entrada del procedimiento -->
+            <!-- Diccionario: 
+                titular | Sujeto de derecho | Persona propietaria de los datos
+                solicitud | Actuacion del usuario | Peticion para ejercer derechos
+                strong | Enfasis semantico | Resalta el dato relevnte de contacto -->
+            <p>El titular podre ejercer sus derechos mediante solicitud al correo: <strong>soporte@legalis.com</strong></p>
+
+            <!-- Elemento: Parrafo intorductorio de plazos -->
+            <!-- Comentario Tecnico: Introduce los tiempos de respuesta del responsable -->
+            <!-- Funcion Tecnica: Informar la duracion maxima del tramite -->
+            <!-- Diccionario: tiempos de respuesta | Plazo juridico | Perico maximo para atender la solicitud -->
+            <p>Tiempos de respuesta:</p>
+
+            <!-- Elemento: Lista de plazos -->
+            <!-- Comentario Tecnico: Enumeracion de los terminos legales de atencion -->
+            <!-- Funcion Tecnica: Diferenciar tipos de solicitud y sus tiempos maximos -->
+            <!-- Diccionario: 
+                ul | Lista no ordenada | Agrupa sin enumeracion jerarquica
+                li | Elemento de lista | Item individual -->
+            <ul>
+
+                <!-- Elemento: Plazo para consultas -->
+                <!-- Comentario Tecnico: Tiempo maximo de respuesta para solicitudes informativas -->
+                <!-- Funcion Tecnica: Garantizar oportunidad de acceso a la informacion -->
+                <!-- Diccionario: 
+                    consultas | Solicitud informativa | Peticion para conocer datos
+                    dias habiles | Unidad temporal juridica | Dias laborales excluyendo festivos -->
+                <li><strong>Consultas:</strong> hasta 10 dias habiles</li>
+
+                <!-- Elemento: Plazo para reclamos -->
+                <!-- Comentario Tecnico: Tiempo maximo de respuesta para solicitudes correctivas -->
+                <!-- Funcion Tecnica: Garantizar solucion a inconformidades del titular -->
+                <!-- Diccionario: reclamos | Solicitud correctiva | Peticion de correccion, eliminacion o revocatoria -->
+                <li><strong>Reclamos:</strong> hasta 15 dias habiles</li>
+
+            <!-- Elemento: Cierre de lista -->
+            <!-- Comentario Tecnico: Finaliza la enumeracion de plazos procedimentales -->
+            <!-- Funcion Tecnica: Cerrar la estrcutura logica del listado -->
+            </ul>
+
+        <!-- Elemento: Cierre de articulo -->
+        <!-- Comentario Tecnico: Finaliza la seccion autonoma de procedimiento -->
+        <!-- Funcion Tecnica: Separar este modulo del resto de la politica -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Termina e contendor semantico -->
+        </article>
+
+        <!-- Elemento: Articulo de disposiciones finales -->
+        <!-- Comentario Tecnico: Contenedor semantico que agrupa seguridad, vigencia y modificacuones de la politica -->
+        <!-- Funcion Tecnica: Establecer garantias tecnicas y reglas de permanencia del tratamiento -->
+        <!-- Rol Arquitectonico: Modulo de cierrre normativo del documento -->
+        <!-- Diccionario:
+            article      | Etiqueta sematica HTML5 | Contenido autonomo del documento
+            bloque-legal | Clase CSS | Identifica secciones juridicas estructurales -->
+        <article class="bloque-legal">
+
+            <!-- Elemento: Encabezado seguridad -->
+            <!-- Comentario Tecnico: Titulo de la seccion de proteccion de informacion -->
+            <!-- Funcion Tecnica: Introducir las medidas de proteccion de datos -->
+            <!-- Diccionario: h2 | Heading nivel 2 | Encabezado secundario del documento -->
+            <h2>SEGURIDAD DE LA INFORMACION</h2>
+
+            <!-- Elemento: Clausula de seguridad -->
+            <!-- Comentario Tecnico: Describe medidas de proteccion aplicadas a los datos personales -->
+            <!-- Funcion Tecnica: Declarar deber de proteccion del responsable -->
+            <!-- Rol Arquitectonico: Garantia tecnica del tratamiento -->
+            <!-- Diccionario: 
+                medidas tecnicas        | Controles informaticos | Seguridad del sistema
+                medidas administrativas | Procedimientos internos | Gestion organizacional
+                acceso no autorizado    | Incidente de seguridad | Acceso sin permiso -->
+            <p>LEGALIS adopta medidas tecnicas, administrativas y organizacionales razonables para proteger los datos personales contra perdida, acceso no autorizado, alteracion o uso indebido.</p>
+
+            <!-- Elemento: Encabezado vigencia -->
+            <!-- Comentario Tecnico: Titulo que regula la duracion del tratamiento -->
+            <!-- Funcion Tecnica: Determinar tiempo de conservacion de datos -->
+            <h2>VIGENCIA</h2>
+
+            <!-- Elemento: Clausula de conservacion -->
+            <!-- Comentario Tecnico: Establece limite temporal del almacenamiento -->
+            <!-- Funcion Tecnica: Cumplir principio de temporalidad del dato -->
+            <!-- Diccionario: 
+                conservacion | Permanencia del dato | Tiempo de almacenamiento permitido
+                finalidad    | Proposito del tratamiento | Motivo legal de uso -->
+            <p>Los datos personales seran conservados unicamente durante el tiempo necesario para cumplir la finalidad del tratamiento y obligaciones legales aplicables.</p>
+
+            <!-- Elemento: Encabezado modificaciones -->
+            <!-- Comentario Tecnico: Titulo que regula cambios en la politica -->
+            <!-- Funcion Tecnica: Permitir actualizacion nomativa del documento -->
+            <h2>MODIFICACIONES</h2>
+
+            <!-- Elemento: Clausula de actualizacion -->
+            <!-- Comentario Tecnico: Autoriza la modificacion unilateral informada -->
+            <!-- Funcion Tecnica: Mantener vigente el documento frente a cambios legales o tecnicos -->
+            <!-- Diccionario: 
+                version bigente | Documento actual | Texto aplicable en el momento
+                sitio web       | Medio de publicacion | Canal oficial de informacion -->
+            <p>LEGALIS podra modificar la presente politica en cualquier momento. La version vigente estara publicada en el sitio web.</p>
+
+            <!-- Elemento: Fecha de entrada en vigor -->
+            <!-- Comentario Tecnico: Indica el momento desde el cual la politica produce efectos -->
+            <!-- Funcion Tecnica: Determinar inicio de obligatoriedad -->
+            <!-- Diccionario: 
+                strong | Enfasis semantico | Resalta informacion relevante
+                entrada en vigor | Inicio juridico | Momento de aplicacion de la norma -->
+            <p><strong>Fecha de entrada en vigor:</strong> [20/02/2026]</p>
+
+        <!-- Elemento: Cierre del articulo -->
+        <!-- Comentario Tecnico: Finaliza el bloque de disposiciones finales -->
+        <!-- Funcion Tecnica: Terminar la seccion normativa del documento -->
+        <!-- Diccionario: </article> | Etiqueta de cierre | Finaliza el contenedor semantico -->
+        </article>
+
+    <!-- Elemento: Cierre de seccion principal -->
+    <!-- Comentario Tecnico: Finaliza el contenedor <section> que agrupa todo el contenido de la politica de privacidad -->
+    <!-- Funcion Tecnica: Delimitar estructuralmente el final del bloque tematico dentro de la pagina -->
+    <!-- Rol Arquitectonico: Separador macro de contenido dentro del layout -->
+    <!-- Diccionario: </section> | Etiqueta de cierre | Termina un contenedor semantico de agrupacion tematica -->
+    </section>
+
+<!-- Elemento: Cieere de bloque de plantilla -->
+<!-- Comentario Tecnico: Finaliza el bloque definido en la plantilla hija que se inserta dentro de la plantilla base -->
+<!-- Funcion Tecnica: Indicar al motor Jinja2 donde termina el contenido reemplazable del layout -->
+<!-- Rol Arquitectonico: Punto de integracion con la plantilla principal (base.html) -->
+<!-- Diccionario: 
+    endblock | Instruccion Jinja2 | Marca el final de un bloque heredado
+    block    | Estructura de plantilla | Area reemplazable dentro de la herencia de plantillas -->
+{% endblock %}

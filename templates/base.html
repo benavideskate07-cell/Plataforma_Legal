@@ -170,6 +170,7 @@
             <!-- Bloque dinamico de Jinja2 para inyeccion de contenido. Las plantillas hijas que extienden de este archivo remlazan este bloque con su propio contenido, permitiendo reutilizar la estructura base del sistema Legalis. -->
             {% block contenido %}
 
+
             <!-- Cierre del bloque dinamico Jinja2 denominado "contenido". Marca el final de ña seccion que sera reemplazada por las plantillas hijas que entienden la estructura base del sistema Legalis. -->
             {% endblock %}
 
@@ -205,9 +206,18 @@
                 -->
                 <div class="enlaces-legales">
 
-                    <!-- Enlace a la Politica de Privacidad  DE Legalis. Permite al usuario consultar el tratamineto de datos personales, derechos, deberes y condiciones de proteccion de informacion. Incluye aria-label para accesibilidad y mejor navegacion con lectores de oantalla. El archivo href define la ruta interna del sistema.
-                    -->
-                    <a href="/politica-privacidad" aria-label="Ver politica de privacidad de Legalis">Politica de Privacidad</a>
+                    <!-- Elemento: Enlace interno a Politica de Privacidad -->
+                    <!-- Comentario Tecnico: Hipervinculo dinamico generado mediante url_for en Flask para dirigir a la vista "privacidad" -->
+                    <!-- Funcion Tecnica: Permitir navegacion interna segura y mantenible dentro de la aplicacion -->
+                    <!-- Rol Arquitectonico: Punto de acceso a documento legal desde menu, footer o seccion informativa -->
+                    <!-- Accesibilidad: aria_label mejora la experiencia para lectores de pantalla -->
+                    <!-- Diccionario:
+                        <a>           | Anchor | Elemento HTML para enlaces
+                        href          | Atributo | Define la URL de destino
+                        url_for       | Funcion Flask | Genera rutas dinamicamente segun el nombre de la vista
+                        aria-label    | Atributo ARIA | Describe el proposito del enlace para accesibilidad -->
+                    <a href="{{ url_for("privacidad") }}" aria-label="Ver politica de privacidad de Legalis">Politica de Privacidad</a>
+
 
                     <!-- Enlace a los terminos y Condiciones de Legalis. Define el marco contractual del uso de la plataforma. Incluye arial-label para accesibilidad y mejor navegacion con lectores de pantallas. El archivo href señala la ruta interna del sistema.
                     -->

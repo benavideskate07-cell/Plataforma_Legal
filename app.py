@@ -32,9 +32,6 @@ def inicio():
     # Carga el archivo HTML desde la carpeta templates, procesa sus bloques dinamicos con Jinja2 y devuelve la vista al cliente
     return render_template("index.html")
 
-# Verifica si el archivo se esta ejecutando directamente (no importa como modulo) para iniciar la aplicacion
-#Garantiza que el servidor Flask se ejecute unicamente cuando este archivo sea el programa principal, evitando que se inicie automaticamente si es importado desde otro modulo
-
 # ================================================================
 # RUTA: PREGUNTAS FRECUENTES
 # ================================================================
@@ -78,6 +75,37 @@ def nosotros ():
     # Funcion Tecnica: Genera la pagina web que vera el visitante al entrar a la seccion nosotros
     # Diccionario: render_template | Funcion de Flask que convierte un archivo HTML en respuesta web | Permite mostrar paginas dinamicas
     return render_template("nosotros.html")
+
+# ====================================================
+# RUTA: POLITICA DE PRIVACIDAD (LEGAL)
+# ====================================================
+
+# Elemento: Decorador de ruta para la polita de privacidad
+# Comentario Tecnico: Define la URL "/privacidad" que activara la funcion privacidad cuando un usuario acceda a esa direccion
+# Funcion Tecnica: Permite asociar una ruta especifica del sitio we con una funcion controladora dentro de la aplicacion Flask
+# Diccionario:
+    # @app.rpute()  | Decorador Flask | Asocia una URL con una funcion
+    # "/privacidad" | Ruta URL | Direccion a la que el usuario accede desde el navegador
+@app.route("/privacidad")
+
+# Elemento : Funcion controladora de la vistaa de politica de privacidad
+# Comentario Tecnico: Define la funcion que se ejecuta cuando el usario accede a la ruta indicada
+# Funcion tecnica: Actua como contorlador en el patron MVC (Modelo-Vista-Controlador),gestionando la solicitud y determinando que respuesta devolver
+# Diccionario:
+    # def        | Palabra reservada | Define una funcion en Python
+    # Privacidad | Nombre de funcion | Identificador interno de la vista
+def privacidad():
+
+    # Elemento: Renderizado de plantilla HTML
+    # Comentario Tecnico: Devuelve al navegador el archivo "privacidad.html" ubicado en la carpeta templates
+    # Funcion Tecnica: Genera la respuesta HTTP mostrando una vista HTML al usuario
+    # Diccionario:
+        # return        | Instruccion Python | Devuelve un valor como respuesta de la funcion
+        # render_template() |  Funcion Flask | Renderiza un archivo HTML desde la carpeta templates
+        # "privacidad.html" | Plantilla HTML | Archivo que contiene el contenido de la pagina
+    return render_template("privacidad.html")
+
+# ==============================================================
 
 # Elemento: Condiconal de ejecucion principal (Boilerplate)
 # Comentario: Evalua la variable especial "_name_" para determinar si el script se esta ejecutando como el programa principal o si esta siendo importado como un modulo
