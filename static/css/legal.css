@@ -1,0 +1,695 @@
+/* =============================================================== */
+/* ESTILOS MODULARES PARA DOCUMENTOS LEGALES (PRIVACIDAD/T&C)      */
+/* =============================================================== */
+
+/* 1. Contenedor Maestro de Lectura */
+
+/* Elemento. Selector de clase (.seccion-legal)
+Comentario Tecnico: Define una regla CSS que se aplicara a todos los elementos HTML que tengan esta clase
+Funcion Tecnica: Permitir reutalizacion del estilo en multiples vistas legales
+Rol Arquitectonico: Contenedor estructural principal de contenido juridico
+Diccionario:
+- . (punto) | Selector de clase | Indica que se esta estabilizando un clase
+- Seccion.legal | Identificador semanticoo | Nombre logico del bloque de contenido legal */
+.seccion-legal {
+
+    /* Elemento: max-width: 800px
+        Comentario Tecnico: Establece un ancho maximo fijo para el contenedor
+        Funcion Tecnica: Limitar la extension horizontal del texto para mejorar legibilidad
+        Rol Arquitectonico: Control de layut y experiencia de lectura
+        Diccionario:
+            - max-width | Propiedad CSS | Define el ancho maximo permitido
+            - 800px | Unidad absoluta | Medida en pixeles */
+        max-width: 800px;
+
+        /* Elemento: magin: 0 auto;
+            Comentario  Tecnico: Aplica margen superior/inferior 0 y laterales automaticos.
+            Funcion Tecnica: Centrar horizontalemnte el contenedor dentro del viewport
+            Rol Arquitectonico: Alineacion estructural central del layout
+            Diccionario:
+                - margin | Propiedad CSS | Controla espacio exterior del elemento
+                - 0 | Valor | Sin margen vertical
+                - auto | Valor automatico | Distribuye espacio restante en ambos lados */
+        margin: 0 auto;
+
+        /* Elemento: padding: 40px 20px;
+            Comentario Tecnico: Aplica espaciado interno (arriba/abajo 40px, lados 20px)
+            Funcion Tecnica: Separar el contenido del borde del contenedor
+            Rol Arquitectonico: Mejora de confort visual y jerarquia espacial
+            Diccionario:
+                - padding | Propiedad CSS | Conntrola espacio interno
+                - 40px | Valor vertical | Espaciado superior e inferior
+                - 20px | Valor horizontal | Espaciado lateral */
+        padding: 40px 20px;    /* Aire superior/inferior y en los bordes */
+
+        /* Elemento: color: #333333;
+            Comentario Tecnico: Define el color del texto dentor del contenedor
+            Funcion Tecnica: Reducir fatiga visual frente al negro puro (#000)
+            Rol Arquitectonico: Configuracion base tipografica del modulo legal
+            Diccionario: 
+                - color | Propiedad CSS | Establece color del texto
+                - #333333 | Codigo hexadecimal | Grris oscuro accesible */
+        color: #333333;
+
+/* Elemento: }
+Comentario Tecnico: Cierra el bloque de declaracion CSS  iniciado por el selector .seccion-legal
+Funcion Tecnica: Inidcar al parser de CSS el final del conjunto de propiedades aplicables
+Rol Arquitectonico. Delimitador de alcance de estilos dentro de la hoja de estilos
+Diccionario: 
+- } | Llave de cierre | Finaliza una regla CSS */
+}
+
+/* 2. Titulo Principal e Imagen */
+
+/* Elemento: Selector descendente de encabezado principal
+    Comentario Teecnico: Selecciona los elemetnos <h1> ubicados dentro de la seccion con clase "seccion-legal"
+    Funcion Tecnica. Aplicar estilos tipografiocs especificos unicamente al titulo principal del documento legal
+    Rol Arquitectonico: Define la jerarquia visual primaria dentro del modulo legal
+    Diccionario:
+        - .seccion-legal | Clase CSS | Contenedor principal del documento legal
+        - h1 | Etiqueta HTML | Encabezado de nivel 1, titulo principal
+        - Selector descendente | Tipo de selector | Aplica estilos a elementos hijos dentro de otro */
+.seccion-legal h1 {
+
+    /* Elemento: Alineacion horizontal del texto
+        Comentario Tecnico: Centra el contenido textual dentro del ancho disponible del contenedor
+        Funcion Tecnica: Mejorar la presentacion formal del encabezado principal
+        Rol Arquitectonico: Establece punto focal visual del documento
+        Diccionario:
+            -text-align | Propiedad CSS | Define alineacion horizontal del contenido inline
+            - center | Valor | Centrado horizontal; */
+    text-align: center;
+
+    /* Elemento: Tamaño de fuente del titulo
+        Comentario Tecnico. Define un tamaño tipografico superior al estanadar del documento
+        Funcion Tecnica: Diferenciar jerarquicamente al titulo principal del resto del contenido
+        Rol Arquitectonico: Nivel superior de jerarquia semantica visual
+        Diccionario:
+            - fon-size |Propiedad CSS | Define el tamaño de la letra
+            - rem | Unidad relativa | Basada en la fuente raiz del documento
+            - 2.2rem | Valor | Tamñao destacado para encabezado principal */
+    font-size: 2.2rem;
+
+    /* Elemento: Color tipografico del encabezado
+        Comentario Tecnico: Aplica un gris oscuro corporativo al titulo principal
+        Funcion Tecnica: Garantizar legibilidad y coherencia visual institucional
+        Rol Arquitectonico: Identidad visual del modulo legal
+        Diccionario:
+            -color | Propiedad CSS | Define el color del texto
+            - #1d1d1f | Valor hexadecimal | Gris oscuro casi negro */
+    color: #1d1d1f; /* Negro instituconal Legalis */
+
+    /* Elemento: Separacion del titulo
+        Comentario Tecnico: Genera espacio visual en la lectura juridica
+        Funcion Tecnica: Evitar saturacion visual en la lectura juridica
+        Rol Arquitectonico: Control del ritmo vertical de lectura
+        Diccionario:
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unida relativa | Basada en la raiz tipografica
+            - 2rem | Valor | Separacion am´plia para encabezados */
+    margin-bottom: 2rem;
+
+    /* Elemento: Altura de linea del encabezado
+        Comentario Tecnico: Ajusta el interlineado para titulos de varias lineas
+        Funcion Tecnica: Mantener legibilidad en titulos largos
+        Rol Arquitectonico: Optimizacion tipografica para documentos legales extensos
+        Diccionario:
+            - line-height | Propiedad CSS | Espacio vertical entre lineas
+            - 1.3 | Valor relativo | Interlineado compacto para encabezados */
+    line-height: 1.3;
+
+/* Elemento: Cierre de bloque
+    Comentario Tecnico. Finaliza la regla de estilos del selector .seccion-legal h1
+    Funcion Tecnica: Delimitar el alcance del conjunto de propiedades
+    Rol Arquitectonico: Limite estructural del modulo tipografico
+    Diccionario: - } | Llave de cierre | Finaliza la regla CSS */
+}
+
+/* Elemento: Selector de contenedor de imagen legal
+    Comentario Técnico: Selecciona el bloque que envuelve la ilustración dentro del documento legal.
+    Función Técnica: Permitir controlar la disposición espacial de la imagen institucional.
+    Rol Arquitectónico: Contenedor estructural de recurso gráfico explicativo dentro del documento.
+    Diccionario:
+        - contenedor-imagen-legal | Clase CSS | Wrapper del recurso grafico legal
+        - selector de clase | Tipo de selector | Aplica estilo a elementos con una clase especifica */
+.contenedor-imagen-legal {
+
+    /* Elemento: Alineación del contenido
+        Comentario Técnico: Centra horizontalmente la imagen dentro del contenedor.
+        Función Técnica: Mantener equilibrio visual en la composición del documento.
+        Rol Arquitectónico: Punto de descanso visual entre bloques textuales.
+        Diccionario:  
+        - text-align | Propiedad CSS | Define alineación horizontal del contenido inline.
+            - center | Valor | Centrado horizontal. */
+    text-align: center;
+
+    /* Elemento: Espaciado inferior del contenedor
+        Comentario Técnico: Genera separación amplia entre la imagen y el contenido posterior.
+            Función Técnica: Evitar saturación visual tras un elemento gráfico.
+            Rol Arquitectónico: Control del ritmo de lectura vertical del documento.
+            Diccionario:  
+                - margin-bottom | Propiedad CSS | Espacio externo inferior.
+                - rem | Unidad relativa | Basada en la fuente raíz del documento.
+                - 3rem | Valor | Separación grande entre secciones. */
+    margin-bottom: 3rem;
+
+/* Elemento: Cierre de bloque
+    Comentario Tecnico: Finaliza la regla dle contendor de imagen legal
+    Funcion Tecnica: Delimitar el alcance de los estilos aplicados
+    Rol Arquitectonico: Limite estructural del modulo grafico
+    Diccionario: - } | Llave de cierre | Finaliza una reglas CSS */
+}
+
+/* Elemento: Selector descendente de imagen
+    Comentario Tecnico: Selecciona las etiquetas <img> contendio dentro del contenedor de imagen legal
+    Funcion Tecnica: Aplicar reglas de adaptacion responsiva unicamente a la ilustracion juridica
+    Rol Arquitectonico: Control de comportamiento grafico dentro del modulo visual legal
+    Diccionario::
+        - .contenedor-imagen-legal | Clase CSS | Contenedor del recurso grafico
+        - img | Etiqueta HTML | Elemento de imagen incrustada
+        - Selector descendente | Tipo de selector | Aplica estilos a hijos del contenedor */
+.contenedor-imagen-legal img {
+
+    /* Elemento: Ancho maximo de la imagen
+        Comentario Tecnico: Limita el ancho de la imagen al tamaño disponible del contenedor
+        Funcion Tecnica: Evitar desbordamientos horizontales en pantallas pequeñas
+        Rol Arquitectonico. Adaptabilidad responsiva del recurso visual
+        Diccionario:
+            - max-width | Propiedad CSS | Define el ancho maximo permitido
+            - % | Unidad relativa | Basada en el ancho del contenedor padre
+            - 100% | Vlor | Ocupa todo el ancho disponible sin excederlo */
+    max-width: 100%;
+
+    /* Elemento: Altura proporcional automatica
+        Comentario Tecnico: Calcula la altura automaticamente segun la relacion de aspecto original
+        Funcion Tecnica: Evitar deformacion de la imagen al escalarse
+        Rol Arquitectonico: Preservacion de integridad visual del recurso grafico
+        Diccionario:
+            - heigth | Propiedad CSS | Define la altura del elemento
+            - auto | Valor | Ajuste automatico proporcional */
+    height: auto;
+
+/* Elemento: Cierre del bloque
+Comentario Tecnico: Finaliza la regla aplicada a las imagenes del contenedor legal
+Funcion Tecnica: Delimitar el alcance de los estilos
+Rol Arquitectonico: Limite estructural del comportamiento responsivo grafico
+Diccionario: - } | Llave de cierre | Finaliza una regla CSS */
+}
+
+
+/* 3. Diseño de Tarjetas para cada Articulo Legal */
+
+/* Elemento: Selector de bloque legal
+    Comentario Tecnico: Selecciona cada articulo o seccion juridica dentro del documento legal
+    Funcion Tecnica: Permitir visualmente cada apartado normativo
+    Rol Arquitectonico: Unidad modular de informacion juridica (equivalente a clasula o capitulo)
+    Diccionario:
+        - .bloque-legal | Clase CSS | Contenedor individual de contenido legal
+        - Selector de clase | Tipo de selector | Aplica estilos a elementos con esa clase */
+.bloque-legal {
+
+    /* Elemento: Color de fondo del bloque
+        Comentario Tecnico: Aplica fondo blanco del fondo general del sitio
+        Funcion Tecnica: Crear tarjeta visual de lectura tipo documento
+        Rol Arquitectonico: Crear tarjeta visual de cada seccion normativa
+        Diccionario:
+            - background | Propiedad CSS | Define color de fondo
+            - #ffffff | Valor hexadecimal | Blanco puro */
+    background-color: #ffffff;
+
+    /* Elemento: Borde perimetral
+        Comentario Tecnico: Dibuja un ocntorno gris calro alrededor del bloque
+        Funcion Tecnica: Delimitar visualmente cada seccion legal
+        Rol Arquitectonico: Separador estructural de modulos juridicos
+        Diccionario:
+            - border | Propiedad CSS | Define borde completo
+            - 1px | Unidad | Linea continua
+            - solid | Estilo | Linea continua
+            - #e5e5e5 | Color | Gris claro */
+    border: 1px solid #e5e5e5;  /* Borde gris muy sutil */
+
+    /* Elemento: Redondeo de esquinas
+        Comentario Tecnico: Suaviza las esquinas del bloque para estetica moderna
+        Funcion Tecnica: Reducir rigidez visual del documento legal digital
+        Rol Arquitectonico: Identidad visual de interfaz documental
+        Diccionario:
+            - border-radius | Propiedad CSS | Redondea esquinas del elemento
+            - px | Unida absoluta | Pixeles de pantalla
+            - 8px | Valoe | Redondeo moderado */
+    border-radius: 8px;
+
+    /* Elemento: Espaciado interno
+        Comentario Tecnico: Genera area respirable entre borde y contenido textual
+        Funcion Tecnica: Mejorar legibilidad en lectura prolongada
+        Rol Arquitectonico: Zona segura de lectura juridica
+        Diccionario:
+            - padding | Propiedad CSS | Espacio interno del contenedor
+            - px | Unidad absoluta | Medida fija
+            - 30px | Valor | Margen interno amplio */
+    padding: 30px;
+
+    /* Elemento: Separacion entre bloques
+        Comentario Tecnico: Añade espacio vertical entre articulos legales consecutivos
+        Funcion Tecnica: Evitar continuidad visual excesiva entre secciones
+        Rol Arquitectonico: Ritmo de lectura por capitulos
+        Diccionario: 
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad relativa | Basada en fuente raiz
+            - 2rem | Valor | Separacion media-alta */
+    margin-bottom: 2rem;     /* Separacion entre articulos */
+
+    /* Elemento: Sombre exterior
+        Comentario Tecnico: Proyecta sombra suave alrededor del bloque
+        Funcion Tecnica: Simular elevacion tipo tarjeta documental
+        Rol Arquitectonico: Jerarquizacion perceptual de secciones
+        Diccionario:
+            - box-shadow | Propiedad CSS | Sombra del elemento
+            - 0 | Desplazamiento horizontal
+            - 2px | Desplazamiento vertical
+            - 8px | Difuminado
+            - rgba | Modelo de color | Incluye transparencia
+            - 0.03 | Opacidad baja */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);  /* Sombra casi invisible para dar profundida */
+
+/* Elemento: Cierre de bloque
+Comentario Tecnico: Finaliza la definicion del modulo de bloque legal
+Funcion Tecnica: Delimitar alcance de estilos
+Rol Arquitectonico: Limite estructural del componente juridico
+Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* 4. Jerarquia Tipografica Interna */
+
+/* Elemento: Selector de subtitulo de seccion legal
+Comentario Tecnico: Selecciona los encabezados <h2> dentro de cada bloque legal
+Funcion Tecnica: Definir la apariencia de los titulos de cada apartado normativo
+Rol Arquitectonico: Nivel jerarquico secundario dentro del documento juridico
+Diccionario: 
+- .bloque-legal | Clase CSS | Contenedor del apartado legal
+- h2 | Etiqueta HTML | EN¿ncabezado de nivel 2 (subtitulo)
+- Selector descendente | Tipo de selector | Aplica estilos a hijos del bloque */
+.bloque-legal h2 {
+
+    /* Elemento: Tamaño del subtitulo
+        Comentario Tecnico: Establece tamaño mayor que el texto normal pero menor que el titulo principal
+        Funcion Tecnica: Diferenciar encabezados de seccion sin competir con el h1
+        Rol Arquitectonico: Jerarquia tipografica intermedia
+        Diccionario: 
+            - font-size | Propiedad CSS | Tamaño del texto
+            - rem | Unidad relativa | Basada en fuente raiz
+            - 1.4rem | Valor | Tamaño de subtitulo */
+    font-size: 1.4rem;
+
+    /* Elemento: Color tipografico del subtitulo
+        Comentario Tecnico: Aplica el color corporativo oscuro a los encabezaados de seccion
+        Funcion Tecnica: Mantener coherencia visual institucional
+        Rol Arquitectonico: Identidad visual del documento legal
+        Diccionario: 
+            - color | Propiedad CSS | Define color del texto
+            - #1d1d1f | Valor hexadecimal | Gris oscuro corporativo */
+    color: #1d1d1f; /* Color corporativo Legalis */
+
+    /* Elemento: Separacion inferior del subtitulo
+        Comentario Tecnico: Genera espacio entre subtitulo y el contenido del apartado
+        Funcion Tecnica: Evitar proximidad excesiva entre encabezado y texto
+        Rol Arquitectonico: Ritmo vertical de lectura
+        Diccionario: 
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad relativa | Basada en la raiz tipografica
+            - 1.2rem | Valor | Separacion media */
+    margin-bottom: 1.2rem;
+
+    /* Elemento: Linea divisoria inferio
+        Comentario Tecnico: Dibuja una linea horizontal debajo del subtitulo
+        Funcion Tecnica: Separar visualmente encabezado y contenido
+        Rol Arquitectonico: Marcador estructural de inicio de seccion
+        Diccionario:
+            - border-bottom | Propiedad CSS | Bprde inferior
+            - 2px | Grosor | Espesor de la linea
+            - solid | Estilo | Linea continua
+            - #f0f0f0 | Color | Gris muy claro divisorio */
+    border-bottom: 2px solid #f0f0f0; /* Linea divisoria debajo del subtitulo */
+
+    /* Elemento: Espacio interno inferior
+        Comentario Tecnico: Separa el texto del subtitulo de la linea divisoria
+        Funcion Tecnica: Evitar contacto visual directo entre texto y borde
+        Rol Arquitectonico: Ajuste microtipografico de legibilidad
+        Diccionario: 
+            - padding-bottom | Propiedad CSS | Espacio interno inferior
+            - px | Unidad absoluta | Medida fija
+            - 10px | Valor | Separacion corta controlada */
+    padding-bottom: 10px;
+
+/* Elemento: Cierre de bloque
+    Comentario Tecnico: Finaliza la regla aplicada a los subtitulos de los bloques legales
+    Funcion Tecnica: Delimitar el alcance del estilo
+    Rol Arquitectonico: Limite estructural del nivel jerarquico secundario
+    Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* Elemento: Selector de subtitulo terceario
+    Comentario Tecnico: Selecciona los encabezados <h3> dentro de cada bloque legal
+    Funcion Tecnica: Estilizar subtitulos internos de subsecciones
+    Rol Arquitectonico Nivel jerarquico terceario dentro de la estructura normativa
+    Diccionario: 
+        - .bloque.legal | Clase CSS | Contenedor del apartado legal
+        - h3 | Etiqueta HTML | Encabezado de nivel 3
+        - Selector descendente | Tipo de selector | Aplica estilos a elementos hijos */
+.bloque-legal h3 {
+
+    /* Elemento: Tamaño del subtitulo interno
+        Comentario Tecnico: Define un tamaño intermedio entre el texto normal y el h2
+        Funcion Tecnica: Diferenciar subapartados sin romper la jerarquia visual
+        Rol Arquitectonico: Microjerarquia de informacion juridica
+        Diccionario: 
+            - font-size | Propiedad CSS | Tamaño del texto
+            - rem | Unidad relativa | Basada en la fuente raiz
+            - 1.15re | Valor | Tamaño moderado de subtitulo interno */
+    font-size: 1.15rem;
+
+    /* Elemento: Color del subtitulo
+        Comentario Tecnico: Aplica el color corporativo oscuro
+        Funcion Tecnica: Mantener coherencia tipografica institucional
+        Rol Arquitectonico: Uniformidad visual del documento legal
+        Diccionario:
+            - color | Propiedad CSS | Define el color del texto
+            - #1d1d1f | Valor hexadecimal | Gris oscuro corporativo */
+    color: #1d1d1f;
+
+    /* Elemento: Separacion superior
+        Comentario Tecnico: Genera espacio antes del subtitulo interno
+        Funcion Tcnica: Indicar inicio de nueva subseccion
+        Rol Arquitectonico: Marcador de cambio tematico dentro del apartado
+        Diccionario:
+            - margin-top | Propiedad CSS | Espacio externo superior
+            - rem | Unidad relativa | Basada en fuente raiz
+            - 1.5rem | Valor | Separacion media-alto */
+    margin-top: 1.5rem;
+
+    /* Elemento: Separacion inferior
+        Comentario Tecnico. Separa el subtitulo del contenido inmediato
+        Funcion Tecnica. Evitar agrupacion visual excesiva
+        Rol Arquitectonico: Control del ritmo de lectura interna
+        Diccionario: 
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad relativa | Basada en fuente raiz
+            - 0.8rem | Valor | Separacion corta */
+    margin-bottom: 0.8rem;
+
+/* Elemento. Cierre de bloque
+    Comentario Tecnico: Finaliza la regla de estilos del h3 dentro del bloque legal
+    Funcion Tecnica: Delimitar el alcance de la configuracion tipografica
+    Rol Arquitectonico: Limite estructural de la subseccion
+    Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* Elemento: Selector de parrafos dentro del bloque legal
+    Comentario Tecnico: Selecciona todos los elementos <p> contenidos en cada bloque legal
+    Funcion Tecnica: Establecer formato de lectura juridica para el cuerpo del texto
+    Rol Arquitectonico: Capa principal de contenido normativo descriptivo
+    Diccionario:
+        - .bloque-legal | Clase CSS | Contenedor del apartado juridico
+        - p | Etiqueta HTML | Parrafo de texto
+        - Selector descendente | Tipo de selector | Aploca estilos a hijos del contenedor */
+.bloque-legal p {
+
+    /* Elemento: Interlineado del texto
+        Comentario Tecnico: Amplica la separacion vertical entre lineas del parrafo
+        Funcion Tecnica: Facilitar lectura prolongada de contenido legal
+        Rol Arquitectonico: Optimizacion de legibilidad documental
+        Diccionario: 
+            - line-height | Propiedad CSS | Altura de linea del texto
+            - 1.7 | Valor relativo | Interlineado amplio para lectura contitnua */
+    line-height: 1.7;      /* Interlineado amplio vital para textos largos */
+
+    /* Elemeto: Color de texto
+        Comentario Tecnico: Aplica gris medio para reducir fatiga visual frente a negro puro
+        Funcion Tecnica: Mejorar confort de lectura en textos extensos
+        Rol Arquitectonico: Tipografia secundaria del documento
+        Diccionario: 
+            - color | Propiedad CSS | Define el color del texto
+            - #555555 | Valor hexadecimal | Gris medio legible */
+    color: #555555;
+
+    /* Elemento: Separacion entre parrafos 
+        Comentario Tecnico: Añade espacio inferior entre bloque de texto consecutivos
+        Funcion Tecnica: Evitar saturacion de informacion
+        Rol Arquitectonico: Ritmo vertical de lectura juridica
+        Diccionario:
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad relativa | Basada en la raiz tipografica
+            - 1rem | Valor | Separacion estandar de parrafos */
+    margin-bottom: 1rem;
+
+    /* Elemento: Justificacion del texto
+        Comentario Tecnico: Alinea el texto uniformemente a ambos margenes
+        Funcion Tecnica: Simular formato tradicional de documento juridico impreso
+        Rol Arquitectonico: Formalidad documental digital
+        Diccionario: 
+            - text-align | Propiedad CSS | Alineacion horizontal del texto
+            - justify | Valor | Ajusta texto a ambos margenes */
+    text-align: justify;   /* Justificamos el texto legal para formalidad */
+
+/* Elemento: Cierre de bloque
+Comentario Tecnico: Finaliza la regla aplicada a los parrafos del bloque-legal
+Funcion Tecnica: Delimitar el alcance del formato textual
+Rol Arquitectonico: Limite estructural del cuerpo del documento
+Diccionario:
+- } | Llave de cierre | Finaliza regla CSS
+ */
+}
+
+/* 5. Lista de Datos y Condiciones */
+
+/* Elemento: Selector combinado de listas
+    Comentario Tecico: Selecciona listas no ordenadas (<ul>) y ordenadas (<ol>) y dentro del bloque legal
+    Funcion Tecnica: Unificar el estilo visual de enumeraciones juridicas
+    Rol Arquitectonico: Respresentacion estructurada de informacion normativa (literales y numerales)
+    Diccionario: 
+        - bloque-legal | Clase CSS | Contenedor del contenido legal
+        - ul | Etiqueta HTML | Lista no ordenada (viñetas)
+        - ol | Etiqueta HTML | Lista ordenada (numeracio)
+        - Selector multiple | Tipo de selector | Aplica mismas reglas a varios elementos */
+.bloque-legal ul,
+.bloque-legal ol {
+
+    /* Elemento: Sangria de lista
+        Comentario Tecnico: Desplaza la lista hacia la derecha respecto del parrafo
+        Funcion Tecnica: Diferenciar visualmente enumeraciones del texto corrido
+        Rol Arquitectonico: Equivalente digital de literales juridicos sangrados
+    Diccionario: 
+        - margin-left | Propiedad CSS | Espacio externo izquierdo
+        - px | Unidad absoluta | Medida fija
+        - 20px | Valor | Sangria estandar de lista */
+    margin-left: 20px;
+
+    /* Elemento: Separacion inferior
+        Comentario Tecnico: Añade espacio despues de la lista
+        Funcion Tecnica: Evitar continuidad visual con el siguiente parrafo
+        Rol Arquitectonico Contorl del ritmo de lectura normativa
+        Diccionario: 
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad Relativa | Basada en fuente raiz
+            - 1rem | Valor | Separacion media */
+    margin-bottom: 1rem;
+
+    /* Elemento: Color del texto de lista
+        Comentario Tecnico: Mantiene coherencia cromatica con los parrafos del documento
+        Funcion Tecnica: Homogenizar el cuerpo textual
+        Rol Arquitectonico: Uniformidad tipografica documental
+        Diccionario: 
+            - color | Propiedad CSS | Define color del texto
+            - #555555 | Valor hexadecimal | Gris medio legible */
+    color: #555555;
+
+/* Elemento: Cierre del bloque
+    Comentario Tecnico: Finaliza la regla de listas dentro del bloque legal
+    Funcion Tecnica: Delimitar alcance del estilo
+    Rol Arquitectonico: Limite estructural de enumeraciones juridicas
+    Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* Elemento: Selector de items de lista
+    Comentario Tecnico: Selecciona cada elemento <li> dentro de listas del bloque legal
+    Funcion Tecnica: Ajustar la lectura de literales y numerales juridicos
+    Rol Arquitectonico: Unidad minima de enumeracion normativa
+    Diccionario: 
+        - .bloque-legal | Clase CSS | Contenedor del contenido legal
+        - li | Etiquetad HTML | Elemento individual de lista
+        - Selector descendente | Tipo de selector | Aplica estilos a hijos del contenedor */
+.bloque-legal li {
+
+
+    /* Elemento: Separacion entre items
+        Comentario Tecnico: Genera espacio vertical entre cada literal de la lista
+        Funcion Tecnica: Evitar que los puntos enumerados se perciban como un solo parrafo
+        Rol Arquitectonico: Claridad estructural de obligaciones/drechos listados
+        Diccionario: 
+            - margin-bottom | Propiedad CSS | Espacio externo inferior
+            - rem | Unidad relativa | Basada en fuente raiz
+            - 0.6rem | Valor | Separacion corta contralada */
+    margin-bottom: 0.6rem;
+
+    /* Elemento: Interlineado del item
+        Comentario Tecnico: Ajusta el espacio interno de cada elemento de lista
+        Funcion Tecnica: Mejorar legibilidad de enumeraciones extensas
+        Rol Arquitectonico: Legibilidad de enumeraciones extensas
+        Diccionario: 
+            - line-height | Propiedad CSS | Altura de linea del texto
+            - 1.6 | Valor relativo | Interlineado medio */
+    line-height: 1.6;
+
+/* Elemento: Cierre de bloque
+    Comentario Tecnico: Finaliza la regla aplicada a los elementos de lista
+    Funcion Tecnica: Delimitar el alcance de la configuracion tipografica
+    Rol Arquitectonico: Limite estrcutural de enumeraciones
+    Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* Elemento: Selector de texto enfatizado
+    Comentario Tecnico: Selecciona las etiquetas <strong> dentro del bloque legal
+    Funcion Tecnica: Resaltar terminos juridicos relevantes dentro del texto
+    Rol Arquitectonico: Marcador semantico de conceptos clave (sujeto, derecho, obligacion)
+    Diccionario: 
+        - .bloque-legal | Clase CSS | Contenedor del contenido legal
+        - strong | Etiqueta HTML | Texto con enfasis semantico fuerte
+        - Selector descendente | Tipo de selector | Aplica estilos a hijos del contenedor */
+.bloque-legal strong {
+
+    /* Elmento: Color del texto destacado
+        Comentario Tecnico: Aplica el color principal institucional a palabras enfatizadas
+        Funcion Tecnica: Diferenciar conceptos juridicos relevantes del texto base
+        Rol Arquitectonico: Jerarquia semantica dentro del parrafo
+        Diccionario: 
+            -color | Propiedad CSS | Define el color del texto
+            - #1d1d1f | Valor hexadecimal | Gris oscuro corporativo */
+    color: #1d1d1f;  /* Resaltar las palabras clave en oscuro */
+
+/* Elemento: Cierre de bloque
+Comentario Tecnico. Finaliza la regla de resaltado semantico
+Funcion Tecnica: Delimitar alcance del estilo aplicado al enfasis
+Rol Arquitectonico: Limite estructural del marcador conceptual
+Diccionario: - } | Llave de cierre | Finaliza regla CSS */
+}
+
+/* 6. Adaptabilidad Movil (Responsabilidad) */
+
+/* Elemento: Media Query responsiva
+    Comentario Tecnico: Aplica regla CSS unicamente cuando el ancho del viewport sea igual o menor a 768 pixeles
+    Funcion Tcnica: Adaptar el diseño a dispositivos moviles y tablets
+    Rol Arquitectonico: Capa de responsividad del sistema de estilos
+    Diccionario: 
+        - @media | Regla CSS | Permitir aplicar estilos condicionales
+        - max-width | Condicion | Define ancho maximo del viewport
+        - 768px | Breakpointi | Punto eestandar para dispositivos moviles/tablets */
+@media (max-width: 768px) {
+
+    /* Elemento: CContenedor principal del la seccion legal
+        Comentario Tecnico: Selecciona el contenedor raiz donde se renderiza todo el documento juridico
+        Funcion Tecnica: Definir el marco visual del documento (ancho, margenes, tipografia base)
+        Rol Arquitectonico: Layout principal del modulo documental legal
+        Diccionario: 
+            - .seccion-legal | Clase CSS | Wrapper general del contenido legal
+            - Selector de clase | Tipo de selector | Aplica estilos al contenedor identificado */
+    .seccion-legal {
+
+        /* Elemento: Espaciado interno reducido
+            Comentario Tecnico: Disminuye padding respeto a escritorio
+            Funcion Tecnica: Aprovechar mejor el ancho limitado en movil
+            Rol Arquitectonico: Comprension controlada del layout
+            Diccionario: 
+                - padding | Propiedad CSS | Espacio interno
+                - 20px | Valor vertical | Reduce separacion superior/inferior
+                - 15px | Valor horizontal | Ajusta margenes laterales */
+        padding: 20px 15px;
+
+    /* Elemento: Cierre del contenedor principal legal
+        Comentario Tecnico: Finaliza la difinicion de estilos aplicada al wrapper general del docuemtno juridico
+        Funcion Tecnica: Delimitar el alcance de las reglas visuales del modulo legal
+        Rol Arquitectonico. Limite estructural del layout documental
+        Diccionario: - } | Llave de cierre | Termina la regla CSS asociada al selector .seccion-legal */
+    }
+
+    /* Elemento: Titulo principal del documento legal
+        Comentario Tecnico: Selecciona el encabezado <h1> contenido dentro del contenedor de la seccion legal
+        Funcion Tecnica: Aplicar la configuracion tipografica principal del documento juridico
+        Rol Arquitectonico: Nivel jerarquico superior de la la estructura normativa digital
+        Diccionario: 
+            - .seccion-legal | Clase CSS | Contendor principal del documento
+            - h1 | Etiqueta HTML | Encabezado principal del contenido
+            - Selector descendente | Tipo de selector | Aplica estilos al hijo dentro del contenedor */
+    .seccion-legal h1 {
+
+        /* Elemento: Tamaño tipografico del titulo principal
+            Cometario Tecnico: Establece el tamaño del encabezado principal dentro de la seccion legal
+            Funcion Tecnica: Mantener jerarquia visual clara sin ocupar exceso de espacio en pantallas reducidas
+            Rol Arquitectonico: Escalamiento tipografico del nivel jerarquico superior
+            Diccionario: 
+                - font-sixe | Propiedad CSS | Define el tamaño del texto
+                - rem | Unidad relativa | Basada en el tamaño de fuente raiz del documento
+                - 1.8rem | Valor | Tamaño optimizado para visualizacion compacta */
+        font-size: 1.8rem;
+
+    /* Elemento: Cierre del bloque .seccion-legal
+        Comentario Tecnico: Llave de cierre que finaliza el bloque de declaraciones CSS asociado al selector .seccion-legal
+        Funcion Tecnica: Indicar al motor de renderizado que han concluido las reglas aplicables a la clase .seccion-legal
+        Rol Arquitectonico. Delimitador estructural de bloque dentro de la hoja de estilos
+        Diccionario: 
+            - } | Delimitador de cierre | Marca el final de un bloque de reglas CSS
+            - Bloque CSS | Estructura | Conjunto de declaraciones contenidas entre llaves */
+    }
+
+    /* 
+        Elemento: Contenedor de bloque juridico (.bloque-legal)
+        Comentario Tecnico: Define un espaciado interno reducido para el contenedor legal,
+        generalmene aplicado en contexto responsive (ej. media query)
+        Funcion Tecnica: Optimizar la distribucion del contenido en pantallas pequeñas,
+        evitando saturacion visual y mejorando la legibilidad
+        Rol Arquitectonico: Ajuste adaptativo del componente legal dentro del sistema
+        de diseño responsivo
+        Diccionario: 
+            - bloque-legal | Clase CSS | Identificador del contenedor de contenido juridico
+            - padding | Propiedad CSS | Controla el espcaio interno entre el borde y el contenido
+            - 20px | Unidad absoluta | Valor fijo de espaciado en pixeles
+            - {} | Delimitadores | Definen el inicio y fin del bloque de reglas */
+    .bloque-legal {
+        padding: 20px;       /* Reducimos el aire interno en celulares */
+    }
+
+    /* Elemento: Parrafos internos del bloque juridico (.bloque-legal p)
+    
+        Comentario Tecnico: Sobrescribe la alineacion general del texto para los parrafos
+        contenidos dentro del bloque legal, estableciendo alineacion a la izquiera
+        
+        Funcion Tecnica: Mejorar la legibilidad en pantallas pequeñas o contextos
+        donde la justificacion completa puede generar espacios irregulares entre palabras
+        
+        Rol Arquitectonico: Ajuste tipografico contextual dentro del componente
+        legal en el sistema responsive
+        
+        Diccionario:
+            - .bloque-legal | Clase CSS | Contenedor del contenido normativvo
+            - p | Elemento HTML | Representa un parrafo de textopo
+            - text-align | Propiedad CSS | Define la alineacion horizontal del texto
+            - left | Valor | Alineacion del texto al margen izquierdo
+            - {} | Delimitadores | Encapsulas las declaraciones CSS*/
+    .bloque-legal P {
+        text-align: left;   /* En celulares es mejor alinear a la izquierda que justificar */
+    }
+
+/* 
+    Elemento: Cierre de regla condicional @media
+    
+    Comentario Tecnico: Llave de cierre que finaliza el bloque de estilos
+    condicionales por el ancho maximo de 768px
+    
+    Funcion Tecnica: Indicar el fin del conjunto de reglas CSS aplicables
+    exclusivamente a dispositivos con ancho o inferior a 768 pixeles
+    
+    Rol Arquitectonico: Delimitador estructural del modulo responsive dentro de la arquitectura del sistema de estilos
+    
+    Diccionario: 
+        - @media | Regla condicional CSS | Permite aplicar estilos segun caracteristicas del dispositivo
+        - (max-width: 768px) | Condicion | Se activa cuando el ancho de la pantalla es <= 768px
+        - } | Delimitador de cierre | Finaliza el bloque de reglas condicionales*/
+}
