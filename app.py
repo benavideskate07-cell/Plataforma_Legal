@@ -106,6 +106,60 @@ def privacidad():
     return render_template("privacidad.html")
 
 # ==============================================================
+# RUTA: TERMINOS Y CONDICIONES (LEGAL)
+# ==============================================================
+
+"""
+Elemento: Dcorador de enrutamiento en Flask
+Comentario Tecnico: Asocia la URL "/terminos-y-condiciones" con la funcion inmediatamente
+inferior en el archivo, permitiendo que el servidor responde a solicitudes HTTP
+dirigidas a esa ruta especifica.
+
+Funcion Tecnica: Registrar en el sistema de enrutamiento de Flask una nueva ruta accesible
+mediante metodo GET (por defecto), habilitando la visualizacion de la
+pagina de Terminos y condiciones.
+
+Rol Arquitectonico: Punto de entrada (endpoint) dentro de la capa de presentacion web
+(Controller layer en patro MVC ligero de Flask)
+
+Diccionario:
+- @ | Simbolo de decorador | Modfica o amplia el comportamiento de una funcion
+- app | Instancia Flask | Objeto principal de la aplicacion web
+- route () | Metodo | Registra una URL dentro del sistema de enrutamiento
+- "/terminos-y-condiciones" | Endpoint | Ruta publica accesible desde el navegador
+- GET | Metodo HTTP implicito | Tipo de solicitud permitida por defecto.
+"""
+@app.route("/terminos-y-condiciones")
+
+# Elemento: Funcion controladora (Endpoint Handler)
+# Comentario Tecnico: Maneja la solicitud HTTP para la ruta de terminos y condiciones
+# Funcion Tecnica: Retornar la vista HTML correspondiente al documento legal
+# Rol Arquitectonico: Controlador dentro del patron MVC  de Flask
+# Diccionario.
+    # - def: Palabra reservada para definir funciones
+    # - terminos: Nombre interno del enpoint
+    # - (): Indica que no recibe parametros
+    # - :: Inicia el bloque de codigo.
+def terminos() :
+    """
+    Elemento: Instruccion de retorno de vista (Renderizacion de plantilla)
+    
+    Comentario Tecnico: Invoca e motro de plantillas Jinja2 integrado en Flak para generar
+    dinamicamente el HTML  basado en el archivo "terminos.html"
+    
+    Funcion Tecnica: Construir la respuesta HTTP tipo text/html que sera enviada al navegador del usuario
+    
+    Rol Arquitectonico: Capa de Vista (View Layer) dentro del patron MVC ligero implementado en Flask
+    
+    Diccionario:
+        - return | Palabra reservada | Devuelve un valor como respuesta de la funcion
+        - render template() | Funcion Flask | Procesa y renderiza una plantilla HTML
+        - "terminos.html" | Archivo de plantilla | Vista ubicada en el directorio templates/
+        - Jinja2 | Motor de plantillas | Sistema que permite insertar logica en HTML
+    """
+    return render_template("terminos.html")
+
+# ===============================================================
 
 # Elemento: Condiconal de ejecucion principal (Boilerplate)
 # Comentario: Evalua la variable especial "_name_" para determinar si el script se esta ejecutando como el programa principal o si esta siendo importado como un modulo

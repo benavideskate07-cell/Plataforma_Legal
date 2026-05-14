@@ -219,9 +219,25 @@
                     <a href="{{ url_for("privacidad") }}" aria-label="Ver politica de privacidad de Legalis">Politica de Privacidad</a>
 
 
-                    <!-- Enlace a los terminos y Condiciones de Legalis. Define el marco contractual del uso de la plataforma. Incluye arial-label para accesibilidad y mejor navegacion con lectores de pantallas. El archivo href señala la ruta interna del sistema.
-                    -->
-                    <a href="/terminos-condiciones" aria-label="Ver terminos y condiciones de Legalis">Terminos y Condiciones</a>
+                    <!-- 
+                        Elemento: Etiqueta <a> con atributo href dinamico y aria-label
+                        
+                        Comentario Tecnico: Enlcae hipertextual que redirige a la vista "terminos" mediante generacion dinamica de URL con Jinja2/Flask. Incluye atributo aria-label para mejorar accesibilidad
+                        
+                        Funcion Tecnica:
+                            - Genera la URL de forma dinamica usando url_for()
+                            - Permite navegacion interna hacia la pagina de Terminos y Condiciones
+                            - Mejora la accesibilidad oara lectores de oantalla mediante aria-label
+                            
+                            Rol Arquitectonico: Componente de navegacion interna dentro de la capa de presentacion. Actua como punto de acceso contractual desde cualquier seccion del sitio
+                            
+                            Diccionario:
+                                a         | Anchor | Crea un enlace hipertextual
+                                href      | Atributo HTML | Define el destino del enlace
+                                url_for   | Funcion de Flask | Genera URLs dinamicas basadas en el nombre de la vista
+                                aria-label | Atributo de accesibilidad | Proporciona descripcion alternativa para tecnologias asistivas
+                        -->
+                        <a href="{{ url_for("terminos")}}" aria-label="Ver terminos y condiciones de Legalis">Terminos y Condiciones</a>
 
                 <!-- Cierre del contenedor de enlaces del footer. Finaliza el bloque que agrupa los accesos a politicas-y terminos del sistema Legalis -->
                 </div>

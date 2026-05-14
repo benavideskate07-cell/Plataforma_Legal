@@ -1,0 +1,734 @@
+
+<!-- 
+    Elemento: Directiva de herencia de plantilla (Jinja2)
+    
+    Comentario Tecnico: Indica que esta plantilla hereda la estructura base definida en "base.html". Permite reutilizar el layout principal del sitio (header, footer, scripts globales).
+    
+    Funcion Tecnica: Aplicar el sistema de herencia de plantillas de jinja2 para evitar duplicacion de cofigo y mantener coherencia estructural en todas las vistas
+    
+    Rol Arquitectico: Componente de la capa View dentro del patron MVC. Actua como mecanismo de composicion estructural del frontend.
+    
+    Diccionario:
+        - () | Delimitadores de logica Jinja2
+        - extends | Directiva de herencia
+        - base.html | Plantilla padre que contiene la estructura global del sistema
+        - Template Inheritance | Patron de reutilizacion estructural
+-->
+{% extends "base.html" %}
+
+<!-- 
+    Elemento: Bloque de titulo dinamico de la pestaña del navegador
+    
+    Comentario Tecnico: Define el contenido que sera inyectado en el bloque "titulo_pestaña"
+    de la plantilla base (base.html). Permite personalizar el <title> de cada vista sin modificar la estructura global
+
+    Funcion Tecnica: Asignar el texto que aparecer en la pestaña del navegador y en los resultados de motores de busqueda (SEO basico)
+    
+    Rol Arqutectonico: Extension especifica de un bloque heredado dentro del sistema de herencia de plantillas (Template Inheritance - Jinja2). Pertemece a la capa View del patron MVC
+    
+    Diccionario:
+        - { block } | Declaracion de bloque en Jinja2
+        - titulo_pestana | Identificador del bloque definido en la plantilla base
+        - { endblock } | Cierre del bloque
+        - Template Inheritance | Sistema de reutalizacion estructural de vistas
+-->
+{% block titulo_pestana %} Términos y Condiciones {% endblock %}
+
+<!-- 
+    Elemento: Bloque de estilos adicionales (CSS esoecifico por vista)
+    
+    Comentario Tecnico: Define un bloque sobreescribible que permite agregar hojas de estilo adicionales desde esta plantilla hija hacia la plantilla base
+    
+    Funcion Tecnica: Inyectar archivos CSS especificos para esta vista sin alterar la estructura global definida en base.html
+    
+    Rol Arquitectonico: Extencion modular de ka caoa View dentro del sistema dde herencia de plantillas (Templates Inheritance - Jinja2). Permite especializacion visual sin romper el layout global
+    
+    Diccionario:
+        - { block } | Declaracion de bloque en JInja2
+        - estilos_adicionales | Identificador del bloque definido en la plantilla base
+        - CSS | Hoja de estilos en cascada
+        - Herencia de plantillas | Mecanismo de reutilizacion estructural
+-->
+{% block estilos_adicionales %}
+
+    <!-- Elemento: Enlace a hoja de estilo especificos del modulo legal
+    
+    Comentario Tecnico: Etiqueta HTML <link> que carga el archivo CSS "legal.css" ubicado en el directorio estatico del proyecto Flask. Utiliza la
+    funcion url_for() para generar dinamicamente la ruta correcta al recurso
+    
+    Funcion Tecnica: Incorporar estilos personalizados para la vista de Terminos y Condiciones sin afectar otras paginas
+
+    Rol Arquitectonico: Integracion de recurso estatico dentro de la capa View. Conecta el sistema de plantillas (Jinja2) con el modulo de archivos estaticos gestionado por Flask
+
+    Diccionario:
+        - <link> | Etiqueta HTML para vincular recursos ezternos
+        - rel="stylesheet" | Indica que el recurso es una hoja de estilos CSS
+        - href | Atributo que define la ubicacion del archivo
+        - () | Delimitadores de expresion en Jinja2
+        - url_for() | Funcion de Flask que genera URLs dinamicamente
+        -"static" | Endpoint interno para archivos estaticos
+        - filename="css/legal.css" | Ruta relativa dentro del directorio /static-
+    -->
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/legal.css") }}">
+
+<!-- 
+    Elemento: Cierre de bloque de plantilla (Jinja2)
+    
+    Comentario Tecnico: Finaliza la definicion de un bloque previamente abierto con (block)
+    Indica al motor de plantilla Jinja2 que cocncluye la seccion sobrescribible
+    
+    Funcion Tecnica: Delimitar el alcance del contenido inyectado en la plantilla hija,
+    permitiendo que el sistema de herencia duncione correctamente
+    
+    Rol Arquitectonico: Marcador estructural dentro del sistema de Templace Inheritance
+    Garantiza integridad sintactica en la capa View (Vista) del patron MVS (modelo vista controlador) Modelo (Datos y logica de negocio), Vista (interfaz de usuario) y Controlador (intermedario)
+    
+    Diccionario:
+        - ( ) | Delimitadores de logica en Jinja2
+        - endblock | Intruccion de cierre de bloque
+        - Bloque | Seccion sobrescribible definida en la plantilla base
+        - Template Inheritance | Sistema de herencia estructural de vistas
+-->
+{% endblock %}
+
+<!-- 
+    Elemento: Bloque principal de contenido de la vista
+    
+    Comentario Tecnico: Define la seccion que reempazara el bloque "contenido" (deckarado en la plantilla base). Todo el HTML incluido dentro de este bloque sera inyectado en la estructura principal del layout global
+    
+    Funcion Tecnica: Permitir que cada vista defina su contenido especifico sin modificar la plantilla base, manteniendo separacion entre estructura global y contenido particular
+    
+    Rol Arquitectonico: Componente central de la capa View dentro del patron MVC (modelo-vista-controlador). Representa la zona dinamica del documento que cambia segun la ruta solicitada
+    
+    Diccionario:
+        - { block } | Declaracion de bloque en Jinja2
+        - contenido | Idnetificador del bloque definido en base.html
+        - Herencia de plantillas | Mecanismo que permite sobrescribir secciones
+        - Layout base | Estructura general reutilizable del sistema
+-->
+{% block contenido %}
+
+    <!-- 
+        Elemento: Seccion estructural de contenido legal
+        
+        Comentario Tecnico: Etiqueta semantica <section> que agrupa el contenido principal
+        relacionado con documentos juridicos (Terminos y Condiciones, Politica de Privacidad, Avisos Legakes, etc)
+        
+        Funcion Tecnica: Delimitar un bloque tematico dentro del documento HTML, oermitiendo aplicar estilos esoecificos meduante la clase "seccion-legal" y facilitando organizacion semantica
+
+        Rol Arquitectonico: Contenedor principal del modulo legal dentro de la capa View. Actua como nodo estructural macro en la jerarquia del DOM (Document Object Model) o Modelo de Objetos del Documento es una interfaz de programacion (API) que permite a los lenguajes de scripting (como JavaScript acceder y manipular el contenido de un documento web)
+
+        Diccionario:
+            - <section> | Elemento semantico HTML5 para agrupar contenido tematico
+            - class | Atributo HTML que permite asociar del modulo juridico
+            - seccion-legal | Identificador semantico del modulo juridico
+            - DOM | Modelo de objetos del documento
+    -->
+    <section class="seccion-legal">
+
+        <!-- 
+            Elemento: Encabezado principal del documento legal
+            
+            Comentario Tecnico: Etiqueta <h1> que define el titulo principal de la seccion
+            de terminos y condiciones. Representa el ivel jerarquico mas alto de esta vista.
+                
+            Funcion Tecnica: Establecer la jerarquia semantica del documento, mejorar accesibilidad y optimizar posicionamiento SEO
+            
+            Rol Arquitectonico: Nodo jerarquico superior dentro del contenedor "seccion-legal" en la capa View
+            
+            Diccionario:
+                - <h1> | Encabezado de nivel 1 en HTML
+                - Jerarquia semantica | Organizacion estructural del contenido
+                - SEO | Optimizacion para motores de busqueda
+                - Accesibilidad | Mejora en la interpretacion por lectores de pantalla
+        -->
+        <h1>Terminos y condiciones de uso</h1>
+
+        <!-- 
+            Elemento: Contenedor estructural para imagen asociada al contenido legal
+            
+            Comentario Tecnico: Etiqueta <div> utilizada como contenedor de maquetacion para alojar una imagen relacionada con el modulo juridico (ej. imagen institucional. ilustracion normativa, banner legal)
+                
+            Funcion Tecnica: Permitir control independiente de estilos (alinracion, margenes, tamaño, responsividad) sin afectr otros elementos del documento
+            
+            Rol Arquitectonico: Componenete auxiliar dentro de la seccion ".seccion-legal"
+            Actua como nodo de presentacion visual en la capa View
+            
+            Diccionario:
+                - <div> | Contenedor generico de bloque en HTML
+                - class |   Atributo que permite aplicar estilos CSS
+                - contenedor-imagen-legal | Identificador semantico del modulo visual
+                - Maquetacion | Organizacion estructural del contenido en la interfaz
+            -->
+            <div class="contenedor-imagen-legal">
+
+                <!-- 
+                    Elemento: Imagen ilustrativa del modulo de Terminos y condiciones
+                    
+                    Comentario Tecnico: Etiqueta <img> que carga un recurso grafico almacenado
+                    en el directorio estatico ddel proyecto Flask. La ruta se genera dinamicamente mediante la funcion url_for()
+                    
+                    Funcion Tcnica: Incorporar un elemento visual de apoyo al contenido legal,
+                    mejorando experiencia de usuario sin afectar la estructura semantica
+                    
+                    Rol Arquitectonico: Recurso estatico integrado en la capa View. Conecta el sistema de plantillas (Jinja2) con la gestion de archivos estaticos de Flask.
+                    
+                    Accesibilidad: El atributo "alt" proporciona descripcion textual para lectores de pantalla y mejora el SEO
+                    
+                    Diccionario:
+                        - <img> | Etiqueta HTML para insertar imagenes
+                        - src | Atributo que define la fuente del archivo
+                        - { } | Delimitadores de expresion Jinja2
+                        - url_for() | Funcion FLask que genera URLs dinamicamente
+                        - "static" | Endpoint interno para recursos estaticos
+                        - filename | Parametro que indica la ruta relativa dentro de /static
+                        - alt | Texto alternativo descriptivo
+                    -->
+                    <img src="{{ url_for("static", filename="img/terminos/terminos.svg") }}"
+                        alt="Ilustracion de Terminos y Condiciones Legalis">
+
+                <!-- 
+                    Elemento: Cierre de contenedor de imagen legal
+                    
+                    Conetbtario Tecnico: Etiqueta de ciere correspondiente al zdiv class="contenedor-imagen-legal">. Finaliza el bloque estructural destinado a alojar la imagen ilustrativa
+                    
+                    Funcion Tecnica: Delimitar correctamente el alcance del contenedor visual, manteniendo integirdad en la jerarquia del DOM
+                    
+                    Rol Arquitectonico: Marcador de cierre dentro de la capa View. Garantiza coherencia estructural y evita errores de maquetacion
+                    
+                    Diccionario: 
+                        - </div> | Etiqueta de cierre de contenedor generico
+                        - Contenedor | Elemento estructuralque agrupa contenido
+                        - DOM | Modelo de Objetos del Documento
+                        - Jerarquia estructural | Organizacion anida de elementos HTML
+                -->
+                </div>
+
+                <!-- 
+                    Elemento: Articulo introductorio del modulo legal
+                    
+                    Comentario Tecnico: Etiqueta semantica <article> utilizada para contener informacion autonoma dentro de la seccion legal. Incluye Identificacion del servicio y fecha de actualizacion
+                    
+                    Funcion Tecnica: Presentar encabezado informativo del documento juridico, estableciendo identidad del servicio y vbigencia normativa
+                    
+                    Rol Arquitectonico: Subcomponente dentro de ".seccion-legal". Actua como bloque informativo inicial dentro de la capa View
+                    
+                    Diccionario:
+                        - <article> | Elemento semantico HTML5 para contenido independiente
+                        - class="bloque-legal" | Clase que aplica estilos modulares definidos en CSS
+                        - <p> | Parrafo de texto
+                        - <strong> | Elemento de enfasis fuerte (importancia semantica)
+                        - Fecha de ultima actualizacion | Indicador de vigencia documental
+                -->
+                <article class="bloque-legal">
+
+                    <!-- 
+                        Elemento: Identificacion del servicio
+                        Funcion: Relsaltar el nombre comercial del modulo juridico
+                    -->
+                    <p><strong>LEGALIS- Plantillas de Acciones de Tutela</strong></p>
+                    <p>Fecha de ultima actualizacion: 02/03/2026</p>
+                </article>
+
+                <!-- 
+                    Elemento: Etiqueta <article> con clase "bloque.legal"
+                    Comentario Tecnico: Define una unidad de contenido autonoma dentro del documento HTML, destinada a contener una clausula especifica de los Terminos y Condiciones
+                    
+                    Funcion Tecnica: Agrupa estructural y semanticamente la clausula "Aceptacion de los terminos", permitiendo su estilizacion uniforme mediante CSS y su posible reutilizacion modular
+                    
+                    Rol Arquitectonico: Componente documental dentro de la capa de presentacion (Frontend- Vista) Representa una clausula normativa digital estructurada como bloque independiente
+                    Diccionario:
+                        article      | Etiqueta semantica HTML5 | Representa contenido autonomo e independiente
+                        class        | Atributo HTML            | Prmite asignar estilos o comportamientos
+                        bloque-legal | Identificador CSS        | Clase destinada a estanderizar bloquea juridicos
+                -->
+                    <article class="bloque-legal">
+                    <!-- 
+                        Elemento: Etiqueta <h2>
+                        Comentario Tecnico: Encabezado de segundo nivel que identifica el tituo de la clausula
+                        
+                        Funcion Tecnica: Establece jerarquia estructural dentro del documento, mejora accesibilidad y posicionamento SEO
+                        
+                        Rol Arquitectonico: Nodo jerarquico dentro de la arquitectura documentaly; define la segmentacion normativa interna del texto
+                        
+                        Diccionario: h2 | Heading nivel 2 | Subtitulo jerarquico dentro del documento
+                    -->
+                    <h2>1. Aceptación de los términos</h2>
+
+                    <!--  Elemento: Etiqueta <p>
+                        
+                        Comentario Tecnico: Parrafos de texto descriptivo que desarrollan el contenido normativo de la clausula
+                        
+                        Funcion Tecnica: Presenta informacion en formato legible, estructurando el contenido textual conforme a estandares HTML
+                        
+                        Rol Arquitectonico: Unidad basica de contenido normativo digital, materializa la regla juridica en formato web
+                        
+                        Diccionario: p | Pargraph | Unidad basica de texto en HTML
+                        -->
+                        <P>El acceso y uso del sitio web Legalis implica la aceptacion plena e incondicional de los presentes Terminos y Condiciones</P>
+                        <p>Si el usuario no esta de acuerdo con ellos, debera absteberse de utilizar el sitio web y adquirir los ´roductos ofrecidos</p>
+                    
+                    </article>
+
+                    <!-- 
+                        Elemento: Articulo normativo- Clausula de aceptacion
+                        
+                        Comentario Tecnico: Bloque semantico <articulo> que contiene una clausula especifica dentro del document de Terminos Y Condiciones. Incluye encabezado jerarquico (<h2>) y desarrollo normativo en parrafos
+                        
+                        Funcion Tecnica: Formalizar la cepatacion contractual por uso del sitio web,
+                        estableciendo consentimiento tacito mendiante conducta
+                        
+                        Rol Arquitectonico: Submodulo normativo dentro de ".seccion-legal". Representa una unidad logica autonoma del documento juridico
+                        
+                        Diccionario:
+                        - <article> | Contenedor semantico para contendio independiente
+                        - class="bloque-legal" | Clase de modular
+                        - <h2> | Encabezado de segundo nivel (subtitulo jerarquico)
+                        - <p> | Parrafo descriptivo
+                        - Aceptacion tacita | Consentimiento dereivado del uso del servicio
+                    -->
+                    <article class="bloque-legal">
+                        <h2>2. Naturaleza del producto</h2>
+                        <p><strong>2.1.</strong> Legalis comercializa exclusivamente plantillas digitales de acciones de tutela en Colombia</p>
+                        <p><strong>2.2.</strong> Las plantillas son documentos modelo de caracter general, diseñados con fines informativos y educativos</p>
+                        <p><strong>2.3.</strong> La compra de una plantilla NO constituye asesoria juridica, concepto legal, repesentacion judicial ni sustitucion del servicio profesional de un abogado</p>
+                        <p><strong>2.4.</strong> Legalis no analiza casos concretos ni adapta documentos a situaciones particulares</p>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario Tecnico: Contenedor semantico que encapsula una clausula especifica de los Terminos y Condiciones, estructurada como unidad normativa autonoma
+                        
+                        Funcion Tecnica: Agrupa el contenido relacionado con la asignacion de responsibilidades al usuario, permitiendo su estilizacion uniforme y reutilizacion modular
+                        
+                        Rol Arquitectonico: Modulo normativo dentro de la arquitectura documental del sitio web; representa una clausula de delimitacion de responsabilidad
+                        
+                        Diccionario:
+                            - article | Etiquetas semantica HTML5 | Contenido independiente dentro del documento
+                            - bloque.legal | Clase CSS            | Estandeeriza visualmente clausualas juridicas
+                    -->
+
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                                
+                            Comentario Tecnico: Encabezado de segundo nivel que identifica la seccion "Responsabilidad del usuario"
+                            
+                            Funcion Tecnica: Establece jerarquia estructural y facilita navegacion, indexacion y accesibilidad
+                            
+                            Rol Arquitectonico: Nodo jerarquico de segmentacion normativa dentro del documento
+                            
+                            Diccionario: h2 | Heading nivle 2 | Titulo de seccion secundaria
+                        -->
+                        <h2>3. Responsabilidad del usuario</h2>
+
+                        <!-- 
+                            Elemento: Etiquetas <p> con <strong>
+                            
+                            Comentario Tcnico: Parrafos que introducen subnumerales (3.1, 3.2, 3.3), destacando su numeracion mediante la etiqueta <strong>
+                                
+                            Funcion Tecnica: Estructuran internamente la clausula medante numeracion visible y resaltada
+                            
+                            Rol Arquitectonico. Submodulos normativos dentro del articulo; permiten descomponer obligaciones y limites de responsabilidad
+                            
+                            Diccionario:
+                                p | Paragraph | Unidad basica de texto
+                                strong | Enfasis fuerte | Resalta texto con importancia semantica
+                        -->
+                        <p><strong>3.1.</strong> El usuario es el unico responsable de:</p>
+
+                        <!-- 
+                            Elemento: Lista no ordenada <ul> con items <li>
+                                
+                            Comentario Tecnico: Lista estructurada que detalla obligaciones especificas atribuidas al usuario
+                            
+                            Funcion Tecnica: Presenta obligaciones en formato claro y legible, mejorando comprension y escaneabilidad
+                            
+                            Rol Arquitectonico: Desglose operativo de responsabilidades; traduce la clausula general en acciones concretas atribuidas al usuario
+                            
+                            Diccionario:
+                                ul | Unordered List | Lista sin numeracion automatica
+                                li | List item      | Elemento individual de la lista
+                        -->
+                        <ul>
+                            <li>Determinar si la accion de tutela es precedente en su caso</li>
+                            <li>Completar y adaptar correctamente la plantilla</li>
+                            <li>Verificar hechos, pruebas y fundamentos juridicos</li>
+                            <li>Presentar el documento ante la autoridad competente</li>
+                        </ul>
+                        <p><strong>3.2.</strong> Legalis no garantiza resultados judiciales, admisiones, fallos favorables ni tiempos de respuesta por parte de los jueces</p>
+                        <p><strong>3.3.</strong> El uso inadecuado de la plantilla es responsabilidad exclusiva del usuario</p>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario Tecnico: Contenedor semantico que encapsula la clausula relativa al proceso contractual de compra y enrega digital del producto
+                        
+                        Funcion Teecnica: Agrupa las reglas que determinan el momento de cumplimiento y las condiciones de entrega del bien digital
+                        
+                        Rol Arquitectonico: Modulo normativo contractual dentro de la arquitectura ddocumental del sitio; regula la fase de ejecucion del contrato electronico
+                        
+                        Diccionario:
+                            article      | Etiqueta semantica CSS | Contenido autonomo e independiente
+                            bloque-legal | Clase CSS              | Estandar visual para clausulas juridicas
+                    -->
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                            
+                            Comentario Tecnico: Encabezado jerarquico que identifica la seccion relacionada con la ejecucion contratual
+                            
+                            Funcion Tecnica: Define estructura organizativa y facilita navegacion y accesibilidad
+                            
+                            Rol Arquitectonico: Nodo de clasificacion dentro del sistema de Terminos y Condiciones
+                            
+                            Diccionario: h2 | Heading nivel 2 | SSubtitulo estructural
+                    -->
+                    <h2>4. Proceso de compra y entrega</h2>
+
+                    <!-- 
+                        Elemento: Etiqueta <p> con <strong> (Subnumerales 4.1, 4.2, 4.3)
+                        Cometario Tecnico: Parrafos numerados que desarrollan reglas especificas sobre modalidad de entrega, momento de cumplimiento y deberes de verificacion del usuario
+                        
+                        Funcion Tecnica: Estructuran internamente la clausula mediante numeracion para claridad normativa
+                        
+                        Rol Arquitectonico: Submodulos de ejecucion contractual digital, delimitan:
+                            - Naturaleza del bien (digital descargable)
+                            - Momento juridico de entrega
+                            - Deber de diligencia del usuario
+                            
+                        Diccionario:
+                            p      | Paragraph | Unidad basica de texto normativo
+                            strong | Enfasis fuerte | Resalta numeracion o contenido relevante
+                    -->
+                    <p><strong>4.1.</strong> Las plantillas se entregan en formato digital descargable</p>
+                    <p><strong>4.2.</strong> La entrega se entiende realizada una vez el archivo este disponible para tras la confirmacion del pago</p>
+                    <p><strong>4.3.</strong> Es responsabilidad del usuario verificar que el correo electronico y los datos suministrados sean correctos</p>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario Tecnico: Contenedor semantico que encapsula la clausula a la politica de reembolsos aplicable a productos digitales descargables
+                        
+                        Funcion Tecnica: Agrupa las condiciones bajo las cuales procede o no la devolucion el dinero, delimitando el alcance de la garantia comercial
+                        
+                        Rol Arquitectonico: Modulo normativo de limitacion de responsabilidad economica dentro del contrato electronico
+                        
+                        Diccionario:
+                            article      | Etiqueta semantica HTML5 | Contenido indeoendiente dentro del documento
+                            bloque-legal | Clase CSS                | Estandar visual para clausulas juridicas
+                    -->
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                                
+                            Comentario Tecnico: Encabezado jerarquico que identifica la seccion dedicada a la politica de reembolsos
+                            
+                            Funcion Tecnica: Estructura el documento y facilita su navegacion y comprension
+                            
+                            Rol Arquitectonico: Nodo de clasificacion tematica dentro del sistema de Terminos y Condiciones
+                            
+                            Diccionario: h2 | Heading nivle 2 | Titulo estructural de seccion
+                    -->
+                    <h2>5. Politica de reembolsos</h2>
+
+                    <!-- 
+                        Elemento: Etiquetas <p> con <strong> (Subnumerales 5.1 y 5.2)
+                        
+                        Comentario Tecnico: Parrafos numerados que estableen la reglas general de no reembolso y las exepciones aplicables
+
+                        Funcion Tecnica: Delimitan la politica comercial mediante una regla base y supuestos exepcionales claramente definidos
+                        
+                        Rol Arquitectonico: Submdulos normativos de excepcion; estructuran la logica condicional del derecho al reembolso
+                        
+                        Diccionario:
+                            p       | Paragraph | Unidad textual normativa
+                            strong  | Enfasis fuerte | Resalta numeracion o contenido relevante
+                    -->
+                    <p><strong>5.1.</strong> Debido a que se trata de productos digitales, no se realizan devoluciones ni reembolsos una vez el archivo haya sido descargado</p>
+                    <p><strong>5.2.</strong> Solo procedeera reembolso en caso de:</p>
+
+                    <!-- 
+                            Elemento: Lista no ordenada <ul> con <li>
+                            
+                            Comentario Tecnico: Lista que detalla supuestos especificos en los cuales procede el reembolso
+                            
+                            Funcion Tecnica: Desglosa condiciones tecnicas verificables que habilitan la excepcion a la regla general
+                            
+                            Rol Arquitectonico: Componente de validacion condicional; define tecnicos que activan responsabilidad economica
+                            
+                            Diccionario:
+                                ul | Undordered List | Lista estructural sin numeracion automatica
+                                li | List Item       | Condicion especifica dentro de la excepcion
+                        -->
+                        <ul>
+                            <li>Fallo tecnico atribuible al sistema que impida la descarga</li>
+                            <li>Archivo defectuoso o corrupto</li>
+                        </ul>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario Tecnico: Contenedor semantico que agrupa la clausula relativa a la titularidad de derechos de autor y condiciones de licencia de uso
+                        
+                        Funcion Tecnica: Centraliza las disposiciones sobre propiedad intelectual y delimita el alcance de la autorizacion otorgada al usuario
+                        
+                        Rol Arquitectonico: Modulo normativo de proteccion de activos intangibles dentro del contrato electronico
+                        
+                        Diccionario:
+                            article      | Etiqueta semantica HTML5 | contenido autonomo dentro del documento
+                            bloque-legal | Clase CSS                | Estandar visual para clausulas juridicas
+                    -->
+                    <article class="bloquee-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                            
+                            Comentario Tecnico: Encabezado jerarquico que identifica la seccion dedicada a la propiedad intelectual
+                            
+                            Funcion Tecnica: Estructura y segmenta tematicamente el documento
+                            
+                            Rol Arquitectonico: Nodo clasificatorio dentro del sistema contractual digital
+                            
+                            Diccionario: h2 | Heading nivel 2 | Titulo estructural de seccion
+                        -->
+                        <h2>6. Propiedad intelectual</h2>
+
+                        <!-- 
+
+                            Elemento: Etiqueta <p> con <strong> (Subnumerales 6.1, 6.2, 6.3)
+                            Comentario Tecnico: Parrafos numerados que establecen
+                                - Titularidad exclusiva (6.1)
+                                - Naturaleza de la autorizacion (6.2)
+                                - Introduccion a prohibiciones esecificas (6.3)
+                            
+                            Funcion Teecnica: D3eelimitan juridicamente la relacion entre propiedad y licencia, diferenciando dominio del titular y uso autorizado
+
+                            Rol Arquitectonico: Submodulos normativos que estructuran la arquitectura de control sonre el activo digital
+
+                            Diccionario:
+                                p      | Paragraph | Unidad textual normativa
+                                strong | Enfasis fuerte | Resalta numeracion o elemento clave
+                        -->
+                        <p><strong>6.1.</strong> Todas las plantillas y contenidos del sitio web son propiedad exclusiva de Legalis y estan protegidos por la normativa sobre derechos de autor.</p>
+                        <p><strong>6.2.</strong> La compra otorga al usuario una licencia de uso personal e intransferible</p>
+                        <p><strong>6.3.</strong> Esta prohibido:</p>
+
+                        <!-- 
+
+                            Elemento: Lista no ordenada <ul> con <li>
+                                
+                            Comentario Tecnico: Enumeracion de conductas prohibidad relacionadas con la explotacion no autorizada del contenido
+                            
+                            Funcion Teecnica: Desglosa restricciones especificas para evitar redistribucion, comunicacion publica o explotacion comercial indebida
+                            
+                            Rol Arquitectonico: Componente de restriccion operativa; define limites concretos a la licnecia otrogada
+                            
+                            Diccionario:
+                                ul | Unordered List | Lista estructural sin numeracion automatica
+                                li | List Item      | Prohibicion especifica dentro del sistema de restricciones
+                        -->
+                        <ul>
+                            <li>Revender o redistribuir las plantillas</li>
+                            <li>Compartir los archivos con tereros</li>
+                            <li>Publicar el contenido en otras plataformas</li>
+                            <li>utilizar las plantillas con fines comerciales sin autorizacion expresa</li>
+                        </ul>
+                    </article>
+                    
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario tecnico: Contenedor semantico que encapsula la clausula general de limitacion de respoonsabilidad contractual.
+                        
+                        Funcion Tecnica: Agrupa las hipotesis de exclusion de responsabilidad del proveedor frente a resultados judiciales o actuaciones del usuario.
+                        
+                        Rol Arquitectonico: Modulo de blindaje contractual dentro del sistema de Terminos y Condiciones; delimita el alcance del riesgo asumido por el proveedor.
+                        
+                        Diccionario:
+                            article     | Etiqueta semantica HTML5 | Contenido autonomo dentro del documento
+                            bloque-legal| Clase CSS                | Estandariza visualmente clausulas juridicas 
+                    -->
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                                
+                            Comentario tecnico: Encabezado jerarquico que identifica la seccion de limitacion de responsabiidad.
+                            
+                            Funcion Tecnica: Segmenta tematicamente el documento y establece orden estructural.
+                            
+                            Rol Arquitectonico: Nodo de clasificacion normativa dentro del contrato electronico.
+                            
+                            Diccionario: h2  | Heading nivel 2 | Titulo estructural de seccion
+                        -->
+                        <h2>7. Limitacion de responsabilidad</h2>
+
+                        <!-- 
+                            Elemento: Parrafo introductorio <p>
+                                
+                            Comentario Tecnico: Declaracion general que introduce la enumeracion de suspuestos excluidos de responsabilidad
+                            
+                            Funcion Tecnica: Formula la regla base de exclusion antes del desglose especifico.
+                            
+                            Rol Arquitectoncio: Clausula marco de exoneracion; activa el listado condicional posterior
+                            
+                            Diccionario: p  | Paragraph  | Unidad basica de texto normativo
+                        -->
+                        <p>Legalis no sera responsable por:</p>
+
+                        <!-- 
+                            Elemento: Lista no ordenada <ul> con <li>
+                            
+                            Comentario Tecnico: Enumeracion de eventos o resultados que quedan expresamente fuera del ambito de responsabilidad del proveedor.
+                            
+                            Funcion Tecnica:Detalla de manera concreta los riesgos asumidos por el usuario.
+                            
+                            Rol Arquitectonico: Componente de delimitacion de riesgo; distribuye cargas entre proveedor y comprador.
+                            
+                            Diccionario:
+                                ul | Unordered List | Lista estructural sin numneracion automatica
+                                li | List Item      | Supuesto especifico excluido de responsabilidad
+                        -->
+                        <ul>
+                            <li>Decisiones judiciales desfavorables.</li>
+                            <li>Errores cometidos por el usuario al diligenciar la plantilla.</li>
+                            <li>Perdida de terminos procesales.</li>
+                            <li>Interpretaciones juridicas incorrectas realizadas por el usuario.</li>
+                        </ul>
+
+                        <!-- 
+                            Elemento:Parrafo final <p>
+                                
+                            Comentario Tecnico: Declaracion de cierre que reafirma que el uso del producto se realiza bajo responsabilidad exclusiva del comprador.
+                            
+                            Funcion Tecnica: Refuerza la asignacion de riesgo y consolida la interpretacion sistematica de la clausula.
+                            
+                            Rol Arquitectonico: Clusula de consolidacion de exonorecion; sinteza la distribucion contractual de riesos.
+                            
+                            Diccionario: p | Paragraph | Unidad textual conclusiva
+                        -->
+                        <p>El uso del producto es bajo la exclusiva responsabilidad del comprador.</p>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comnetario Tecnico: Contenedor semantico que agrupa la clausula relativa al tratamiento de datos personales del usuario.
+                        
+                        Funcion Tecnica: Centralaliza la declaracion de cumplimiento normativo en materia de proteccion de datos dentro del contrato electronico.
+                        
+                        Rol Arquitectonico: Modulo de cumplimiento regulatorio externo; conecta el sistema contractual con el regimen legal obligatorio aplicable.
+                        
+                        Diccionario:
+                            article     | Etiqueta semantica HTML5 | Contenido autonomo dentro del documento
+                            bloque-legal| clase CSS                | Estandar visual para clausulas juridicas
+                    -->
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+                            
+                            Comentario Tecnico: Encabezado jerarquico que identifica la seccion dedicada a la proteccion de datos.
+                            
+                            Funcion Tecnica: Segmenta el dumento y facilita la localizacion tematica de la clausula.
+                            
+                            Rol Arquitectonico: Nodo de cumplimiento normativo dentro de la arquitectura contractual.
+                            
+                            Diccionario: h2 | Heading nivel 2 | Titulo estructural de seccion
+                        -->
+                        <h2>8. Proteccion de datos</h2>
+
+                        <!-- 
+                            Elemento: Parrafo <p>
+                                
+                            Comentario Tecnico: Declaracion normativa que establece:
+                                - Sujecion a la legilacion colombiana de proteccion de datos.
+                                - Finalidad especifica del tratamiento.
+                                
+                            Funcion Tecnica: Define el marco legal aplicable y limita la finalidad del usp de la informacion recolectada.
+                            
+                            Rol Arquitectonico: Clausula de garantia regulatoria; delimita la base juridica y la finalidad del tratamiento de datos personales.
+                            
+                            Diccionario: p | Paragraph | Unidad textual normativa
+                        -->
+                        <p>La informacion suministrada por el usuario sera tratada conforme a la normativa colombiana de proteccion de datos personales y utilizada unicamente para la gestion de la compra y entrega del producto digital.</p>
+                    </article>
+
+                    <!-- 
+                        Elemento: Etiqueta <article> con clase "bloque-legal"
+                        
+                        Comentario Tecnico: Contenedor semantico que encapsula la clausula de determinacion del marco legal aplicable a los Terminos y Condiciones.
+                        
+                        Funcion Tecnica: Centraliza la disposicon juridica que establece que la legislacion colombiana regula la interpretacion, Cumplimiento y Resolucion de conflictos contractuales.
+                        
+                        Rol Arquitectonico: Modulo normativo de jurisdiccion; conecta el contrato digital con el sistema legal estatal competente.
+                        
+                        Diccionario:
+                            article     | Etiqueta semantica HTML5 | Contenido autonomo dentro del documento
+                            bloque-legal| Clase CSS                | Estandar visual para clausulas juridicas
+                    -->
+                    <article class="bloque-legal">
+
+                        <!-- 
+                            Elemento: Etiqueta <h2>
+
+                            Comentario Tecnico: Encabezado jerarquico que identifica la seccion dedicada a la ley aplicable
+
+                            Funcion Tecnica: Segmenta el documento y facilita su localizacion para interpretacion juridica
+
+                            Rol Arquitectonico: Nodo de referencia normativa dentro del sistema contactual digital.
+
+                            Diccionario: h2 | Heading nivel 2 | Titulo estructural de seccion
+                        -->
+                        <h2>9. Ley aplicable</h2>
+
+                        <!-- 
+                            Elemento: Parrafo <p>
+                                
+                            Comentario Tecnico: Declaracion normativa que establece la legislacion que rige los Terminos y Condiciones.
+                            
+                            Funcion Tecnica: Determina el marco juridico obligatorio y la autoridad estatal competente en caso de conflicto
+                            
+                            Rol Arquitectonico: Clausula de gobernanza legal; asegura que todas las disposiciones contractuales se interpreten segun el derecho colombiano
+                            
+                            Diccionario: p | Paragraph | Unidad textual normativa
+                        -->
+                        <p>Estos Terminos se rigen por las leyes de la Republica de Colombia.</p>
+                    </article>
+        
+        
+        <!-- 
+            Elemento: Etiqueta de cierre </section>
+            
+            Comentario Tecnico: Marca el final del contenedor semantico que agrupa todas las clausulas de Terminos Y condiciones.
+            
+            Funcion Tecnica: Señala la terminacion de la seccion estructural, cerrando correctamente el nodo padre para mantener la validez del HTML
+            
+            Rol Arquitectonico: Delimita el alcance del contenedor de nivel superiror en la arquitectura de la pagina; garantiza integridad semantica y visual
+            
+            Diccionario: section | Etiqueta semantica HTML5 | Contenedor de nivel superior para agrupar bloques relacionados de contenido
+        -->
+        </section>
+
+<!--
+    Elemento: Directiva de cierre { endblock }
+
+    Comentario Tecnico: Marca el final del bloque de contenido definido en la plantilla Jinja2. Permite insertar contenido especifico en la seccion correspondiente de la plantilla base
+
+    Funcion Tecnica: Cierra el bloque que fue abierto con {block contenido }, aseegurando que el contenido se integre correctamente en la plantilla heredada
+
+    Rol Arquitectonico: Nodo de integracion dentro del patron de herencia de plantillas (MVC: Modelo-Vista-Controlador); conecta la vista especifica con la plantillas maestra
+
+    Diccionario:
+        block    | Directiva de Jinja2 | Define un bloque de contenido reemplazable en la plantilla base
+        endblock | Directiva de cierre | Señala el final del bloque de contenido
+-->
+{% endblock %}
