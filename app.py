@@ -159,6 +159,10 @@ def terminos() :
     """
     return render_template("terminos.html")
 
+# ==============================================================
+# RUTA: REGISTRO
+# ==============================================================
+
 # ===============================================================
 
 # Elemento: Condiconal de ejecucion principal (Boilerplate)

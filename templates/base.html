@@ -69,7 +69,7 @@
                         - aria-label="Ir al inicio de legalis": descripcion accesibles para lectores de pantalla.
                         Puedo incluir ademas: target (pestaña), rel (seguridad/SEO), title (tooltip), download (descarga).
                         Este enlace normalmente envuelve el logo para permitir volver al inicio del sistema -->
-                    <a href="/" aria-label="Ir al inicio de Legalis" title="Ir al inicio">
+                    <a href="{{ url_for("inicio") }}" aria-label="Ir al inicio de Legalis" title="Ir al inicio">
 
                         <!-- Etiqueta <img> que inserta el logo del sistema Legalis. Atributos:
                             - src: ruta dinamica generada con url_for hacia el archivo SGV del logo en static/img/logo.
@@ -104,7 +104,7 @@
                         -class="enlace-menu": clase base de estilo menu
                         {% if request.endpoint == "inicio" %}activo{% endif %}: logica Jinja que agrega la clase "activo" cuando la visita actual coincide con "inicio", resaltando visualmente la opcion seleccionada. Esto permite mostrar al usuario en que seccion del sistema Legalis se encuentra.
                     -->
-                    <a href="/" class="enlace-menu {% if request.endpoint == "inicio" %}activo{% endif %}">Tienda</a>
+                    <a href="{{ url_for("inicio") }}" class="enlace-menu {% if request.endpoint == "inicio" %}activo{% endif %}">Tienda</a>
 
                     <!-- Elemento: Enlace de navegacion dinamico (HTML + Jinja2) -->
                     <!-- Comentario: Crea un enlace que lleva a la pagina de preguntas usando Flask y ademas detecta si el usuario ya esta en esa pagina -->
@@ -139,7 +139,7 @@
                         - {% if request.endpoint == "registro" %}activo{% endif %}: agrega la clase "activo" cuando la pagina actual corresponde al endpoint "registro", resaltando el enlace.
                         Forma parte del modulo de autentificacion del sistema Legalis
                     -->
-                    <a href="/regitro" class="enlace-menu {% if request.edpoint == "registro" %}activo{% endif %}">Registrarse</a>
+                    <a href="{{ url_for("registro") }}" class="enlace-menu {% if request.edpoint == "registro" %}activo{% endif %}">Registrarse</a>
 
                     <!-- Enlace de la zona de acceso que dirige a la vista de inicio de sesion (login)
                         - href="/ingreso": apunta al endpoint de autentificacion de usuarios
@@ -147,7 +147,7 @@
                         - {% if request.endpoint == "Ingreso" %}activo{% endif %} aprega la clase "activo" cuando la pagina actual corresponde al endpoint "ingreso", resaltando visualmente el enlace
                         Forma parte del modulo de control de acceso del sistema Legalis
                     -->
-                    <a href="/ingeso" class="enlace-menu {% if request.endpoint == "Ingreso" %}activo{% endif%}">Ingresar</a>
+                    <a href="{{ url_for("ingreso") }}" class="enlace-menu {% if request.endpoint == "Ingreso" %}activo{% endif%}">Ingresar</a>
 
                 <!-- Cierre del contenedor de la zona de acceso de usuarios del encabezado -->
                 </div>

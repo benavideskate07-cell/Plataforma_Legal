@@ -212,7 +212,7 @@ class Usuario:
         # "len()" cuenta la cantidad de caracteres
         # que tiene la contraseña ingresada
         # Si la longitud es menor a 8, la validacion falla
-        if len(self.contrasena_plana) <8:
+        if len(self.contrasena_plana) < 8:
 
             # Retornamos:
                 # - False: indicando que la contraseña no cumple
@@ -232,7 +232,7 @@ class Usuario:
     # su funcion es verificar si el correo electronico
     # ya se encuentra registrado en la base de datos
     # Esto evita que existan usuarios duplicados con el ismo correo
-    def validar_unicidad_correo(Self) :
+    def validar_unicidad_correo(self) :
 
         # Importamos la funcion #obtener_conexion
         # desde el modulo de conexion
@@ -270,4 +270,151 @@ class Usuario:
             # El signo "?" funciona como marcador de posicion dentro de la consulta SQL
             # En el lugar de escribir directamente el valor del correo
             # dentro del texto SQL, lo enviamos por separado
-            # como un 
+            # como un parametro seguro
+            # Python reeemplaza automaticamente el "?"
+            # por el valor de "self.correo_electronico" al ejecutar la consulta
+            # Esto es impotante porque: 
+                # - Evita errores de escritura en consultas SQL
+                # - Protege la base de datos contra ataques de inyeccion SQL
+            cursor.execute("SELECT id FROM usuarios WHERE correo_electronico = ?", (self.correo_electronico,))
+
+            # "fetchone()" obtiene el primer resultado encontrado de la consulta SQL
+            # Si no existe ningun registro, el resultado sera None
+            resultado = cursor.fetchone()
+
+            # Verificamos si la consulta encontro
+            #algun usuario con ese correo
+            # Si "resultado" contiene informacion,
+            # significa que el correo ya existe
+            if resultado:
+
+                # Cambiamos la variable "existe" a True
+                # para indicar que el correo ya esta registrado
+                existe = True
+
+        # Capturamos cualquier error relacionado
+        # con SQLite para evitar que el programa falle
+        except sqlite3.Error as error_db:
+
+            # Mostramos un mensaje de error en consola
+            # si ocurre un problema durante la consulta SQL
+            # La "f" antes de las comillas indica que estamso usando una f-string
+            # (cadena formateada de Python)
+            # Esto permmite insertar variables directamente
+            # dentro del texto usando llaves { }
+            # En este caso:
+                # "{error_db}" sera reemplazado automaticamente por el detalle real del error ocurrido
+                # Ejemplo: Error al verificar correo: no such table: usuarios
+            print(f" # Error al verificar correo: {error_db} ")
+
+        # El bloqueo "finally" se ejecuta siempre, exista o no un error
+        # Aqui cerramos la conexion con la base de datos para liberar recursos del sistema
+        finally:
+
+            # Cerramos la conexion activa con la base de datos
+            conexion.close()
+
+        # Devolvemos el valor de la variable "existe"
+            # - True: el correo ya esta registrado
+            # - False: el correo todavia no existe
+        return existe
+
+    # Definimos el metodo el metodo "registrar_usuario"
+    # Su funcion es guardar un nuevo usuario en la base de datos SQLite
+    # Aqui tambien se aplican medidas de seguridad, como el cifrado de la contraseña
+    def registrar_usuario(self):
+
+        # Importamos la funcion "obtener_conexion"
+        # para crear la conexion con la base de datos
+        # La importacion se hace dentro del metodo para evitar importaciones circulares
+        from database.conexion import obtener_conexion
+
+        # Convertimos la contrasela escrita por el usuario en un jhash seguro
+        # Un hash es una version cifrada e irreversible de la contraseña original
+        # Esto protege la informacion del usuario, ya que nunca se guarda la contraseña real
+        # en la base de datos
+        hash_seguro = generate_password_hash(self.contrasena_plana)
+
+        # Convertimos el valor de aceptacion de terminos
+        # a 1 (verdadero) para almacenarlo en SQLite
+        # En muchas bases de dtos:
+            # - 1 representa True
+            # - 0 representa False
+        self.aceptacion_terminos = 1
+
+        # Creamos una conexion activa con la base de datos
+        conexion = obtener_conexion()
+
+        # Inicializamos la variable "exito" en False
+        # Esto significa que, inicialmente, asumimos que el registro aun no fue exitoso
+        # Mas adelante cambiara a True si el usuario se guarda correctamente
+        exito = False
+
+        # Iniciamos un bloque "try" para manejar posibles errores
+        # durante el proceso de insercion
+        try:
+
+            # Creamos un cursor para ejecutar instrucciones SQL
+            cursor = conexion.cursor()
+
+            # "cursor.execute()" se utiliza para enviar
+            # instrucciones SQL a la base de datos
+            # En este caso estamos ejecutando una consulta
+            # de tipo "INSERT INTO", cuya funcion es agregar un nuevo registro en la tabla "usuarios"
+
+            # Escribimos la instruccion SQL entre comillas triples (´´´ ´´´)
+            # Las comillas triples permiten escribir consultas largas
+            # En varias lineas para el codigo sea mas organizado y facil de leer
+
+            # "VALUES" indica los datos que seran almacenados en cada columna de la tabla
+            # Los signos "?" funcionan como marcadores de posicion
+            # Python reemplaza automaticamente cada "?" por los valores enviados mas abajo
+            # El valor "ACTIVO" esta escrito directamente,
+            # por lo que todos inicialmente con ese estado
+            # se registraran inicialmente con ese estado
+
+            # Aqui enviamos la informacion real que reemplazara cada marcador "?"
+            # El orden de los datos debe coincidir exactamente
+            # con el orden de las columnas y los signos "?"
+
+            # Relacion entre ada "?" y los datos enviados:
+                # Primer ?:self.nombre_copleto
+                # Segundo ?:self.correo_electronico
+                # Tercer ?:hash_seguro
+                # Cuarto ?:self.rol
+                # Quinto ?:self.aceptacion_terminos
+            # Esto permite innsertar los datos de manera segura
+            # y organizada en la base de datos
+            cursor.execute('''
+                INSERT INTO usuarios (nombre_completo, correo_electronico,
+                contrasena_hash, rol, estado, aceptacion_terminos)
+                VALUES (?, ?, ?, ?, "ACTIVO", ?)''',
+                (self.nombre_completo, self.correo_electronico, hash_seguro, self.rol, self.aceptacion_terminos))
+
+            # Guardamos permanentemente los cambios
+            # realizados en la base de datos
+            # Sin "commit()", el nuevo usuario no quedaria almacenado
+            conexion.commit()
+
+            # Indicamos que el registro del usuario fue exitoso
+            exito = True
+
+        # Capturamos cualquier error relacionado con SQLite durante el proceso de insercion
+        except sqlite3.Error as error_db:
+
+            # Mostramos en consola el detalle del error ocurrido
+            # La f-string permite insertar automaticamente
+            # el contenido de la variabel "error_db" dentro del mensaje
+            print(f"# Error al insertar usuario: {error_db}")
+
+        # El bloque "finally" se ejecuta siempre, ocurra o no un error
+        # Aqui cerramos la conexion para liberar rescursos
+        finally:
+
+            # Cerramos la cocnexion activa con la base de datos
+            conexion.close()
+
+        # Devolvemos el valor de la variable "exito"
+            # - True: el usuario fue registrado correctamente
+            # - False: ocurrio un error durante el registro
+        return exito
