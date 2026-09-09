@@ -139,7 +139,7 @@
                         - {% if request.endpoint == "registro" %}activo{% endif %}: agrega la clase "activo" cuando la pagina actual corresponde al endpoint "registro", resaltando el enlace.
                         Forma parte del modulo de autentificacion del sistema Legalis
                     -->
-                    <a href="{{ url_for("registro") }}" class="enlace-menu {% if request.edpoint == "registro" %}activo{% endif %}">Registrarse</a>
+                    <a href="{{ url_for("registro") }}" class="enlace-menu {% if request.endpoint == "registro" %}activo{% endif %}">Registrarse</a>
 
                     <!-- Enlace de la zona de acceso que dirige a la vista de inicio de sesion (login)
                         - href="/ingreso": apunta al endpoint de autentificacion de usuarios
@@ -147,7 +147,7 @@
                         - {% if request.endpoint == "Ingreso" %}activo{% endif %} aprega la clase "activo" cuando la pagina actual corresponde al endpoint "ingreso", resaltando visualmente el enlace
                         Forma parte del modulo de control de acceso del sistema Legalis
                     -->
-                    <a href="{{ url_for("ingreso") }}" class="enlace-menu {% if request.endpoint == "Ingreso" %}activo{% endif%}">Ingresar</a>
+                    <a href="{{ url_for("ingreso") }}" class="enlace-menu {% if request.endpoint == "ingreso" %}activo{% endif %}">Ingresar</a>
 
                 <!-- Cierre del contenedor de la zona de acceso de usuarios del encabezado -->
                 </div>

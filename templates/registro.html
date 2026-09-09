@@ -1,0 +1,390 @@
+<!-- Se reutiliza la plantilla base "base.html" para mantener una estructura comun -->
+{% extends "base.html" %}
+
+<!-- Este bloque sobrescribe el titulo de la pestaña definido en la plantilla base -->
+<!-- En este caso, el titulo "Registrar Cliente" -->
+{% block titulo_pestana %}Registrar Cliente {% endblock %}
+
+<!-- Este bloque permite agregar estilos propios sin modificar la plantilla base -->
+{% block estilos_adicionales %}
+
+<!-- S carga el archivo CSS "registro.css" para aplicar estilos al formulario -->
+<!-- Flask usa url_for para ubicar correctamente el archivo estatico -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+{% endblock %}
+
+<!-- Este bloque contiene el contenido especifico de esta vista -->
+<!-- Reemplaza la seccion correspondiente definida en "base.html" -->
+{% block contenido %}
+
+<!-- ================================================== -->
+<!-- CONTENEDOR PRINCIPAL DEL FORMULARIO DE REGISTRO    -->
+<!-- ================================================== -->
+
+<!-- Agrupa y organiza visualmente el formulario de registro -->
+<div class="contenedor-formulario">
+
+    <!-- Encabezado que indica al usuario la accion que realizara: registrar un cliente -->
+    <h2 class="titulo-formulario">Registrar Cliente</h2>
+
+    <!-- 
+        Se define el formulario de registro:
+            - action: ruta del servidor que procesara los datos ("registro")
+            - method: POST, usado para enviar informacion de forma segura
+            - "id": permite identificar el formulario desde JavaScript
+            - "novalidate": desactiva la validacion nativa del navegador para usar validaciones personalizadas
+    -->
+    <form action="{{ url_for('registro') }}" method="POST" id="formulario-registro" novalidate>
+
+        <!-- Campo: Nombre Completo -->
+        <!-- Agrupa un campo del formulario junto con su etiqueta y posibles mensajes de error -->
+        <div class="grupo-campo">
+
+            <!--
+                Etiqueta asociada al campo de nombre completo
+                El atributo "for" conecta esta etiqueta con el input correspondiente
+                El asterisco (*) indica que es un campo obligatorio
+            -->
+            <label for="nombre_completo" class="etiqueta-campo">
+                Nombre completo *
+            </label>
+
+            <!-- 
+                Input de texto donde el usuario ingresa su nombre completo
+                
+                Atributos:
+                    - type="text": permite ingresar texto
+                    - id: identifica el campo para JavaScript y label
+                    - name: nombre con el que se enviara el dato al servidor
+                    - class: permite aplicar estilos y validaciones
+                    - placeholder: guia visual para el usuario
+            -->
+            <input type="text" id="nombre_completo"
+                name="nombre_completo" class="input-campo"
+                placeholder="Ingrese su nombre completo">
+
+            <!-- 
+                Elemento destinado a mostrar mensajes de error asociados al campo "nombre_completo". Su contenido se llena dinamicamente desde JavaScript
+            -->
+            <span class="error-campo" id="error-nombre_completo"></span>
+
+        <!-- Cerramos el bloque que agrupa el label, input y mensaje de error -->
+        </div>
+
+        <!-- Campo: Correo electronico -->
+        <!-- Agrupa los elementos de un campo (label, input y error) -->
+        <div class="grupo-campo">
+
+            <!-- 
+                Etiqueta asociada al campo de correo electronico
+                El atributo "for" conecta con el input correspondiente
+                El asterisco (*) indica que es un campo obligatorio
+            -->
+            <label for="correo_electronico" class="etiqueta-campo">
+                Correo electronico *
+            </label>
+
+            <!-- 
+                Input para ingresar el correo electronico
+                
+                Atributos:
+                    - type="email": permite ingresar correos (validacion basica del navegador)
+                    - id: identifica el campo para JvaScript y label
+                    - name: clave con la que se envia el dato al servidor
+                    - class: permite aplicar estilos y validaciones
+                    - placeholder: ejemplo de formato esperado
+            -->
+            <input type="email" id="correo_electronico"
+                name="correo_electronico" class="input-campo"
+                placeholder="ejemplo@correo.com">
+
+            <!-- 
+                Elemento donde se mostrara el error del correo electronico. El contenido se insertara dinamicamente desde JavaScript
+            -->
+            <span class="error-campo" id="error-correo_electronico"></span>
+
+        <!-- Cerramos el contenedor que agrupa label, input y mensaje de error del correo -->
+        </div>
+
+        <!-- Campo: Confirmar correo -->
+        <!-- Agrupa los elementos del campo (label, input y mensaje de error) -->
+        <div class="grupo-campo">
+
+            <!-- 
+                - Etiqueta asociada al campo de confirmacion de correo
+                - El atributo "for" conecta con el input correspondiente
+                - El asterisco (*) indica que es obligatorio
+            -->
+            <label for="confirmar_correo" class="etiqueta-campo">
+                Confirmar correo electronico *
+            </label>
+
+            <!-- 
+                Input donde el usuario repite su correo electronico
+                
+                Atributos:
+                    - type="email": tipo de dato estructurado (correo)
+                    - id: identifica el campo para JavaScript
+                    - name: clave con la que se envia al servidor
+                    - class: permite aplicar estilos y validaciones
+                    - placeholder: guia para el usuario
+            -->
+            <input type="email" id="confirmar_correo" name="confirmar_correo"
+                class="input-campo"
+                placeholder="Repita su correo">
+
+            <!-- 
+                Elemento donde se mostrara el error de coincidencia de correo. El contenido se insertara dinamicamente desde JavaScript
+            -->
+            <span class="error-campo" id="error-confirmar_correo"></span>
+
+        <!-- Cerramos el contenedor que agrupa label, input y error de confirmacion de correo -->
+        </div>
+
+        <!-- Campo: Contraseña - los caracteres se ocultan (RNF02) -->
+        <!-- Agrupa los elementos del campo de contraseña (label, input y error) -->
+        <div class="grupo-campo">
+
+            <!-- 
+                - Etiqueta asociada al campo de contraseña
+                - El atributo "for" conecta con el input correspondiente
+                - El asterisco (*) indica que es un campo obligatorio
+            -->
+            <label for="contrasena" class="etiqueta-campo">
+                Contraseña *
+            </label>
+
+            <!-- 
+                Input para ingresar la contraseña
+                
+                Atributos:
+                    - type="password": oculta los caracteres ingresados
+                    - id: identifica el campo para JavaScript y label
+                    - name: clave con la que se envia el dato al servidor
+                    - class: permite aplicar estilos y validaciones
+                    - placeholder: indica el requisito minimo
+            -->
+            <input type="password" id="contrasena"
+                name="contrasena" class="input-campo"
+                placeholder="Minimo 8 caracteres">
+
+            <!-- 
+                Elemento donde se mostrara el error de la contraseña
+                El contenido se insertara dinamicamente desde JavaScript
+            -->
+            <span class="error-campo" id="error-contrasena"></span>
+
+        <!-- Cerramos el contenedor que agrupa label, input y error de la contraseña -->
+        </div>
+
+        <!-- Campo: Confirmar contraseña -->
+
+        <!-- Agrupa los elementos del campo de confirmacion (label, input y error) -->
+        <div class="grupo-campo">
+
+            <!-- 
+                Etiqueta asociada al campo de confirmacion de contraseña
+                El atributo "for" conecta con el input correspondiente
+                El asterisco (*) indica que es obligatorio
+            -->
+            <label for="confirmar_contrasena" class="etiqueta-campo">
+                Confirmar contraseña *
+            </label>
+
+            <!-- 
+                Input donde el usuario repite su contraseña
+                
+                Atributos:
+                    - type="password": oculta los caracteres ingresados
+                    - id: identifica el campo para validaciones en JavaScript
+                    - name: clave con la que se envia al servidor
+                    - class: permite aplicar estilos y control de errores
+                    - placeholder: guia al usuario para repartir la contraseña
+            -->
+            <input type="password" id="confirmar_contrasena" name="confirmar_contrasena"
+                class="input-campo"
+                placeholder="Repita su contraseña">
+
+            <!-- 
+                Elemento donde se mostrara el error de coincidencia de contraseña. El contendio se insertara dinamicamente desde JavaScript
+            -->
+            <span class="error-campo" id="error-confirmar_contrasena"></span>
+
+        <!-- Cerramos el contenedor que agrupa label, input y error de confirmacion de contraseña -->
+        </div>
+
+        <!-- Casilla: Aceptacion de terminos y politicas (RF05) -->
+
+        <!-- 
+            Agrupa el checkbox de terminos y su etiqueta. Incluye una clase adicional para estilos especificos de este tipo de campo
+        -->
+        <div class="grupo-campo casilla-terminos">
+
+            <!-- 
+                Checkbox que permite al usuario aceptar los terminos y condiciones
+                
+                Atributos:
+                    - type="checkbox": permite marcar o desmarcar la opcion
+                    - id: identifica el campo para JavaScript y label
+                    - name: clave con la que se envia el dato al servidor
+            -->
+            <input type="checkbox" id="aceptacion_terminos"
+                name="aceptacion_terminos">
+
+            <!-- 
+                Etiqueta del checkbox de aceptacion
+                
+                - for="aceptacion_terminos": vincula el texto con la casilla
+                - Incluye enlaces a terminos y politicas
+                - target="_blank": abre los documentos en una nueva pestaña
+            -->
+            <label for="aceptacion_terminos">
+                Acepto los
+                <a href="{{ url_for('terminos') }}" target="_blank">
+                    terminos
+                </a> y
+                <a href="{{ url_for('privacidad') }}" target="_blank">
+                    politicas
+                </a>
+            </label>
+
+            <!-- 
+                Elemento donde se mostrara el error si el usuario no acepta los terminos
+                Se actualiza dinamicamente desde JavaScript (mensaje y visibilidad)
+            -->
+            <span class="error-campo" id="error-aceptacion_terminos"></span>
+        </div>
+
+        <!-- Boton de envio - dispara las validaciones JavaScript -->
+        <!-- 
+            Boton de envio del formulario
+            
+            Atributos:
+                - type="submit": ejecuta el envio del formulario
+                - id: permite manipulacion desde JavaScript
+                - class: aplica estilos visuales
+            
+            Al hacer clic, se activan las validaciones y el envio al servidor
+        -->
+            <button type="submit" id="boton-registro"
+                    class="boton-registro">
+                Registrarse
+            </button>
+
+        <!-- Cerramos el formulario que contiene todos los campos y validaciones -->
+    </form>
+
+    <!-- Enlaces secundarios de navegacion (RF03) -->
+
+    <!-- 
+        Enlace alternativo para usuarios ya registrados
+        
+        - url_for('ingreso') genera la ruta hasta la vsita de login
+        - class: permite aplicar estilos secundarios
+        - Permite cambiar de flujo: de registro - inicio de sesion
+    -->
+    <a href="{{ url_for('ingreso') }}" class="enlace-secundario">
+        ¿Ya tiene cuenta? Iniciar sesion
+    </a>
+
+    <!-- 
+        Enlace para usuarios que no recuerdan su contraseña
+        
+        - url_for('recuperar'): genera la ruta hacia la vista de rescuperacion
+        - class: permite aplicar estilos secundarios
+        - Permite iniciar el proceso de restablecimiento de credenciales
+    -->
+    <a href="{{ url_for('recuperar') }}" class="enlace-secundario">
+        ¿Olvido su contraseña?
+    </a>
+
+<!-- Cerramos el contenedor que agrupa todo el formulario y sus elementos -->
+</div>
+
+<!-- Vincula las validaciones JavaScript al final del contenido -->
+
+<!-- 
+    Se carga el archivo JavaScript encargado de validar el formulario
+    
+    - url_for('stactic,...'): genera la ruta correcta al archivo estatico
+    - El script contiene la logica de validacion y control de errores
+-->
+<script src="{{ url_for('static', filename='js/registro_validaciones.js') }}">
+</script>
+
+<!-- Directiva de control de Jinja2 crea un contexto temporal y permite
+    asignar el resultado de una expersion variable local.
+    mensajes: Variable temporal que almacenara los mensajes recuperados mediante "get_flashed_messages()"
+    "get_flashed_messages()": Funcion de Flask disponible en las
+                            plantillas Jinja2 que recupera los
+                            mensajes almacenados previamente con "Flash()"
+    "category_filter": Parametro utilizado para filtrar los mensajes
+                        recuperados segun su categoria
+    "['exito']": Lista que contiene la categoria que se desea
+                recuperar. En este caso, solamente se obtienen
+                mensajes cuya categoria sea "exito"
+    La instruccion recupera exclusivamente los mensajes flash
+    clasificados como "exito" y los asigna temporalmente a la
+    variable "mensaje"-->
+    {% with mensajes = get_flashed_messages(category_filter=['exito']) %}
+
+        <!-- Estructura condicional de Jinja2 que permite ejecutar un bloque
+        de codigo unicamente cuando la expresion evaluada resulta verdadera
+        mensajes: Variable que contiene los mensajes flash recuperados
+                mediante "get_flashed_messages"
+        La instruccion verifica si la variable "mensajes" contiene
+        al menos un elemento. Si contiene uno o mas mensajes, la
+        condicion se evalua como True y se ejecuta el bloque interno
+        -->
+        {% if mensajes %}
+
+            <!-- meta: Elemento HTML utilizado para proporcionar metadatos
+                    o instrucciones al navegador
+                "http-equiv="refresh"": Indica que el navegador debe realizar una actualizacion
+                o redireccion automatica despues de un intervalo de tiempo
+                content="3;url=":
+                    - 3: Tiempo de espera expresado en segundos
+                    - url: Direccion hacia la cual se realizara la redireccion
+                "url_for('ingreso')": Funcion de Flask/Jinja2 que genera
+                    dinamicamente la URL correspondiente al endpoint "ingreso"
+                La instruccion establece una redireccion automatica hacia
+                la pagina de ingreso despues de 3 segundos
+            -->
+            <meta http-equiv="refresh" content="3;url={{ url_for('ingreso') }}">
+
+            <!-- script: Elemento HTML utilizado para incorporar codigo
+                    JavaScript dentro del documento
+                "setTimeout()": Funcion de JavaScript que programa la ejecucion de
+                una funcion despues de un intervalo determinado
+                "function()": Funcion anonima que contiene la instruccion
+                        que se ejecutara despues del tiempo establecido
+                "window.location.href": Propiedad utilizada para modificar la URL actual
+                del navegador y provocar una navegacion hacia otra pagina
+                "url_for('ingreso')": Genera dinamicamente la URL del endpoint "ingreso"
+                                    desde Flask
+                1000: Tiempo de espera expresado en milisegundos. 1000ms me equivalen a 1 segundo
+                La instruccion programa una redireccion mediante JavaScript
+                hacia la ruta de ingreso despues de 1 segundo
+            -->
+            <script>
+                setTimeout(function() {
+                    window.location.href = "{{ url_for('ingreso') }}";
+                }, 1000);
+            </script>
+
+        <!-- endif: Directiva de Jinja2 que indica el final del bloque
+                condicional iniciado mediante "% if mensajes %"
+        -->
+        {% endif %}
+
+    <!-- Directiva de Jinja2 que finaliza el contexto temporal
+            creado mediante with mensajes = ...
+            A partir de este punto, la variable temporal "mensajes"
+            deja de estar disponible dentro de este contexto
+    -->
+    {% endwith %}
+
+<!-- 
+    Cerramos el bloque "contenido definido en la plantilla. Este bloque reemplaza la seccion correspondiente en "base.html"
+-->
+{% endblock %}

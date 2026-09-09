@@ -259,7 +259,7 @@ class Usuario:
 
             # Creamos un cursor
             # El cursor es objeto que permite
-            # ejecutar instrucciones SQL dentro de la base dde datos
+            # ejecutar instrucciones SQL dentro de la base de datos
             # Si la conexion es el puente que te une a la base de datos, el cursor es el
             #  vehiculo que viaja por ese puente para llevar y traer la informacion
             cursor = conexion.cursor()

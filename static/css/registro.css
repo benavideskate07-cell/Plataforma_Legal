@@ -1,0 +1,714 @@
+/* ============================================================ */
+/* ARCHIVO:    registro.css                                     */
+/* FUNCION:    Estilos especificos para la vista de registro    */
+/* PROYECTO:   PMV Plataforma Legal - SENA ADSO                 */
+/* VERSION:    1.0                                              */
+/* ============================================================ */
+
+/* == SECCION 1: CONTENEDOR Y TITULO ========================== */
+/* Elemento: .contenedor-formulario                             */
+/* Comentario Tecnico: Centra la caja y aplica diseño tarjeta   */
+/* Funcion Tecnica: Esstructura visual aislada para el registro */
+
+/* 
+    Proposito: Definir el contenedor visual del formulario (tipo tarjeta centrada)
+    Resultado: Contenedor centrado, legible y visualmente limpio (patron tipo "Card)
+*/
+.contenedor-formulario {
+    /* - max-width: 500px. Limita el ancho maximo a 500 pixeles - evita que el formulario sea demasiado ancho en pantallas grandes */
+    max-width: 500pX;
+
+    /* - margin: 0 auto. 0 (arriba/abajo) y auto (izquierda/derecha) - centra el contenedor horizontalmente */
+    margin: 0 auto;
+
+    /* - background-color: #FFFFFF. Color blanco - genera contraste y sensacion de limpieza */
+    background-color: #FFFFFF;
+
+    /* - border: 1px solid #E5E5E5. Borde de 1 pixel, color gris claro - delimita el contenedor sin ser evasivo */
+    border: 1px solid #E5E5E5;
+
+    /* - border-radius: 8px. Bordes redondeados de 8 pixeles - suaviza la apariencia visual */
+    border-radius: 8px;
+
+    /* - box-shadow: 0 2px 8px rgba(0,0,0,0.5)
+            Sombra:
+                - desplazamiento horizontal: 0
+                - desplazamiento vertical: 2px
+                - difuminado: 8px
+                - color: negro con 5% de opacidad
+            - crea un efecto de elevacion sutil */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    /* - padding: 40px. Espaciado interno de 40 pixeles - separa el contenido de los bordes */
+    padding: 40px;
+}
+
+/* 
+    Proposito: Definir la apariencia del titulo principal del formulario
+    Resultado:
+        - Titulo destacado, legible y visualmente equilibrado
+        - Guia al usuario sobre el proposio de la vista (registro)
+    Nota de diseño: Se usa rem en lugar de px para favorecer accesibilidad y escalabilidad
+*/
+.titulo-formulario {
+
+    /* - font-size: 2-2rem. Tamaño relativo (2.2 veces el tamaño base, normalmente
+        16px = 35.2px) - hace el titulo claramente visible y adaptable a configuraciones del usuario
+    */
+    font-size: 2.2rem;
+
+    /* - font-weight: bold. Peso de fuente en negrita (=700) - aumenta la jerarquia visual frente a otros textos */
+    font-weight: bold;
+
+    /* - color: #333333. Gris oscuro (menos agresivo que #000000) - mejora la legibilidad prolongada */
+    color: #333333;
+
+    /* - margin-bottom: 20px. Espacio inferior de 20px - separa el titulo del formulario, evitando saturacion visual */
+    margin-bottom: 20px;
+
+    /* - text-align: center. Alineacion centrada - genera equilibrio visual en formulario tipo "card" */
+    text-align: center;
+}
+
+/* --- SECCION 2: CAMPOS DEL FORMULAARIO ----------------------- */
+
+/* 
+    Proposito: Definir el espacio entre los campos del formulario
+    
+    
+    Efecto:
+        - Evita que los campos queden "pegados"
+        - Mejora la legibilidad y escaneo visual
+    
+    Resultado: Flujo vertical ordenado y comodo para el usuario
+    
+    Nota de diseño:
+        - 20px es un espaciado estandar medio en formularios
+        - Mantiene consistencia con otros margenes del diseño
+*/
+.grupo-campo {
+
+    /*      - margin-bottom: 20px. Espacio de 20 pixeles entre cada grupo de campo
+            - separa visualmente cada bloque (label + input + error) */
+    margin-bottom: 20px;
+}
+
+/* 
+    Proposito: Definir la apariencia de las etiquetas (label) de los campos
+    
+    Resultado:
+        - Etiquetas claras, legibles y bien separadas del campo
+        - Mejora la comprension de que dato se debe ingresar
+    
+    Nota de diseño:
+        - 8px crea una separacion corta (micro-espacios)
+        - Complementa los 20px de .grupo-campo (macro-espaciado)
+*/
+.etiqueta-campo {
+
+    /* - display: block. Hace que el label ocupe toda la linea - coloca la etiqueta encima del input (mejor legibilidad) */
+    display: block;
+
+    /* - font-size: 0.9rem. Tamaño ligeramente menor al texto base (= 14.4px si base es 16px) - diferencia jerarquica frente al input sin perder claridad
+    */
+    font-size: 0.9rem;
+
+
+    /* - font-weight: 600. Peso seminegrita - resalta la etiqueta sin ser tan pesada como bold */
+    font-weight: 600;
+
+    /* - color: #333333. Gris oscuro - mantiene buena legibilidad sin usar negro puro */
+    color: #333333;
+
+    /* - margin.bottom: 8px. Espacio inferior de 8px - separa la etiqueta del input, evitando que se vean unidos */
+    margin-bottom: 8px;
+}
+
+/* 
+    Proposito: Definir la apariencia base de los campos de entrada (input)
+    
+    Resultado:
+        - Campos comodos, consistentes y faciles de usar
+        - Base preparada para estados interactivos (focus, error)
+    
+    Nota de diseño:
+        - 12px - buen equilibrio entre densidad y usabilidad
+        - transution prepara el componente para feedback visual dinamico
+*/
+.input-campo {
+
+    /* - background-color: #FFFFFF. Fondo blanco - mantiene limpieza visual y contraste con el texto */
+    background-color: #FFFFFF;
+
+    /* - border: 1px solid #E5E5E5. Bprde de 1px en gris claro - delimita el campo sin ser invasivo */
+    border: 1px solid #E5E5E5;
+
+    /* - border-radius: 8px. Bordes redondeados de 8px - cogerente con el diseño tipo "card" */
+    border-radius: 8px;
+
+    /* - padding: 12px. Espacio interno de 12px - mejora la comodidad al escribir (zona tactil mas amplia) */
+    padding: 12px;
+
+    /* - width: 100%. Ocupa ttodo el ancho disponible del contenedor - alineacion uniforme en el formulario */
+    width: 100%;
+
+    /* - font-seze: 0.9rem. Tamaño ligeramente menor al base (= 14.4px) - coherente con etiquetas y diseño general */
+    font-size: 0.9rem;
+
+    /* - box-sizing: border-box. Incluye padding y border dentro del ancho total - evita desbordamientos y facilita calculos de tamaño */
+    box-sizing: border-box;
+
+    /* - transition: all 0.2s ease. Transicion suave de 0.2 segundos en todos los cambios
+            - mejora la apariencia en estados commo focus o error */
+    transition: all 0.2s ease;
+}
+
+/* 
+    Proposito: Definir el estilo del input cuando recibe foco (interaccion del usuario)
+    
+    Selector: focus - se activa cuando el usuario hace clic o navega con teclado al campo
+    
+        Detalles:
+            - grosor: 2px (mas visible que el estado normal de 1px)
+            - color: #1F4E79 (azul- asociado a accion/interaccion)
+        
+        Efecto: El usuario identifica inmediatamente en que campo esta escribiendo
+        
+        Resultado: Mejora la experiencia de uso y la orientacion dentro del formulario
+    
+    Nota de diseño:
+        - Se reemplaza el outline por un indicador propio (borde)
+        - El aumento de 1px - 2px genera enfasis visual
+    
+    Nota de accesibilidad:
+        - Es importante mantener SIEMPRE un indicador visible de foco
+        - Aqui se cumple mediante el cambio de borde
+*/
+.input-campo:focus {
+
+    /* - otline: none. Elimina el contorno predeterminado del navegador - permite un diseño personalizado */
+    outline: none;
+
+    /* - border: 2px solid #1F4E79. Borde de 2px en azul oscuro - indice claramente que el campo esta activo */
+    border: 2px solid #1F4E79;
+}
+
+/* 
+    Proposito: Resaltar visualmente los campos con error de validacion
+    
+    Clase:
+        - .input-error: se agrega dinamicamente desde JavaScript
+        
+            Detalle:
+                - grosor: 2px (mas visible que el estado normal de 1px)
+                - color: rojo - asociado a advertencia/error
+        
+        - !important. Fuerza la prioridad de esta regla sobre otras (ej: :focus) - garantiza que el estado de error prevalezca visualmente
+        
+            Efecto: El usuario identifica rapidamente el campo incorrecto
+    
+    Resultado: Mejora la correcion de errores y reduce friccion en el formulario
+    
+    Nota de diseño:
+        - Se mantiene coherencia con el praton de estados (focus vs error)
+        - El color rojo debe ser consistente en todo el sistema
+    
+    Advertencia:
+        - El uso de !important debe se controlado
+        - Alternativa recomendada: aumentar especificidad (ej: input.input-error)
+*/
+.input-error {
+
+    /* - border: 2px solid #D32F2F !important. Border de 2px en rojo intenso (#D32F2F)- indica claramente un estado de error */
+    border: 2px solid #D32F2F !important;
+}
+
+/* --- SECCION 3: CASILLA Y BOTON -------------------- */
+/* 
+    Proposito: Definir la disposicion del checkbox de terminos y su etiqueta
+    
+    
+    Efecto:
+        - Checkbox y texto alineados horizontalmente
+        - Texto adaptable en varias lineas si es necesario
+    
+    Resultado: Mejor legibilidad y adaptacion en dispositivos pequeños
+    
+    Nota de diseño:
+        - Flexbox se usa aqui porque el layout es horizontal y flexible
+        - Flex-wrap es ckave para los textos largos (como terminos y politicas)
+*/
+.casilla-terminos {
+
+    /* - display: flex. Activa el modelo Flexbox - permite alinear el checkbox y el texto en una misma fila */
+    display: flex;
+
+    /* - align-items: center. Alinea los elementos verticalmente al centro - checkbox y texto quedan alineados correctamente */
+    align-items: center;
+
+    /* - flex-wrap: wrap. Permite que los elementos pasen a la siguiente linea si no hay espacio - evita desbordamientos en pantallas pequeñas */
+    flex-wrap: wrap;
+
+    /* - font-size: 0.9rem. Tamaño ligeramente menor al texto base (=14.4px) - mantiene coherencia con el resto del formulario */
+    font-size: 0.9rem;
+}
+
+/* 
+    Proposito: Separar visualmente el checkbox del texto de terminos
+    
+    Selector: .casilla-terminos input - aplica al input dentro del contenedor de terminos
+    
+    Efecto:
+        - Evita que el check box quede "pegado" al texto
+        - Mejora la lectura y la claridad visual
+        
+    Resultado: Interfaz mas limpia y facil de entender
+    
+    Nota de diseño:
+        - 10px es un espaciado corto adecuado para elementos inline
+        - Funciona como micro-espacio dentro de un layout flex
+
+*/
+
+/* - margin-right: 10px. Espacio de 10 pixeles a la derecha del checkbox - separa el checkbox del texto asociado */
+.casilla-terminos input {
+    margin-right: 10px;
+}
+
+/* 
+    Proposito: Estilizar los enlaces (terminos y politicas) dentro del bloque de terminos
+    
+    Selector: .casilla-terminos a - aplica a los enlaces dentro del contenedor de terminos
+    
+    Efecto:
+        - Enlaces visualmente integrados al diseño
+        - Apariencia mas elegante que el estilo por defecto del navegador
+    
+    Resultado: El usuario identifica que puede hacer clic, sin romper la estetica
+    
+    Nota de diseño: Al quitar el subrayado, es recomendable añadir un estado :hover
+    para mantener claridad de interaccion
+*/
+.casilla-terminos a {
+
+    /* - color: #1F4E79. Azul oscuro - comunica interactividad (elemento clickeable) - mantiene cohernecia con el color usado en estados de foco */
+    color: #1F4E79;
+
+    /* - text-decoration: none. Elimina el subrayado por defecto - da un estilo mas limpio y moderno */
+    text-decoration: none;
+}
+
+/* 
+    Proposito: Definir el comportamiento visual del enlace al pasar el cursor (hover)
+    
+    Selector: .casilla-terminos a:hover - se activa cuando el usuario pasa el mouse sobre el enlace
+    
+    Efecto: El usuario recibe feedback inmediato al interactuar con el enlace
+    
+    Resultado: Mejora la usabilidad y claridad de navegacion
+    
+    Nota de diseño:
+        - Cambio de color + subrayado = doble señal de interactividad
+        - Muy buena practica para accesibilidad visual
+*/
+.casilla-terminos a:hover {
+
+    /* - color: #163A5C. Azul mas oscuro que el estado normal (#1F4E79) - indica cambio de estado (interaccion activa) */
+    color: #163A5C;
+
+    /* - text-decoration: underline. Añade subrayado al pasar el cursor - refuerza visualmente que es un enlace clickeable */
+    text-decoration: underline;
+}
+
+/* 
+    Proposito: Definir la apariencia del boton principal de registro
+    
+    Efecto: Boton visible, accesible y claramente accionable
+    
+    Resultado: El usuario identifica facilmente la accion principal de formulario
+    
+    Nota de diseño:
+        - Este boton representa la accion primaria del sistema
+        - Debe destacarse mas que otros elementos
+*/
+.boton-registro {
+
+    /* - width: 100%. Ocupa todo el ancho del contenedor - facilita interaccion (boton grande y accesible) */
+    width: 100%;
+
+    /* - background-color: #1F4E79. Acul oscuro- comunica accion principal y coherencia con el sistema */
+    background-color: #1F4E79;
+
+    /* - color: #FFFFFF. Texto en blanco - alto contraste con el fondo (legibilidad) */
+    color: #FFFFFF;
+
+    /* - border: none. Elimina borde por defecto - apariencia mas limpia y moderna */
+    border: none;
+
+    /* - border-radius: 8px. Bordes redondeados de 8px - coherente con inputs y contenedor (diseño uniforme) */
+    border-radius: 8px;
+
+    /*  - padding: 12px 24px
+            - 12px vertical - altura comoda para clic
+            - 24px horizontal - buen equilibrio visual
+            - mejora usabilidad (especialmente en movil)
+    */
+    padding: 12px 24px;
+
+    /* - font-size: 1rem. Tamaño base (=16px) - legible y consistente */
+    font-size: 1rem;
+
+    /* - font-weight: 600. Seminegra - resalta el texto del boton */
+    font-weight: 600;
+
+    /* - cursor: pointer. Cambia el cursor a "mano" - indica que el elemento es clickeable */
+    cursor: pointer;
+
+    /* - transition: all 0.2s ease. Transicion suave en cambios de estado - mejora la experiencia en hover/focus */
+    transition: all 0.2s ease;
+}
+
+/* 
+    Proposito: Definir el comportamiento visual del boton al pasar el cursor (hover)
+    
+    Selector: .boton-registror:hover - se activa cuando el usuario pasa el mouse sobre el boton
+    
+    Efecto:
+        - Cambio visual inmediato al interactuar
+        - Refuerza que el boton es clickeable
+    
+    Resultado: Mejora la experiencia de usuario (feedback visual)
+    
+    Nota de diseño:
+        - Cambio de color sutil pero perceptible
+        - Mantiene coherencia con la paleta del sistema
+*/
+.boton-registro:hover {
+
+    /* - background-color: #163A5C. Azul mas oscuro que el estado normal (#1F4E79) - indica que el boton esta activo/interactivo */
+    background-color: #163A5C;
+}
+
+/* ── SECCIÓN 4: MENSAJES DEL SISTEMA ──────────────────────── */
+/* Elemento: Mensajes Flask                                    */
+
+/* 
+    Propósito: Definir la apariencia de los mensajes de éxito del sistema
+
+    Efecto: Mensaje claro, visible y fácilmente identificable como éxito
+
+    Resultado: El usuario recibe confirmación positiva del sistema
+
+    Nota de diseño:
+        - Uso del color verde sigue convenciones de UX (éxito)
+        - El borde lateral aporta jerarquía sin sobrecargar el diseño
+*/
+.mensaje-exito {
+
+    /* - background-color: #E8F5E9. Verde muy claro → genera un fondo suave que indica éxito sin saturar la interfaz */
+    background-color: #E8F5E9;
+
+    /* - color: #2E7D32. Verde oscuro → alto contraste sobre el fondo claro, mejora la legibilidad */
+    color: #2E7D32;
+
+    /* - border-left: 4px solid #2E7D32. Borde izquierdo de 4px en verde oscuro → crea un indicador visual fuerte del tipo de mensaje */
+    border-left: 4px solid #2E7D32;
+
+    /* - border-radius: 8px. Bordes redondeados → coherente con el diseño general (inputs, contenedor) */
+    border-radius: 8px;
+
+    /* - padding: 12px 15px
+        • 12px vertical → buena altura del bloque
+        • 15px horizontal → mejora lectura del texto
+        → genera comodidad visual
+    */
+    padding: 12px 15px;
+
+    /* - font-size: 0.9rem. Tamaño ≈ 14.4px (si base 16px) → consistente con otros textos secundarios del formulario */
+    font-size: 0.9rem;
+
+    /* - font-weight: 500. Peso medio → resalta el mensaje sin llegar a negrita completa */
+    font-weight: 500;
+
+    /* - margin-bottom: 20px. Espacio inferior de 20px → separa el mensaje del contenido siguiente */
+    margin-bottom: 20px;
+}
+
+/* 
+    Propósito: Mostrar mensajes de excepción (errores del sistema o situaciones inesperadas)
+
+    Efecto: Mensaje visible que indica una situación anómala o técnica
+
+    Resultado: El usuario entiende que ocurrió un problema no esperado
+
+    Nota de diseño:
+        - Naranja = advertencia/intermedio (entre éxito verde y error rojo)
+        - Mantiene coherencia visual con otros mensajes (misma estructura)
+*/
+.mensaje-excepcion {
+
+    /* - background-color: #FFF3E0. Naranja muy claro → indica alerta sin ser tan agresivo como el rojo */
+    background-color: #FFF3E0;
+
+    /* - color: #E65100. Naranja oscuro → asegura contraste y comunica advertencia técnica */
+    color: #E65100;
+
+    /* - border-left: 4px solid #E65100. Borde izquierdo de 4px en naranja oscuro → refuerza visualmente el tipo de mensaje */
+    border-left: 4px solid #E65100;
+
+    /* - border-radius: 8px. Bordes redondeados → coherente con el diseño general del sistema */
+    border-radius: 8px;
+
+    /* - padding: 12px 15px
+            • 12px vertical → altura cómoda
+            • 15px horizontal → mejora lectura
+            → aporta claridad visual
+    */
+    padding: 12px 15px;
+
+    /* - font-size: 0.9rem. Tamaño ≈ 14.4px → consistente con mensajes del sistema */
+    font-size: 0.9rem;
+
+    /* - font-weight: 500. Peso medio → resalta el mensaje sin ser excesivo */
+    font-weight: 500;
+
+    /* - margin-bottom: 20px. Espacio inferior de 20px → separa del contenido siguiente */
+    margin-bottom: 20px;
+}
+
+/* 
+    Propósito: Definir la apariencia de los mensajes de error de validación (por campo)
+    Efecto: Mensaje oculto que aparece solo cuando hay error
+    Resultado: El usuario recibe retroalimentación clara y localizada
+    Nota de diseño: Este bloque trabaja junto con JavaScript:
+        • textContent → inserta el mensaje
+        • display: block → lo hace visible
+*/
+.error-campo {
+
+    /* - display: none. Oculta el elemento por defecto → solo se muestra cuando hay error (controlado por JavaScript) */
+    display: none;
+
+    /* - background-color: #FDECEA. Rojo muy claro → indica error de forma suave (no agresiva) */
+    background-color: #FDECEA;
+
+    /* - color: #D32F2F. Rojo intenso → comunica claramente un problema en el dato ingresado */
+    color: #D32F2F;
+
+    /* - border-left: 4px solid #D32F2F. Borde izquierdo de 4px en rojo → refuerza visualmente el estado de error */
+    border-left: 4px solid #D32F2F;
+
+    /* - border-radius: 8px. Bordes redondeados → coherente con el diseño general */
+    border-radius: 8px;
+
+    /* - padding: 12px 15px
+            • 12px vertical → buena altura del mensaje
+            • 15px horizontal → mejora lectura
+            → aporta claridad visual
+    */
+    padding: 12px 15px;
+
+    /* - font-size: 0.9rem. Tamaño ≈ 14.4px → consistente con otros textos del formulario */
+    font-size: 0.9rem;
+
+    /* - margin-top: 5px. Espacio superior de 5px → separa el mensaje del input (micro-espaciado) */
+    margin-top: 5px;
+
+    /* - width: 100%. Ocupa todo el ancho del contenedor → alineación uniforme con el input */
+    width: 100%;
+
+    /* - box-sizing: border-box. Incluye padding y border dentro del ancho total → evita desbordamientos */
+    box-sizing: border-box;
+}
+
+/* ── SECCIÓN 5: ENLACES SECUNDARIOS ───────────────────────── */
+
+/* 
+    Propósito: Estilizar enlaces secundarios (login, recuperación de contraseña)
+
+    Efecto:
+        - Enlace discreto pero visible
+        - No compite visualmente con la acción principal
+
+    Resultado: Permite navegación alternativa sin romper la jerarquía del diseño
+
+    Nota de diseño:
+        - Este elemento representa una acción secundaria
+        - Debe ser visible, pero no dominante
+*/
+.enlace-secundario {
+    
+    /* - display: block. Hace que el enlace ocupe toda la línea → facilita centrado y área de clic más amplia */
+    display: block;
+
+    /* - color: #666666. Gris medio → menor jerarquía que el botón principal (acción secundaria) */
+    color: #666666;
+
+    /* - text-align: center. Centra el texto → mantiene equilibrio visual con el formulario */
+    text-align: center;
+
+    /* - margin-top: 20px. Espacio superior de 20px → separa el enlace del contenido anterior (ej: botón) */
+    margin-top: 20px;
+
+    /* - text-decoration: none. Elimina el subrayado por defecto → apariencia más limpia */
+    text-decoration: none;
+
+    /* - font-size: 0.9rem. Tamaño ≈ 14.4px → consistente con textos secundarios */
+    font-size: 0.9rem;
+}
+
+/* 
+    Propósito: Ajustar el espaciado entre enlaces secundarios consecutivos
+
+    Selector: .enlace-secundario + .enlace-secundario. Selecciona un enlace secundario que está inmediatamente después de otro
+    Efecto:
+        - El primer enlace mantiene separación amplia (20px)
+        - Los siguientes enlaces tienen separación más compacta (8px)
+
+    Resultado:
+        - Agrupación visual coherente de enlaces relacionados
+        - Mejora la organización y legibilidad
+
+    Nota de diseño:
+        - 20px → separación principal (bloques)
+        - 8px → separación secundaria (elementos relacionados)
+
+    Ventaja técnica:
+        - No necesita clases adicionales ni HTML extra
+        - Se aplica automáticamente según la estructura
+*/
+.enlace-secundario + .enlace-secundario {
+    /* - margin-top: 8px. Espacio superior de 8px entre enlaces consecutivos → evita que queden demasiado separados (vs 20px del primero) */
+    margin-top: 8px;
+}
+
+/* 
+    Propósito: Definir el estado interactivo (hover) de los enlaces secundarios
+
+    Selector: .enlace-secundario:hover → se activa cuando el usuario pasa el cursor sobre el enlace
+
+    Efecto: Feedback visual inmediato al pasar el cursor
+
+    Resultado:
+        - Mejora la identificación de acciones secundarias
+        - Reduce ambigüedad en la interfaz
+
+    Nota de diseño:
+        - Combina dos señales: color + subrayado (buena práctica UX)
+        - Mantiene coherencia con el color principal del sistema
+*/
+.enlace-secundario:hover {
+    /* - color: #1F4E79. Azul oscuro → cambia de gris (#666666) a azul para indicar interactividad */
+    color: #1F4E79;
+
+    /* - text-decoration: underline. Añade subrayado → refuerza la percepción de que es un enlace clickeable */
+    text-decoration: underline;
+}
+
+/* ── SECCIÓN 6: RESPONSIVE MÓVIL (≤768px) ─────────────────── */
+/* Elemento: @media (max-width: 768px) */
+/* Comentario Técnico: Adapta estilos para pantallas pequeñas. */
+/* Función Técnica: Garantiza usabilidad en dispositivos móvil.*/
+
+/* 
+    Propósito: Definir estilos específicos para pantallas pequeñas (tablets y móviles)
+
+    Valor: 768px → punto de corte común para tablets en vertical
+
+    Efecto:
+        - Permite adaptar el diseño a dispositivos más pequeños
+        - Evita problemas de desbordamiento o lectura incómoda
+
+    Resultado: Interfaz más usable en móviles y tablets
+
+    Nota de diseño:
+        - Este es un breakpoint (punto de interrupción) estándar en diseño responsive
+        - A partir de aquí se suelen:
+            • reducir tamaños
+            • ajustar márgenes
+            • reorganizar elementos
+
+    Nota técnica: Las reglas dentro de este bloque sobrescriben las definidas fuera
+*/
+
+/* Regla: @media (max-width: 768px). Se aplica cuando el ancho de la pantalla es menor o igual a 768 píxeles */
+@media (max-width: 768px) {
+    
+    /* 
+        Contexto: Estilos aplicados dentro de @media (max-width: 768px)
+
+        Propósito: Adaptar el contenedor del formulario a pantallas pequeñas
+
+        Efecto: El formulario pasa de “card centrada” a “bloque integrado”
+
+        Resultado:
+            - Mejor aprovechamiento del espacio
+            - Experiencia más natural en dispositivos móviles
+
+        Nota de diseño:
+            - En desktop → diseño tipo tarjeta (card)
+            - En móvil → diseño tipo bloque completo (full-width)
+
+        Decisión UX: Se prioriza funcionalidad sobre estética en pantallas pequeñas
+    */
+    .contenedor-formulario {
+
+        /* - max-width: 100%. Ocupa todo el ancho disponible → evita márgenes laterales en móvil */
+        max-width: 100%;
+
+        /* - padding: 25px 20px
+            • 25px vertical → mantiene espacio cómodo arriba/abajo
+            • 20px horizontal → reduce el padding lateral (vs 40px en desktop)
+            → optimiza el uso del espacio en pantallas pequeñas */
+        padding: 25px 20px;
+
+        /* - box-shadow: none. Elimina la sombra → reduce “ruido visual” en móvil */
+        box-shadow: none;
+
+        /* - border-radius: 0. Elimina bordes redondeados → hace que el contenedor se integre con la pantalla */
+        border-radius: 0;
+
+        /*  - border-left: none
+            - border-right: none
+            Elimina bordes laterales
+            → evita efecto de “tarjeta” en móvil
+        */
+        border-left: none;
+
+        border-right: none;
+    }
+
+    /* 
+        Contexto: Estilos dentro de @media (max-width: 768px)
+
+        Propósito: Ajustar legibilidad y área de interacción en dispositivos móviles
+
+        Nota de diseño:
+        - En móvil se prioriza:
+            • área táctil
+            • legibilidad
+            • espacio eficiente
+    */
+    .titulo-formulario {
+        /* - font-size: 1.8rem. Tamaño ≈ 28.8px (vs 2.2rem ≈ 35px en desktop) → reduce el tamaño del título para pantallas pequeñas
+        Efecto: Evita que el título ocupe demasiado espacio vertical
+        Resultado: Mejor equilibrio visual en móvil */
+        font-size: 1.8rem;
+    }
+
+    /* - padding: 14px. Aumenta el padding (vs 12px en desktop) → mejora la zona táctil para escribir
+    Efecto: Mayor comodidad al interactuar con el input
+    Resultado: Menos errores al escribir en pantallas táctiles
+    */
+    .input-campo {
+        padding: 14px;
+    }
+
+    /* - padding: 16px. Mayor padding (vs 12px vertical en desktop) → aumenta el tamaño del botón
+    Efecto: Botón más fácil de presionar con el dedo
+    Resultado: Mejora la accesibilidad y la usabilidad en móvil 
+    */
+    .boton-registro {
+        padding: 16px;
+    }
+}

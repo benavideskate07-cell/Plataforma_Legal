@@ -1,6 +1,6 @@
 -- =======================================================================================
 -- ARCHIVO:    schema.sql
--- FUNCION:    Screipt de creacion de la tabla de usuarios
+-- FUNCION:    Script de creacion de la tabla de usuarios
 -- PROYECTO:   PMV Plataforma Legal - SENA ADSO
 -- VERSION:    1.0
 -- =======================================================================================

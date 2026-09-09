@@ -162,8 +162,17 @@ def terminos() :
 # ==============================================================
 # RUTA: REGISTRO
 # ==============================================================
-
+@app.route("/registro")
+def registro() :
+    return render_template("registro.html")
 # ===============================================================
+@app.route("/ingreso")
+def ingreso() :
+    return render_template("base.html")
+
+@app.route("/recuperar")
+def recuperar() :
+    return render_template("base.html")
 
 # Elemento: Condiconal de ejecucion principal (Boilerplate)
 # Comentario: Evalua la variable especial "_name_" para determinar si el script se esta ejecutando como el programa principal o si esta siendo importado como un modulo
