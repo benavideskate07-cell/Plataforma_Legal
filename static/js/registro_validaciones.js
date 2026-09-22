@@ -1,5 +1,3 @@
-console.log("registro_validaciones.js CARGADO");
-
 // =======================================================
 // ARCHIVO:    registro_validaciones.js
 // FUNCION:    Validaciones del lado del cliente para formulario

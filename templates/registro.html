@@ -28,6 +28,110 @@
     <h2 class="titulo-formulario">Registrar Cliente</h2>
 
     <!-- 
+        Propósito: Recuperar mensajes temporales (flash) generados en el backend
+
+        Entrada: Mensajes almacenados en la sesión por Flask (flash)
+
+        Proceso:
+        - get_flashed_messages(with_categories=true) obtiene los mensajes junto con su categoría
+        - Se asignan a la variable temporal "mensajes" dentro del bloque with
+
+        Categorías posibles:
+        - "exito" → operación exitosa
+        - "error" → error de validación del usuario
+        - "excepcion" → error del sistema
+
+        Resultado: Disponibilidad de los mensajes en la plantilla para su renderización dinámica
+    -->
+    <!-- with: Directiva de control de Jinja2 que permite crear un
+        contexto temporal dentro de la plantilla y asignar el
+        resultado de una expresión a una variable.
+        mensajes: Variable temporal que almacenará los mensajes
+        recuperados desde el sistema de mensajes flash.
+        get_flashed_messages(): Función disponible en Jinja2/Flask que recupera los mensajes almacenados previamente mediante flash().
+        "with_categories=true": Parámetro que indica que, además del contenido del mensaje, también se debe recuperar la categoría asociada a cada mensaje.
+        true: Valor booleano que activa la inclusión de categorías.
+        La instrucción obtiene los mensajes flash junto con sus
+        respectivas categorías y los almacena temporalmente en la
+        variable "mensajes". 
+    -->
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+
+        <!-- Si hay mensajes flash, se procederán a mostrar en la interfaz -->
+        {% if mensajes %}
+
+            <!-- for: Estructura de repetición de Jinja2 utilizada para recorrer 
+            secuencialmente los elementos de una colección.
+            categoria: Variable que recibe el primer valor de cada elemento,
+            correspondiente a la categoría del mensaje flash.
+            mensaje: Variable que recibe el segundo valor de cada elemento,
+            correspondiente al contenido del mensaje.
+            in: Operador de Jinja2 que indica que las variables deben
+            tomar sus valores a partir de los elementos de la colección.
+            mensajes: Variable temporal creada anteriormente mediante
+            "get_flashed_messages(with_categories=true)". Contiene
+            los mensajes flash junto con sus respectivas categorías.
+            La instrucción recorre cada elemento de "mensajes" y desempaqueta
+            sus dos valores en las variables "categoria" y "mensaje". 
+            -->
+            {% for categoria, mensaje in mensajes %}
+
+                <!-- Si la categoría del mensaje es "exito", se aplicará un estilo positivo -->
+                {% if categoria == 'exito' %}
+
+                    <!-- Contenedor visual para mensajes exitosos -->
+                    <!-- {{ mensaje }} imprime el contenido enviado desde el backend -->
+                    <div class="mensaje-exito">{{ mensaje }}</div>
+
+                    <!-- elif: Estructura condicional de Jinja2 que permite evaluar
+                    una segunda condición cuando la condición anterior de un
+                    bloque if o elif no se cumplió.
+                    categoria: Variable que contiene la categoría asociada al
+                    mensaje flash que se está procesando.
+                    ==: Operador de comparación que verifica si dos valores son iguales.
+                    "'error'": Cadena de texto utilizada como valor de comparación
+                    para identificar mensajes clasificados con esta categoría.
+                    La instrucción verifica si la categoría del mensaje actual corresponde exactamente al valor 'error'. Si la condición es
+                    verdadera, se ejecuta el bloque HTML ubicado debajo de esta instrucción
+                    -->
+                    {% elif categoria == 'error' %}
+
+                        <!-- Contenedor para mostrar errores en los datos ingresados -->
+                        <!-- {{ mensaje }} imprime el texto enviado desde el backend -->
+                        <div class="error-campo">{{ mensaje }}</div>
+
+                    <!-- Si la categoría es "excepcion", se trata de un error del sistema -->
+                    {% elif categoria == 'excepcion' %}
+
+                        <!-- Contenedor para mostrar errores en los datos ingresados -->
+                        <!-- {{ mensaje }} imprime el texto enviado desde el backend -->
+                        <div class="mensaje-excepcion">{{ mensaje }}</div>
+
+                <!-- Cerramos la estructura condicional iniciada con if / elif -->
+                {% endif %}
+
+            <!-- Cerramos el ciclo que recorre cada mensaje -->
+            {% endfor %}
+
+        <!-- Cerramos el bloque que valida si hay mensajes para mostrar -->
+        {% endif %}
+
+    <!-- 
+        Propósito: Finalizar el bloque de gestión de mensajes flash
+
+        Proceso:
+            - Se cierra el contexto creado por "with"
+            - La variable temporal "mensajes" deja de estar disponible
+
+        Resultado:
+            - Se delimita correctamente el alcance de los mensajes en la plantilla
+            - Se evita el uso indebido de variables fuera de su contexto
+
+        Nota: Este cierre corresponde a la recuperación de mensajes desde el backend
+    -->
+    {% endwith %}
+
+    <!-- 
         Se define el formulario de registro:
             - action: ruta del servidor que procesara los datos ("registro")
             - method: POST, usado para enviar informacion de forma segura
